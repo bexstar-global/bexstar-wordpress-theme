@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+vendor/
+*.log
+.DS_Store
+wp-config.php
+*.sql
+*.pem
+*.key
+.test-output/

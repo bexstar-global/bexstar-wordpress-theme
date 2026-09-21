@@ -1,0 +1,303 @@
+[
+  [
+    "Shipping",
+    "shipping",
+    [
+      [
+        "Transport",
+        [
+          [
+            "Sea Freight",
+            "shipping/sea-freight"
+          ],
+          [
+            "Air Freight",
+            "shipping/air-freight"
+          ],
+          [
+            "Rail Freight",
+            "shipping/rail-freight"
+          ],
+          [
+            "Truck Freight",
+            "shipping/truck-freight"
+          ],
+          [
+            "Express Shipping",
+            "shipping/express"
+          ],
+          [
+            "DDP Shipping",
+            "shipping/ddp"
+          ]
+        ]
+      ],
+      [
+        "Destinations",
+        [
+          [
+            "China to USA",
+            "shipping/china-to-usa"
+          ],
+          [
+            "China to Europe",
+            "shipping/china-to-europe",
+            [
+              [
+                "Spain",
+                "shipping/china-to-europe/spain"
+              ],
+              [
+                "Germany",
+                "shipping/china-to-europe/germany"
+              ],
+              [
+                "France",
+                "shipping/china-to-europe/france"
+              ],
+              [
+                "Italy",
+                "shipping/china-to-europe/italy"
+              ],
+              [
+                "Netherlands",
+                "shipping/china-to-europe/netherlands"
+              ]
+            ]
+          ],
+          [
+            "China to UK",
+            "shipping/china-to-uk"
+          ],
+          [
+            "China to Canada",
+            "shipping/china-to-canada"
+          ],
+          [
+            "China to Australia",
+            "shipping/china-to-australia"
+          ],
+          [
+            "China to Middle East",
+            "shipping/china-to-middle-east"
+          ]
+        ]
+      ],
+      [
+        "Logistics solutions",
+        [
+          [
+            "Door-to-Door",
+            "shipping/door-to-door"
+          ],
+          [
+            "Cargo Consolidation",
+            "shipping/cargo-consolidation"
+          ],
+          [
+            "Oversized Cargo",
+            "shipping/oversized-cargo"
+          ],
+          [
+            "Customs Clearance",
+            "shipping/customs-clearance"
+          ],
+          [
+            "Warehouse Delivery",
+            "amazon-fba/warehouse-delivery"
+          ],
+          [
+            "Amazon FBA",
+            "amazon-fba"
+          ]
+        ]
+      ]
+    ]
+  ],
+  [
+    "Sourcing",
+    "sourcing",
+    [
+      [
+        "China sourcing",
+        [
+          [
+            "Supplier Sourcing",
+            "sourcing/supplier-sourcing"
+          ],
+          [
+            "Supplier Coordination",
+            "sourcing/supplier-coordination"
+          ],
+          [
+            "Product Inspection",
+            "sourcing/product-inspection"
+          ],
+          [
+            "Cargo Consolidation",
+            "sourcing/cargo-consolidation"
+          ],
+          [
+            "Warehousing",
+            "sourcing/warehousing"
+          ],
+          [
+            "Export Coordination",
+            "sourcing/export-coordination"
+          ]
+        ]
+      ]
+    ]
+  ],
+  [
+    "Supply Chain",
+    "supply-chain",
+    [
+      [
+        "Supply chain",
+        [
+          [
+            "Consolidation",
+            "supply-chain/consolidation"
+          ],
+          [
+            "Warehousing",
+            "supply-chain/warehousing"
+          ],
+          [
+            "Customs",
+            "supply-chain/customs"
+          ],
+          [
+            "Distribution",
+            "supply-chain/distribution"
+          ],
+          [
+            "Visibility",
+            "supply-chain/visibility"
+          ]
+        ]
+      ]
+    ]
+  ],
+  [
+    "Amazon FBA",
+    "amazon-fba",
+    [
+      [
+        "Amazon FBA",
+        [
+          [
+            "Sea Freight",
+            "amazon-fba/sea-freight"
+          ],
+          [
+            "Air Freight",
+            "amazon-fba/air-freight"
+          ],
+          [
+            "Express",
+            "amazon-fba/express"
+          ],
+          [
+            "Warehouse Delivery",
+            "amazon-fba/warehouse-delivery"
+          ],
+          [
+            "Temporary Storage",
+            "amazon-fba/temporary-storage"
+          ],
+          [
+            "Relabeling",
+            "amazon-fba/relabeling"
+          ]
+        ]
+      ]
+    ]
+  ],
+  [
+    "Industries",
+    "industries",
+    [
+      [
+        "Who we serve",
+        [
+          [
+            "E-commerce",
+            "industries/ecommerce"
+          ],
+          [
+            "Amazon Sellers",
+            "industries/amazon-sellers"
+          ],
+          [
+            "Importers",
+            "industries/importers"
+          ],
+          [
+            "Wholesalers",
+            "industries/wholesalers"
+          ],
+          [
+            "Retailers",
+            "industries/retailers"
+          ],
+          [
+            "Manufacturers",
+            "industries/manufacturers"
+          ]
+        ]
+      ]
+    ]
+  ],
+  [
+    "Resources",
+    "resources",
+    [
+      [
+        "Knowledge hub",
+        [
+          [
+            "Shipping Guides",
+            "resources/shipping-guides"
+          ],
+          [
+            "Logistics Insights",
+            "resources/insights"
+          ],
+          [
+            "Case Studies",
+            "resources/case-studies"
+          ],
+          [
+            "FAQ",
+            "resources/faq"
+          ],
+          [
+            "Market Updates",
+            "resources/market-updates"
+          ]
+        ]
+      ]
+    ]
+  ],
+  [
+    "About Us",
+    "about-us",
+    [
+      [
+        "BEXSTAR",
+        [
+          [
+            "About BEXSTAR",
+            "about-us"
+          ],
+          [
+            "Contact",
+            "contact"
+          ]
+        ]
+      ]
+    ]
+  ]
+]

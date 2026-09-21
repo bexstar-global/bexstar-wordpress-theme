@@ -1,0 +1,15 @@
+{
+  "apiVersion": 3,
+  "name": "bexstar/navigation",
+  "title": "BEXSTAR navigation",
+  "category": "theme",
+  "icon": "menu",
+  "description": "Accessible hierarchical navigation with a Phase 1 fallback.",
+  "textdomain": "bexstar",
+  "editorScript": "bexstar-block-editor",
+  "supports": {
+    "html": false,
+    "multiple": false
+  },
+  "attributes": {}
+}

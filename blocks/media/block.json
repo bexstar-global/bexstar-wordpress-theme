@@ -1,0 +1,42 @@
+{
+  "apiVersion": 3,
+  "name": "bexstar/media",
+  "title": "BEXSTAR media slot",
+  "category": "media",
+  "icon": "format-image",
+  "textdomain": "bexstar",
+  "editorScript": "bexstar-block-editor",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "slot": {
+      "type": "string",
+      "default": "hero"
+    },
+    "imageId": {
+      "type": "integer",
+      "default": 0
+    },
+    "videoId": {
+      "type": "integer",
+      "default": 0
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "decorative": {
+      "type": "boolean",
+      "default": true
+    },
+    "position": {
+      "type": "string",
+      "default": "50% 50%"
+    },
+    "mobilePosition": {
+      "type": "string",
+      "default": "50% 50%"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "hero": {
+    "path": "assets/images/home/hero-poster.webp",
+    "width": 1920,
+    "height": 1080,
+    "section": "Home hero",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5",
+    "video": "assets/video/hero-video.mp4"
+  },
+  "sea-freight": {
+    "path": "assets/images/services/sea-freight.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Services",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "3:2"
+  },
+  "air-freight": {
+    "path": "assets/images/services/air-freight.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Services",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "3:2"
+  },
+  "rail-truck": {
+    "path": "assets/images/services/rail-truck.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Services",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "3:2"
+  },
+  "express": {
+    "path": "assets/images/services/express.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Services",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "3:2"
+  },
+  "usa": {
+    "path": "assets/images/destinations/usa.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Destinations",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "europe": {
+    "path": "assets/images/destinations/europe.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Destinations",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "uk": {
+    "path": "assets/images/destinations/uk.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Destinations",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "canada": {
+    "path": "assets/images/destinations/canada.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Destinations",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "australia": {
+    "path": "assets/images/destinations/australia.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Destinations",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "middle-east": {
+    "path": "assets/images/destinations/middle-east.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Destinations",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "sourcing": {
+    "path": "assets/images/sourcing/sourcing-main.webp",
+    "width": 1440,
+    "height": 960,
+    "section": "Sourcing",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5"
+  },
+  "supply-chain": {
+    "path": "assets/images/supply-chain/supply-chain-main.webp",
+    "width": 1440,
+    "height": 960,
+    "section": "Supply chain",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5"
+  },
+  "fba": {
+    "path": "assets/images/fba/amazon-fba-main.webp",
+    "width": 1440,
+    "height": 960,
+    "section": "Amazon FBA",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5"
+  },
+  "fba-video": {
+    "path": "assets/images/fba/amazon-fba-poster.webp",
+    "width": 1920,
+    "height": 1080,
+    "section": "Future FBA story",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5",
+    "video": "assets/video/amazon-fba-video.mp4"
+  },
+  "port": {
+    "path": "assets/images/home/port-video-poster.webp",
+    "width": 2100,
+    "height": 900,
+    "section": "Media break",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5",
+    "video": "assets/video/port-video.mp4"
+  },
+  "ecommerce": {
+    "path": "assets/images/industries/ecommerce.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Industries",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "amazon-sellers": {
+    "path": "assets/images/industries/amazon-sellers.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Industries",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "importers": {
+    "path": "assets/images/industries/importers.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Industries",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "wholesalers": {
+    "path": "assets/images/industries/wholesalers.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Industries",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "retailers": {
+    "path": "assets/images/industries/retailers.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Industries",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "manufacturers": {
+    "path": "assets/images/industries/manufacturers.webp",
+    "width": 1200,
+    "height": 900,
+    "section": "Industries",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "case-study": {
+    "path": "assets/images/cases/case-study.webp",
+    "width": 1600,
+    "height": 1000,
+    "section": "Case study",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3"
+  },
+  "final-cta": {
+    "path": "assets/images/home/final-cta.webp",
+    "width": 1920,
+    "height": 1080,
+    "section": "Final CTA",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:5"
+  }
+}
