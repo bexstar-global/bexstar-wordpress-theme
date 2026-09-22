@@ -5,8 +5,8 @@
     "appearanceTools": true,
     "useRootPaddingAwareAlignments": true,
     "layout": {
-      "contentSize": "760px",
-      "wideSize": "1280px"
+      "contentSize": "680px",
+      "wideSize": "1440px"
     },
     "color": {
       "defaultPalette": false,
@@ -58,7 +58,7 @@
         {
           "slug": "body",
           "name": "Body",
-          "size": "1.125rem"
+          "size": "1.0625rem"
         },
         {
           "slug": "lead",
@@ -68,19 +68,19 @@
         {
           "slug": "heading",
           "name": "Heading",
-          "size": "2.75rem",
+          "size": "3rem",
           "fluid": {
             "min": "2rem",
-            "max": "2.75rem"
+            "max": "3rem"
           }
         },
         {
           "slug": "display",
           "name": "Display",
-          "size": "5rem",
+          "size": "4.5rem",
           "fluid": {
             "min": "2.5rem",
-            "max": "5rem"
+            "max": "4.5rem"
           }
         }
       ]
@@ -124,6 +124,17 @@
           "size": "clamp(3rem, 6vw, 6rem)"
         }
       ]
+    },
+    "custom": {
+      "layout": {
+        "wide": "1440px",
+        "reading": "680px",
+        "gutter": "clamp(20px, 4vw, 64px)"
+      },
+      "spacing": {
+        "section": "clamp(64px, 6vw, 112px)",
+        "grid": "clamp(24px, 2.5vw, 40px)"
+      }
     }
   },
   "styles": {
@@ -134,13 +145,13 @@
     "typography": {
       "fontFamily": "var:preset|font-family|system",
       "fontSize": "var:preset|font-size|body",
-      "lineHeight": "1.65"
+      "lineHeight": "1.6"
     },
     "spacing": {
       "blockGap": "1.5rem",
       "padding": {
-        "left": "clamp(1rem, 4vw, 4rem)",
-        "right": "clamp(1rem, 4vw, 4rem)"
+        "left": "0",
+        "right": "0"
       }
     },
     "elements": {

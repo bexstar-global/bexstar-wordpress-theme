@@ -1,16 +1,18 @@
-# Complete file inventory
-Repository root is the WordPress theme root. Grouped by path; empty asset directories use .gitkeep.
+# Complete file inventory — Phase 2
+Repository root is the theme root. Asset directories retain .gitkeep until media is supplied.
 
 ```text
 .gitignore
 README.md
 assets/css/site.css
 assets/icons/.gitkeep
+assets/images/brand/.gitkeep
 assets/images/cases/.gitkeep
 assets/images/destinations/.gitkeep
 assets/images/fba/.gitkeep
 assets/images/home/.gitkeep
 assets/images/industries/.gitkeep
+assets/images/placeholders/logistics-neutral.svg
 assets/images/services/.gitkeep
 assets/images/sourcing/.gitkeep
 assets/images/supply-chain/.gitkeep
@@ -18,6 +20,9 @@ assets/js/editor.js
 assets/js/site.js
 assets/media-manifest.json
 assets/video/.gitkeep
+blocks/case-studies/block.json
+blocks/customer-actions/block.json
+blocks/legal/block.json
 blocks/media/block.json
 blocks/navigation/block.json
 docs/bexstar-architecture-map.md
@@ -26,8 +31,12 @@ docs/editor-guide.md
 docs/file-tree.md
 docs/media-manifest.md
 docs/phase-1-report.md
+docs/phase-2-dsv-gap-analysis.md
+docs/phase-2-files.md
+docs/phase-2-report.md
 docs/staging-handoff.md
 functions.php
+inc/customer-content.php
 inc/media.php
 inc/navigation.json
 inc/navigation.php
@@ -49,6 +58,7 @@ patterns/services.php
 patterns/sourcing.php
 patterns/supply-chain.php
 patterns/why-bexstar.php
+scripts/navigation-contract.test.mjs
 scripts/validate.mjs
 style.css
 templates/404.html

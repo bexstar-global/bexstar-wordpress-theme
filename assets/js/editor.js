@@ -15,6 +15,17 @@
         },
         save: function () { return null; }
     });
+    ['customer-actions', 'case-studies', 'legal'].forEach(function (name) {
+        wp.blocks.registerBlockType('bexstar/' + name, {
+            apiVersion: 3, title: 'BEXSTAR ' + name.replaceAll('-', ' '), category: 'theme',
+            supports: {html: false},
+            edit: function () {
+                return el('div', wp.blockEditor.useBlockProps(),
+                    el('div', {inert: ''}, el(ServerSideRender, {block: 'bexstar/' + name})));
+            },
+            save: function () { return null; }
+        });
+    });
     const slots = ['hero','sea-freight','air-freight','rail-truck','express','usa','europe','uk','canada','australia','middle-east','sourcing','supply-chain','fba','fba-video','port','ecommerce','amazon-sellers','importers','wholesalers','retailers','manufacturers','case-study','final-cta'];
     wp.blocks.registerBlockType('bexstar/media', {
         apiVersion: 3, title: __('BEXSTAR media slot', 'bexstar'), category: 'media', icon: 'format-image',

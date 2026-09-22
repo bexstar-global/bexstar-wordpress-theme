@@ -12,14 +12,15 @@ function bexstar_render_media( $attributes ) {
     $poster = '';
     $image = '';
     $hero = 'hero' === $key;
+    $image_path = ! empty( $slot['posterPath'] ) && is_file( get_theme_file_path( $slot['posterPath'] ) ) ? $slot['posterPath'] : $slot['path'];
     if ( $image_id && wp_attachment_is_image( $image_id ) ) {
         $poster = wp_get_attachment_image_url( $image_id, 'full' );
         $image = wp_get_attachment_image( $image_id, 'full', false, array(
             'alt' => $alt, 'loading' => $hero ? 'eager' : 'lazy',
             'fetchpriority' => $hero ? 'high' : 'auto', 'decoding' => 'async',
         ) );
-    } elseif ( is_file( get_theme_file_path( $slot['path'] ) ) ) {
-        $poster = get_theme_file_uri( $slot['path'] );
+    } elseif ( is_file( get_theme_file_path( $image_path ) ) ) {
+        $poster = get_theme_file_uri( $image_path );
         $image = '<img src="' . esc_url( $poster ) . '" alt="' . esc_attr( $alt ) . '" width="' . absint( $slot['width'] ) . '" height="' . absint( $slot['height'] ) . '" loading="' . ( $hero ? 'eager' : 'lazy' ) . '" decoding="async"' . ( $hero ? ' fetchpriority="high"' : '' ) . '>';
     }
     $video = '';
@@ -35,10 +36,10 @@ function bexstar_render_media( $attributes ) {
     if ( ! preg_match( $valid_position, $mobile_position ) ) { $mobile_position = '50% 50%'; }
     $ratio = absint( $slot['width'] ) . '/' . absint( $slot['height'] );
     $mobile_ratio = str_replace( ':', '/', $slot['mobileRatio'] );
-    $labels = ( 'production' !== wp_get_environment_type() ) && apply_filters( 'bexstar_show_media_labels', true );
+    $labels = in_array( wp_get_environment_type(), array( 'local', 'development' ), true ) && apply_filters( 'bexstar_show_media_labels', false );
     $style = '--bex-ratio:' . $ratio . ';--bex-mobile-ratio:' . $mobile_ratio . ';--bex-position:' . $position . ';--bex-mobile-position:' . $mobile_position;
     $html = '<figure class="bex-media" data-bex-slot="' . esc_attr( $key ) . '" style="' . esc_attr( $style ) . '">';
-    $html .= '<div class="bex-media-fallback" aria-hidden="true"><span>BEXSTAR</span></div>' . $image;
+    $html .= '<div class="bex-media-fallback" aria-hidden="true"></div>' . $image;
     if ( $video && $poster ) {
         // Deliberately no autoplay: user control + no video download before intent.
         $html .= '<video class="bex-video" muted playsinline loop preload="none" poster="' . esc_url( $poster ) . '" aria-label="' . esc_attr__( 'Decorative logistics video', 'bexstar' ) . '"><source data-src="' . esc_url( $video ) . '" type="video/mp4"></video>';

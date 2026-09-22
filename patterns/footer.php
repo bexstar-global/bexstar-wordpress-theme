@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- wp:group {"tagName":"div","className":"bex-footer","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-footer">
 <!-- wp:paragraph {"className":"bex-footer-brand"} -->
-<p class="bex-footer-brand">BEXSTAR</p>
+<p class="bex-footer-brand"><?php echo bexstar_brand_markup( 'light' ); ?></p>
 <!-- /wp:paragraph --><!-- wp:paragraph {"className":"bex-eyebrow"} -->
 <p class="bex-eyebrow">BEYOND EXPECTATIONS · CONNECTING THE WORLD</p>
 <!-- /wp:paragraph --><!-- wp:group {"tagName":"div","className":"bex-footer-grid","layout":{"type":"default"}} -->
@@ -119,9 +119,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:group -->
 </div>
 <!-- /wp:group --><!-- wp:paragraph {"className":"bex-small"} -->
-<p class="bex-small">Privacy · Terms · Cookies — policies pending review. No analytics or marketing cookies are added by this theme.</p>
+<p class="bex-small">China sourcing · Global supply chain · International logistics</p>
 <!-- /wp:paragraph --><!-- wp:paragraph {"className":"bex-small"} -->
-<p class="bex-small">BEXSTAR · Phase 1 development preview</p>
+<p class="bex-small">© BEXSTAR</p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:bexstar/legal /-->

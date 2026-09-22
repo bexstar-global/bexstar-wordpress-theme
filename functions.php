@@ -6,6 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 require_once __DIR__ . '/inc/navigation.php';
 require_once __DIR__ . '/inc/media.php';
+require_once __DIR__ . '/inc/customer-content.php';
 
 add_action( 'after_setup_theme', function () {
     load_theme_textdomain( 'bexstar', get_template_directory() . '/languages' );
@@ -13,6 +14,7 @@ add_action( 'after_setup_theme', function () {
     add_theme_support( 'editor-styles' );
     add_theme_support( 'responsive-embeds' );
     add_theme_support( 'post-thumbnails' );
+    add_theme_support( 'custom-logo', array( 'height' => 48, 'width' => 200, 'flex-width' => true, 'flex-height' => true ) );
     add_editor_style( 'assets/css/site.css' );
     register_nav_menus( array( 'bexstar-primary' => __( 'BEXSTAR primary navigation', 'bexstar' ) ) );
 } );
@@ -32,6 +34,9 @@ add_action( 'init', function () {
     );
     register_block_type( __DIR__ . '/blocks/navigation', array( 'render_callback' => 'bexstar_render_navigation' ) );
     register_block_type( __DIR__ . '/blocks/media', array( 'render_callback' => 'bexstar_render_media' ) );
+    foreach ( array( 'customer-actions', 'case-studies', 'legal' ) as $block ) {
+        register_block_type( __DIR__ . '/blocks/' . $block, array( 'render_callback' => 'bexstar_render_' . str_replace( '-', '_', $block ) ) );
+    }
 } );
 
 /** Resolve links against this WordPress installation, not the future production domain. */

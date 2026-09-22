@@ -1,13 +1,16 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/** An unpublished route is a labelled non-link, never a fabricated working page. */
+/** Until a service Page is published, link to its relevant homepage overview. */
 function bexstar_nav_link( $label, $path ) {
     $page = get_page_by_path( trim( $path, '/' ) );
     if ( $page && 'publish' === get_post_status( $page ) ) {
         return '<a href="' . esc_url( get_permalink( $page ) ) . '">' . esc_html( $label ) . '</a>';
     }
-    return '<span class="bex-pending">' . esc_html( $label ) . '<span class="screen-reader-text"> — ' . esc_html__( 'page planned', 'bexstar' ) . '</span></span>';
+    $root = explode( '/', trim( $path, '/' ) )[0];
+    $anchor = 'about-us' === $root ? 'introduction' : $root;
+    if ( false !== strpos( $path, 'china-to-' ) ) { $anchor = 'destinations'; }
+    return '<a href="' . esc_url( home_url( '/#' . sanitize_title( $anchor ) ) ) . '">' . esc_html( $label ) . '</a>';
 }
 
 function bexstar_nav_leaves( $items ) {
@@ -56,10 +59,10 @@ function bexstar_render_navigation() {
         <a class="bex-skip" href="#main"><?php esc_html_e( 'Skip to content', 'bexstar' ); ?></a>
         <div class="bex-utility">
             <a href="<?php echo esc_url( bexstar_section_url( 'contact', 'contact' ) ); ?>"><?php esc_html_e( 'Contact', 'bexstar' ); ?></a>
-            <span lang="en" aria-label="<?php esc_attr_e( 'Current language: English. Translations are not available yet.', 'bexstar' ); ?>">English</span>
+            <span lang="en" aria-label="<?php esc_attr_e( 'Current language: English.', 'bexstar' ); ?>">English</span>
         </div>
         <div class="bex-header-row">
-            <a class="bex-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'BEXSTAR home', 'bexstar' ); ?>">BEXSTAR<span aria-hidden="true">.</span></a>
+            <a class="bex-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'BEXSTAR home', 'bexstar' ); ?>"><?php echo bexstar_brand_markup(); ?></a>
             <div class="bex-header-actions">
                 <a href="<?php echo esc_url( bexstar_section_url( 'track', 'digital-logistics' ) ); ?>"><?php esc_html_e( 'Track', 'bexstar' ); ?></a>
                 <a class="bex-button" href="<?php echo esc_url( bexstar_section_url( 'get-a-quote', 'contact' ) ); ?>"><?php esc_html_e( 'Get a Quote', 'bexstar' ); ?></a>
@@ -73,7 +76,7 @@ function bexstar_render_navigation() {
             <?php else : ?>
                 <?php $groups = json_decode( file_get_contents( __DIR__ . '/navigation.json' ), true ); ?>
                 <?php foreach ( $groups as $group ) : ?>
-                    <li><details class="bex-mega">
+                    <li><details class="bex-mega <?php echo count( $group[2] ) > 1 ? 'bex-mega-deep' : 'bex-mega-editorial'; ?>">
                         <summary><?php echo esc_html( $group[0] ); ?></summary>
                         <div class="bex-panel">
                             <?php foreach ( $group[2] as $column ) : ?>
@@ -82,11 +85,27 @@ function bexstar_render_navigation() {
                                     <?php echo bexstar_nav_leaves( $column[1] ); ?>
                                 </div>
                             <?php endforeach; ?>
+                            <?php
+                            $features = array(
+                                'shipping' => array( 'Move your cargo forward.', 'Compare transport options around your cargo and destination.', 'sea-freight' ),
+                                'sourcing' => array( 'Start at the source.', 'Connect supplier coordination, inspection and consolidation in China.', 'sourcing' ),
+                                'supply-chain' => array( 'Connect every stage.', 'Bring sourcing, storage, transport and delivery into one plan.', 'supply-chain' ),
+                                'amazon-fba' => array( 'Plan your next shipment.', 'Explore transport and warehouse-delivery options for Amazon FBA.', 'fba' ),
+                                'industries' => array( 'Built around your business.', 'Find a starting point for your supply and shipping needs.', 'importers' ),
+                                'resources' => array( 'Make informed decisions.', 'Explore shipping knowledge and stories from real work.', 'case-study' ),
+                                'about-us' => array( 'Beyond expectations.', 'China sourcing. Global supply chain. International logistics.', 'sourcing' ),
+                            );
+                            $feature = $features[ $group[1] ];
+                            ?>
                             <div class="bex-nav-feature">
-                                <p><?php echo esc_html( $group[0] ); ?></p>
-                                <a href="<?php echo esc_url( bexstar_section_url( $group[1], 'about-us' === $group[1] ? 'introduction' : $group[1] ) ); ?>"><?php esc_html_e( 'Explore overview', 'bexstar' ); ?></a>
-                                <p class="bex-small"><?php esc_html_e( 'Phase 1: detailed pages are planned.', 'bexstar' ); ?></p>
+                                <p class="bex-eyebrow"><?php echo esc_html( $group[0] ); ?></p>
+                                <p class="bex-nav-title"><?php echo esc_html( $feature[0] ); ?></p>
+                                <p><?php echo esc_html( $feature[1] ); ?></p>
+                                <a href="<?php echo esc_url( bexstar_section_url( $group[1], 'about-us' === $group[1] ? 'introduction' : $group[1] ) ); ?>"><?php echo esc_html( sprintf( __( 'Explore %s', 'bexstar' ), $group[0] ) ); ?> →</a>
                             </div>
+                            <?php if ( 1 === count( $group[2] ) ) : ?>
+                                <div class="bex-nav-media"><?php echo bexstar_render_media( array( 'slot' => $feature[2], 'decorative' => true ) ); ?></div>
+                            <?php endif; ?>
                         </div>
                     </details></li>
                 <?php endforeach; ?>

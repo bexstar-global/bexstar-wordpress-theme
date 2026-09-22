@@ -27,11 +27,12 @@ benefit is not established yet. If cases later need typed fields and filters, pu
 CPT/taxonomy registration in a separate site plugin so changing the theme does not hide content.
 Use ordinary core heading, paragraph, button, group and post blocks; media is a small dynamic
 block with image/video selectors. No entire homepage stored as custom HTML.
+Phase 2 adds a small published-post case-study selector; this is not a new blog system.
 
 ## Navigation and URLs
 The exact V3 planned hierarchy is maintained in inc/navigation.json.
 Published Pages are resolved using their hierarchical path, never a production domain.
-Unpublished navigation leaves are labelled non-links. Homepage/footers resolve to the
+Unpublished navigation leaves, homepage entries and footers resolve to the
 matching in-page overview until those Pages exist. They are NOT finished destination pages.
 A native WordPress menu assigned to bexstar-primary overrides the default hierarchy.
 Use Appearance > Menus (wp-admin/nav-menus.php) where supported; verify this UI in staging.

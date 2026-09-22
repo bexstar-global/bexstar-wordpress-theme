@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" fill="none">
+<!-- Original neutral logistics geometry, not a photograph or brand mark. -->
+<path fill="#DCE4E8" d="M0 0h1920v1080H0z"/><path fill="#C8D5DC" d="M0 790h1920v290H0z"/>
+<path d="M0 845h1920M0 925h1920M0 1005h1920" stroke="#B7C8D1" stroke-width="2"/>
+<path d="M715 750h1050l-115 118H885z" fill="#7893A3"/>
+<path d="M960 670h670v80H960zM1060 586h610v80h-610zM1190 502h450v80h-450z" fill="#B1C3CD"/>
+<path d="M960 710h670M1060 626h610M1190 542h450M1030 670v80M1150 670v80M1270 670v80M1390 670v80M1510 670v80M1150 586v80M1270 586v80M1390 586v80M1510 586v80M1310 502v80M1430 502v80M1550 502v80" stroke="#8CA6B5" stroke-width="3"/>
+<path d="M900 750V568h74v102h52M937 568v-67" stroke="#8CA6B5" stroke-width="16"/>
+<path d="M1540 130v340M1780 130v600M1410 155h485M1540 130l-130 280M1780 130l115 255M1480 155v140" stroke="#B8CBD5" stroke-width="12"/>
+<path d="M540 812h-290M492 870H180M370 931H60" stroke="#91AAB8" stroke-width="3"/>
+</svg>

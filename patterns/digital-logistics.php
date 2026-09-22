@@ -9,48 +9,27 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 ?>
 <!-- wp:group {"tagName":"section","anchor":"digital-logistics","className":"bex-section bex-dark","layout":{"type":"default"}} -->
 <section id="digital-logistics" class="wp-block-group bex-section bex-dark">
-<!-- wp:paragraph {"className":"bex-eyebrow"} -->
-<p class="bex-eyebrow">DIGITAL LOGISTICS</p>
-<!-- /wp:paragraph --><!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">A connected customer experience</h2>
-<!-- /wp:heading --><!-- wp:paragraph -->
-<p>Our digital tools are planned for a later phase. Online quotes, tracking, the shipping calculator and the customer portal are not connected in this prototype.</p>
-<!-- /wp:paragraph --><!-- wp:group {"tagName":"div","className":"bex-grid bex-grid-four","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-grid bex-grid-four">
-<!-- wp:group {"tagName":"div","className":"bex-tool","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-tool">
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Get a Quote</h3>
-<!-- /wp:heading --><!-- wp:paragraph -->
-<p>Cargo and delivery requirements — quotation API planned.</p>
-<!-- /wp:paragraph -->
+<!-- wp:group {"tagName":"div","className":"bex-digital-layout","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-digital-layout">
+<!-- wp:group {"tagName":"div","className":"bex-digital-intro","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-digital-intro">
+<!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">DIGITAL LOGISTICS</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Your shipments.<br>A more connected view.</h2><!-- /wp:heading --><!-- wp:paragraph {"className":"bex-lead"} --><p class="bex-lead">Online tools for your shipping journey.</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --><!-- wp:group {"tagName":"div","className":"bex-digital-tools","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-digital-tools">
+<!-- wp:group {"tagName":"div","className":"bex-digital-feature","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-digital-feature">
+<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Get a Quote</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Share the details of your next shipment.</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"bex-status"} --><p class="bex-status">Coming soon</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --><!-- wp:group {"tagName":"div","className":"bex-digital-feature","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-digital-feature">
+<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Track Shipment</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Follow your shipment through one BEXSTAR entry point.</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"bex-status"} --><p class="bex-status">Coming soon</p><!-- /wp:paragraph -->
+</div>
+<!-- /wp:group --><!-- wp:group {"tagName":"div","className":"bex-future-tools","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-future-tools">
+<!-- wp:paragraph --><p>Shipping Calculator <span>Coming soon</span></p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Customer Portal <span>Coming soon</span></p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
-<!-- wp:group {"tagName":"div","className":"bex-tool","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-tool">
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Track Shipment</h3>
-<!-- /wp:heading --><!-- wp:paragraph -->
-<p>Unified shipment visibility — provider integrations planned.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"tagName":"div","className":"bex-tool","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-tool">
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Shipping Calculator</h3>
-<!-- /wp:heading --><!-- wp:paragraph -->
-<p>Weight and volume tools — planned.</p>
-<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"tagName":"div","className":"bex-tool","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-tool">
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Customer Portal</h3>
-<!-- /wp:heading --><!-- wp:paragraph -->
-<p>Account, shipment and document access — planned.</p>
-<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </div>

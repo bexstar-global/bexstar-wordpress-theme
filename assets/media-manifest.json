@@ -7,7 +7,8 @@
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
     "mobileRatio": "4:5",
-    "video": "assets/video/hero-video.mp4"
+    "video": "assets/video/hero-video.mp4",
+    "purpose": "Lead ocean/global-logistics visual"
   },
   "sea-freight": {
     "path": "assets/images/services/sea-freight.webp",
@@ -16,7 +17,8 @@
     "section": "Services",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "3:2"
+    "mobileRatio": "3:2",
+    "purpose": "Services editorial context"
   },
   "air-freight": {
     "path": "assets/images/services/air-freight.webp",
@@ -25,7 +27,8 @@
     "section": "Services",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "3:2"
+    "mobileRatio": "3:2",
+    "purpose": "Services editorial context"
   },
   "rail-truck": {
     "path": "assets/images/services/rail-truck.webp",
@@ -34,7 +37,8 @@
     "section": "Services",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "3:2"
+    "mobileRatio": "3:2",
+    "purpose": "Services editorial context"
   },
   "express": {
     "path": "assets/images/services/express.webp",
@@ -43,7 +47,8 @@
     "section": "Services",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "3:2"
+    "mobileRatio": "3:2",
+    "purpose": "Services editorial context"
   },
   "usa": {
     "path": "assets/images/destinations/usa.webp",
@@ -52,7 +57,8 @@
     "section": "Destinations",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Destinations editorial context"
   },
   "europe": {
     "path": "assets/images/destinations/europe.webp",
@@ -61,7 +67,8 @@
     "section": "Destinations",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Destinations editorial context"
   },
   "uk": {
     "path": "assets/images/destinations/uk.webp",
@@ -70,7 +77,8 @@
     "section": "Destinations",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Destinations editorial context"
   },
   "canada": {
     "path": "assets/images/destinations/canada.webp",
@@ -79,7 +87,8 @@
     "section": "Destinations",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Destinations editorial context"
   },
   "australia": {
     "path": "assets/images/destinations/australia.webp",
@@ -88,7 +97,8 @@
     "section": "Destinations",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Destinations editorial context"
   },
   "middle-east": {
     "path": "assets/images/destinations/middle-east.webp",
@@ -97,7 +107,8 @@
     "section": "Destinations",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Destinations editorial context"
   },
   "sourcing": {
     "path": "assets/images/sourcing/sourcing-main.webp",
@@ -106,7 +117,8 @@
     "section": "Sourcing",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:5"
+    "mobileRatio": "4:5",
+    "purpose": "Sourcing editorial context"
   },
   "supply-chain": {
     "path": "assets/images/supply-chain/supply-chain-main.webp",
@@ -115,7 +127,8 @@
     "section": "Supply chain",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:5"
+    "mobileRatio": "4:5",
+    "purpose": "Supply chain editorial context"
   },
   "fba": {
     "path": "assets/images/fba/amazon-fba-main.webp",
@@ -124,7 +137,10 @@
     "section": "Amazon FBA",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:5"
+    "mobileRatio": "4:5",
+    "video": "assets/video/amazon-fba-video.mp4",
+    "posterPath": "assets/images/fba/amazon-fba-poster.webp",
+    "purpose": "Amazon FBA editorial context"
   },
   "fba-video": {
     "path": "assets/images/fba/amazon-fba-poster.webp",
@@ -134,7 +150,8 @@
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
     "mobileRatio": "4:5",
-    "video": "assets/video/amazon-fba-video.mp4"
+    "video": "assets/video/amazon-fba-video.mp4",
+    "purpose": "Future FBA story editorial context"
   },
   "port": {
     "path": "assets/images/home/port-video-poster.webp",
@@ -144,7 +161,8 @@
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
     "mobileRatio": "4:5",
-    "video": "assets/video/port-video.mp4"
+    "video": "assets/video/port-video.mp4",
+    "purpose": "Cinematic visual pause"
   },
   "ecommerce": {
     "path": "assets/images/industries/ecommerce.webp",
@@ -153,7 +171,8 @@
     "section": "Industries",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Industries editorial context"
   },
   "amazon-sellers": {
     "path": "assets/images/industries/amazon-sellers.webp",
@@ -162,7 +181,8 @@
     "section": "Industries",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Industries editorial context"
   },
   "importers": {
     "path": "assets/images/industries/importers.webp",
@@ -171,7 +191,8 @@
     "section": "Industries",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Industries editorial context"
   },
   "wholesalers": {
     "path": "assets/images/industries/wholesalers.webp",
@@ -180,7 +201,8 @@
     "section": "Industries",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Industries editorial context"
   },
   "retailers": {
     "path": "assets/images/industries/retailers.webp",
@@ -189,7 +211,8 @@
     "section": "Industries",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Industries editorial context"
   },
   "manufacturers": {
     "path": "assets/images/industries/manufacturers.webp",
@@ -198,7 +221,8 @@
     "section": "Industries",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Industries editorial context"
   },
   "case-study": {
     "path": "assets/images/cases/case-study.webp",
@@ -207,7 +231,8 @@
     "section": "Case study",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:3"
+    "mobileRatio": "4:3",
+    "purpose": "Case study editorial context"
   },
   "final-cta": {
     "path": "assets/images/home/final-cta.webp",
@@ -216,6 +241,7 @@
     "section": "Final CTA",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
-    "mobileRatio": "4:5"
+    "mobileRatio": "4:5",
+    "purpose": "Closing conversion backdrop"
   }
 }

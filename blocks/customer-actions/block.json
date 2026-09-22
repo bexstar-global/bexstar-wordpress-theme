@@ -1,0 +1,12 @@
+{
+  "apiVersion": 3,
+  "name": "bexstar/customer-actions",
+  "title": "BEXSTAR customer actions",
+  "category": "theme",
+  "icon": "email",
+  "textdomain": "bexstar",
+  "editorScript": "bexstar-block-editor",
+  "supports": {
+    "html": false
+  }
+}

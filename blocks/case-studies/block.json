@@ -1,0 +1,12 @@
+{
+  "apiVersion": 3,
+  "name": "bexstar/case-studies",
+  "title": "BEXSTAR case studies",
+  "category": "theme",
+  "icon": "portfolio",
+  "textdomain": "bexstar",
+  "editorScript": "bexstar-block-editor",
+  "supports": {
+    "html": false
+  }
+}

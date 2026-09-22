@@ -1,0 +1,12 @@
+{
+  "apiVersion": 3,
+  "name": "bexstar/legal",
+  "title": "BEXSTAR legal links",
+  "category": "theme",
+  "icon": "admin-links",
+  "textdomain": "bexstar",
+  "editorScript": "bexstar-block-editor",
+  "supports": {
+    "html": false
+  }
+}
