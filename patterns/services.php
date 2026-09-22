@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-service-feature","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-service-feature">
-<!-- wp:bexstar/media {"slot":"air-freight"} /-->
+<!-- wp:bexstar/media {"slot":"air-freight","decorative":false,"alt":"Cargo aircraft being loaded with freight pallets at an airport"} /-->
 <!-- wp:group {"tagName":"div","className":"bex-service-copy","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-service-copy">
 <!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Air freight</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Explore air transport for time-sensitive shipments from China.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/air-freight', 'shipping' ) ); ?>">Explore air freight →</a></p><!-- /wp:paragraph -->
