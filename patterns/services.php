@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <div class="wp-block-group bex-services-primary">
 <!-- wp:group {"tagName":"div","className":"bex-service-feature","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-service-feature">
-<!-- wp:bexstar/media {"slot":"sea-freight"} /-->
+<!-- wp:bexstar/media {"slot":"sea-freight","decorative":false,"alt":"Container ship at an international seaport"} /-->
 <!-- wp:group {"tagName":"div","className":"bex-service-copy","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-service-copy">
 <!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Sea freight</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Plan ocean transport around your cargo, destination and delivery requirements.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/sea-freight', 'shipping' ) ); ?>">Explore sea freight →</a></p><!-- /wp:paragraph -->
