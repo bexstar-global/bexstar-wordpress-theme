@@ -1,7 +1,7 @@
-# Phase 2 media manifest
+# Phase 2.1 media manifest
 The final photographs, MP4s and approved logos remain to be supplied.
-No DSV/Amazon/third-party media has been included. One original neutral logistics SVG
-under assets/images/placeholders/ is a presentation fallback, not permanent brand artwork.
+No DSV/Amazon/third-party media has been included. Seven original category illustrations under assets/images/placeholders/ are temporary
+presentation fallbacks, not photographs, company facilities or permanent brand artwork.
 All media labels are OFF by default. Local/development mode plus an explicit filter opt-in
 is required to show filenames/dimensions on the frontend.
 
@@ -61,3 +61,31 @@ Recommended SVG viewBox ratio approximately 200:48, preserving the actual approv
 No new logo has been invented. Header: WordPress Custom Logo → dark SVG → generic SVG →
 text. Footer: light SVG → text (never assume a generic dark mark works on navy).
 Supply only trusted, reviewed SVG files; the theme does not enable arbitrary SVG uploads.
+
+## Phase 2.1 priority assets and crop guidance
+All files below are still required from BEXSTAR or an approved licensed source.
+Keep original masters separately; deliver optimized WebP posters first, optional MP4 second.
+Never source DSV, Maersk, UPS or Amazon media/logos. No stock library was downloaded.
+
+| Section | Filename | Recommended dimensions | Ratio | Desktop crop | Mobile crop |
+| --- | --- | --- | --- | --- | --- |
+| Header/general brand | assets/images/brand/bexstar-logo.svg | SVG viewBox about 200 × 48 | Approved logo ratio | Entire logo, transparent margins | Entire logo; never crop |
+| Header dark logo | assets/images/brand/bexstar-logo-dark.svg | SVG viewBox about 200 × 48 | Approved logo ratio | Entire dark mark on white | Entire mark |
+| Footer light logo | assets/images/brand/bexstar-logo-light.svg | SVG viewBox about 200 × 48 | Approved logo ratio | Entire light mark on navy | Entire mark |
+| Hero poster | assets/images/home/hero-poster.webp | 1920 × 1080 | 16:9 | Vessel/right, ocean/quiet left for type; fills 560–660 px hero | Keep vessel in central 4:5 crop; inspect actual asset |
+| Hero video, optional | assets/video/hero-video.mp4 | 1920 × 1080 | 16:9 | Match poster and avoid text; no autoplay | Same safe central subject; poster first |
+| Shipping menu | assets/images/services/shipping-menu.webp | 1200 × 750 | 8:5 | Cargo/port scene, centered, no logos | Hidden in navigation; central crop if reused |
+| Sourcing menu | assets/images/sourcing/sourcing-menu.webp | 1200 × 750 | 8:5 | Supplier/inspection subject, center safe | Hidden in navigation; central crop if reused |
+| Supply Chain menu | assets/images/supply-chain/supply-chain-menu.webp | 1200 × 750 | 8:5 | Warehouse/coordination scene, center safe | Hidden in navigation; central crop if reused |
+| FBA menu | assets/images/fba/fba-menu.webp | 1200 × 750 | 8:5 | Unbranded parcels/warehouse, no Amazon logo | Hidden in navigation; central crop if reused |
+| Resources menu | assets/images/resources/resources-menu.webp | 1200 × 750 | 8:5 | Planning/knowledge scene; no legible sensitive documents | Hidden in navigation; central crop if reused |
+| About menu | assets/images/about/about-menu.webp | 1200 × 750 | 8:5 | Approved company/team context; no invented facility | Hidden in navigation; central crop if reused |
+| Industries menu | assets/images/industries/industries-menu.webp | 1200 × 750 | 8:5 | Product/business context, center safe | Hidden in navigation; central crop if reused |
+| More than freight | assets/images/home/more-than-freight.webp | 1600 × 1000 | 8:5 | Sourcing/logistics coordination, subject clear in right column | Central subject; section keeps 8:5, standalone slot 4:3 |
+
+Eight new slots bring the manifest to 32. Shipping retains the logistics fallback;
+the other six menus have their own category illustrations. Introduction uses the sourcing
+illustration, with sourcing-main.webp as its optional real-image fallback.
+The navigation block's Gutenberg inspector can select a Media Library image separately
+for each of the seven menus; each selection overrides that menu's theme file.
+Those controls apply to the default V3 navigation, not an assigned custom WordPress menu.

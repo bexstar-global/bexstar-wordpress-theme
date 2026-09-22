@@ -1,72 +1,80 @@
-# Complete file inventory — Phase 2
-Repository root is the theme root. Asset directories retain .gitkeep until media is supplied.
+# Theme file inventory — Phase 2.1
 
-```text
-.gitignore
-README.md
-assets/css/site.css
-assets/icons/.gitkeep
-assets/images/brand/.gitkeep
-assets/images/cases/.gitkeep
-assets/images/destinations/.gitkeep
-assets/images/fba/.gitkeep
-assets/images/home/.gitkeep
-assets/images/industries/.gitkeep
-assets/images/placeholders/logistics-neutral.svg
-assets/images/services/.gitkeep
-assets/images/sourcing/.gitkeep
-assets/images/supply-chain/.gitkeep
-assets/js/editor.js
-assets/js/site.js
-assets/media-manifest.json
-assets/video/.gitkeep
-blocks/case-studies/block.json
-blocks/customer-actions/block.json
-blocks/legal/block.json
-blocks/media/block.json
-blocks/navigation/block.json
-docs/bexstar-architecture-map.md
-docs/dsv-architecture-analysis.md
-docs/editor-guide.md
-docs/file-tree.md
-docs/media-manifest.md
-docs/phase-1-report.md
-docs/phase-2-dsv-gap-analysis.md
-docs/phase-2-files.md
-docs/phase-2-report.md
-docs/staging-handoff.md
-functions.php
-inc/customer-content.php
-inc/media.php
-inc/navigation.json
-inc/navigation.php
-parts/footer.html
-parts/header.html
-patterns/amazon-fba.php
-patterns/article-cta.php
-patterns/case-studies.php
-patterns/destinations.php
-patterns/digital-logistics.php
-patterns/final-cta.php
-patterns/footer.php
-patterns/hero.php
-patterns/industries.php
-patterns/introduction.php
-patterns/media-break.php
-patterns/quick-actions.php
-patterns/services.php
-patterns/sourcing.php
-patterns/supply-chain.php
-patterns/why-bexstar.php
-scripts/navigation-contract.test.mjs
-scripts/validate.mjs
-style.css
-templates/404.html
-templates/archive.html
-templates/front-page.html
-templates/index.html
-templates/page.html
-templates/search.html
-templates/single.html
-theme.json
-```
+Repository root is the WordPress theme root. 76 files.
+
+- `.gitignore`
+- `README.md`
+- `assets/css/site.css`
+- `assets/icons/.gitkeep`
+- `assets/images/about/.gitkeep`
+- `assets/images/brand/.gitkeep`
+- `assets/images/cases/.gitkeep`
+- `assets/images/destinations/.gitkeep`
+- `assets/images/fba/.gitkeep`
+- `assets/images/home/.gitkeep`
+- `assets/images/industries/.gitkeep`
+- `assets/images/placeholders/about-neutral.svg`
+- `assets/images/placeholders/fba-neutral.svg`
+- `assets/images/placeholders/industries-neutral.svg`
+- `assets/images/placeholders/logistics-neutral.svg`
+- `assets/images/placeholders/resources-neutral.svg`
+- `assets/images/placeholders/sourcing-neutral.svg`
+- `assets/images/placeholders/supply-chain-neutral.svg`
+- `assets/images/resources/.gitkeep`
+- `assets/images/services/.gitkeep`
+- `assets/images/sourcing/.gitkeep`
+- `assets/images/supply-chain/.gitkeep`
+- `assets/js/editor.js`
+- `assets/js/site.js`
+- `assets/media-manifest.json`
+- `assets/video/.gitkeep`
+- `blocks/case-studies/block.json`
+- `blocks/customer-actions/block.json`
+- `blocks/legal/block.json`
+- `blocks/media/block.json`
+- `blocks/navigation/block.json`
+- `docs/bexstar-architecture-map.md`
+- `docs/dsv-architecture-analysis.md`
+- `docs/editor-guide.md`
+- `docs/file-tree.md`
+- `docs/media-manifest.md`
+- `docs/phase-1-report.md`
+- `docs/phase-2-dsv-gap-analysis.md`
+- `docs/phase-2-files.md`
+- `docs/phase-2-report.md`
+- `docs/phase-2.1-report.md`
+- `docs/staging-handoff.md`
+- `functions.php`
+- `inc/customer-content.php`
+- `inc/media.php`
+- `inc/navigation.json`
+- `inc/navigation.php`
+- `parts/footer.html`
+- `parts/header.html`
+- `patterns/amazon-fba.php`
+- `patterns/article-cta.php`
+- `patterns/case-studies.php`
+- `patterns/destinations.php`
+- `patterns/digital-logistics.php`
+- `patterns/final-cta.php`
+- `patterns/footer.php`
+- `patterns/hero.php`
+- `patterns/industries.php`
+- `patterns/introduction.php`
+- `patterns/media-break.php`
+- `patterns/quick-actions.php`
+- `patterns/services.php`
+- `patterns/sourcing.php`
+- `patterns/supply-chain.php`
+- `patterns/why-bexstar.php`
+- `scripts/navigation-contract.test.mjs`
+- `scripts/validate.mjs`
+- `style.css`
+- `templates/404.html`
+- `templates/archive.html`
+- `templates/front-page.html`
+- `templates/index.html`
+- `templates/page.html`
+- `templates/search.html`
+- `templates/single.html`
+- `theme.json`

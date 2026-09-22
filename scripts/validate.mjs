@@ -59,6 +59,15 @@ for(const name of files.filter(f=>/\.(php|js|css|html|json)$/.test(f))) {
   ok(!/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|gh[pousr]_[A-Za-z0-9]{20,}/.test(read(name)), 'Possible credential '+name);
 }
 const navigation=JSON.parse(read('inc/navigation.json'));
+for (const match of read('assets/css/site.css').matchAll(/url\("([^"]+)"\)/g)) {
+  ok(existsSync(resolve(root,'assets/css',match[1])), 'Missing CSS fallback '+match[1]);
+}
+for (const match of read('inc/navigation.php').matchAll(/'([a-z-]+-menu)'/g)) {
+  ok(manifest[match[1]], 'Missing navigation media slot '+match[1]);
+}
+for (const slot of Object.keys(manifest)) {
+  ok(read('assets/js/editor.js').includes("'"+slot+"'"), 'Slot unavailable in editor '+slot);
+}
 ok(navigation.length===7,'Seven primary groups');
 ok(!/fetch\(|XMLHttpRequest|localStorage|document.cookie/.test(read('assets/js/site.js')), 'Unexpected remote/data behavior');
 console.log(JSON.stringify({result:'PASS',checks,files:files.length,patterns:patterns.length,mediaSlots:Object.keys(manifest).length,

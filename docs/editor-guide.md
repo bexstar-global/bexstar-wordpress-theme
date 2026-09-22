@@ -58,3 +58,17 @@ Saved Front Page/header/footer overrides in the WordPress database may supersede
 theme files. Back up/export those overrides and compare them with the new patterns first.
 Do not reset templates blindly. Insert updated BEXSTAR patterns into a staging draft or
 selectively adopt the changed blocks. This code never deletes or resets editor content.
+
+
+## Phase 2.1 menu media
+In Appearance → Editor, open the Header template part and select BEXSTAR navigation.
+The Mega menu images inspector selects an image for each default V3 menu.
+Use theme fallback resets only that menu's selection. Save the Header to persist it.
+Images are decorative and do not carry essential menu information. Keep their subject
+centered; navigation hides them below 1240 px. Custom assigned menus keep their own structure
+and do not use these feature-image controls.
+Homepage introduction now uses the more-than-freight media slot. Copy remains core blocks.
+Saved WordPress templates/pattern instances can override newer theme defaults:
+review the saved homepage/header before expecting new default markup or copy to appear.
+Do not reset customized templates without backing up and reviewing their content.
+The Phase 2.1 changes do not edit the WordPress database.

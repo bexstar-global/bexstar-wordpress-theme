@@ -54,7 +54,13 @@
                     if (!details.contains(document.activeElement)) details.open = false;
                 }, 220);
             });
-            details.querySelector('summary').addEventListener('click', clearTimers);
+            details.querySelector('summary').addEventListener('click', function (event) {
+                // Handle the state synchronously; native toggle events are queued.
+                event.preventDefault();
+                clearTimers();
+                if (details.open) details.open = false;
+                else openMenu(details);
+            });
         });
         header.addEventListener('keydown', function (event) {
             if (event.key !== 'Escape') return;
@@ -62,8 +68,9 @@
             const active = document.activeElement.closest('details[open]');
             const opened = active || menus.find(function (menu) { return menu.open; });
             if (opened) {
-                opened.open = false;
-                opened.querySelector('summary').focus();
+                const parentMenu = menus.find(function (menu) { return menu.contains(opened); });
+                closeMenus();
+                (parentMenu || opened).querySelector('summary').focus();
             } else if (mobile.matches) {
                 setMobileOpen(false, true);
             }
@@ -86,7 +93,10 @@
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     document.querySelectorAll('.bex-media').forEach(function (figure) {
         const image = figure.querySelector('img');
-        if (image) image.addEventListener('error', function () { image.hidden = true; });
+        if (image) {
+            image.addEventListener('error', function () { image.hidden = true; });
+            if (image.complete && image.naturalWidth === 0) image.hidden = true;
+        }
         const video = figure.querySelector('video');
         const button = figure.querySelector('.bex-video-toggle');
         if (!video || !button) return;

@@ -7,11 +7,26 @@
     wp.blocks.registerBlockType('bexstar/navigation', {
         apiVersion: 3, title: __('BEXSTAR navigation', 'bexstar'), category: 'theme', icon: 'menu',
         supports: {html: false, multiple: false},
-        edit: function () {
+        attributes: {featureMedia: {type: 'object', default: {}}},
+        edit: function (props) {
             return el('div', wp.blockEditor.useBlockProps(),
                 el(wp.components.Notice, {status: 'info', isDismissible: false},
                     __('Navigation uses the BEXSTAR primary menu, or the planned V3 hierarchy until a menu is assigned. See docs/editor-guide.md.', 'bexstar')),
-                el('div', {inert: ''}, el(ServerSideRender, {block: 'bexstar/navigation'})));
+                el(wp.blockEditor.InspectorControls, {},
+                    el(wp.components.PanelBody, {title: __('Mega menu images', 'bexstar')},
+                        ['shipping','sourcing','supply-chain','amazon-fba','industries','resources','about-us'].map(function (key) {
+                            const media = props.attributes.featureMedia || {};
+                            return el('div', {key},
+                                el('p', {}, key),
+                                el(wp.blockEditor.MediaUploadCheck, {},
+                                    el(wp.blockEditor.MediaUpload, {
+                                        allowedTypes: ['image'], value: media[key] || 0,
+                                        onSelect: function (file) {props.setAttributes({featureMedia: {...media, [key]: file.id}});},
+                                        render: function (control) {return el(wp.components.Button, {variant:'secondary', onClick:control.open}, __('Choose image', 'bexstar'));}
+                                    })),
+                                el(wp.components.Button, {variant:'tertiary', onClick:function () {props.setAttributes({featureMedia: {...media, [key]: 0}});}}, __('Use theme fallback', 'bexstar')));
+                        }))),
+                el('div', {inert: ''}, el(ServerSideRender, {block: 'bexstar/navigation', attributes: props.attributes})));
         },
         save: function () { return null; }
     });
@@ -26,7 +41,7 @@
             save: function () { return null; }
         });
     });
-    const slots = ['hero','sea-freight','air-freight','rail-truck','express','usa','europe','uk','canada','australia','middle-east','sourcing','supply-chain','fba','fba-video','port','ecommerce','amazon-sellers','importers','wholesalers','retailers','manufacturers','case-study','final-cta'];
+    const slots = ['hero','sea-freight','air-freight','rail-truck','express','usa','europe','uk','canada','australia','middle-east','sourcing','supply-chain','fba','fba-video','port','ecommerce','amazon-sellers','importers','wholesalers','retailers','manufacturers','case-study','final-cta','more-than-freight','shipping-menu','sourcing-menu','supply-chain-menu','fba-menu','resources-menu','about-menu','industries-menu'];
     wp.blocks.registerBlockType('bexstar/media', {
         apiVersion: 3, title: __('BEXSTAR media slot', 'bexstar'), category: 'media', icon: 'format-image',
         supports: {html: false},

@@ -11,5 +11,7 @@
     "html": false,
     "multiple": false
   },
-  "attributes": {}
+  "attributes": {
+    "featureMedia": { "type": "object", "default": {} }
+  }
 }

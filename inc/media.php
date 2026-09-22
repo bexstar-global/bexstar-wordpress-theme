@@ -13,6 +13,9 @@ function bexstar_render_media( $attributes ) {
     $image = '';
     $hero = 'hero' === $key;
     $image_path = ! empty( $slot['posterPath'] ) && is_file( get_theme_file_path( $slot['posterPath'] ) ) ? $slot['posterPath'] : $slot['path'];
+    if ( ! is_file( get_theme_file_path( $image_path ) ) && ! empty( $slot['fallbackPath'] ) && is_file( get_theme_file_path( $slot['fallbackPath'] ) ) ) {
+        $image_path = $slot['fallbackPath'];
+    }
     if ( $image_id && wp_attachment_is_image( $image_id ) ) {
         $poster = wp_get_attachment_image_url( $image_id, 'full' );
         $image = wp_get_attachment_image( $image_id, 'full', false, array(

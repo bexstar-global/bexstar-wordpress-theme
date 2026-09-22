@@ -243,5 +243,86 @@
     "mobileCrop": "50% 50%",
     "mobileRatio": "4:5",
     "purpose": "Closing conversion backdrop"
+  },
+  "shipping-menu": {
+    "path": "assets/images/services/shipping-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "shipping mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific shipping context; decorative, hidden in mobile navigation"
+  },
+  "sourcing-menu": {
+    "path": "assets/images/sourcing/sourcing-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "sourcing mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific sourcing context; decorative, hidden in mobile navigation"
+  },
+  "supply-chain-menu": {
+    "path": "assets/images/supply-chain/supply-chain-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "supply-chain mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific supply-chain context; decorative, hidden in mobile navigation"
+  },
+  "fba-menu": {
+    "path": "assets/images/fba/fba-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "fba mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific fba context; decorative, hidden in mobile navigation"
+  },
+  "resources-menu": {
+    "path": "assets/images/resources/resources-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "resources mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific resources context; decorative, hidden in mobile navigation"
+  },
+  "about-menu": {
+    "path": "assets/images/about/about-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "about mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific about context; decorative, hidden in mobile navigation"
+  },
+  "industries-menu": {
+    "path": "assets/images/industries/industries-menu.webp",
+    "width": 1200,
+    "height": 750,
+    "section": "industries mega menu",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "8:5",
+    "purpose": "Category-specific industries context; decorative, hidden in mobile navigation"
+  },
+  "more-than-freight": {
+    "path": "assets/images/home/more-than-freight.webp",
+    "fallbackPath": "assets/images/sourcing/sourcing-main.webp",
+    "width": 1600,
+    "height": 1000,
+    "section": "Corporate introduction",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Supplier coordination and international logistics"
   }
 }

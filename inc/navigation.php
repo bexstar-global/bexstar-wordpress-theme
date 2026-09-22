@@ -49,7 +49,7 @@ function bexstar_custom_menu( $items, $parent = 0, $depth = 0 ) {
     return $html;
 }
 
-function bexstar_render_navigation() {
+function bexstar_render_navigation( $attributes = array() ) {
     $id = wp_unique_id( 'bex-navigation-' );
     $locations = get_nav_menu_locations();
     $items = ! empty( $locations['bexstar-primary'] ) ? wp_get_nav_menu_items( $locations['bexstar-primary'] ) : false;
@@ -87,24 +87,27 @@ function bexstar_render_navigation() {
                             <?php endforeach; ?>
                             <?php
                             $features = array(
-                                'shipping' => array( 'Move your cargo forward.', 'Compare transport options around your cargo and destination.', 'sea-freight' ),
-                                'sourcing' => array( 'Start at the source.', 'Connect supplier coordination, inspection and consolidation in China.', 'sourcing' ),
-                                'supply-chain' => array( 'Connect every stage.', 'Bring sourcing, storage, transport and delivery into one plan.', 'supply-chain' ),
-                                'amazon-fba' => array( 'Plan your next shipment.', 'Explore transport and warehouse-delivery options for Amazon FBA.', 'fba' ),
-                                'industries' => array( 'Built around your business.', 'Find a starting point for your supply and shipping needs.', 'importers' ),
-                                'resources' => array( 'Make informed decisions.', 'Explore shipping knowledge and stories from real work.', 'case-study' ),
-                                'about-us' => array( 'Beyond expectations.', 'China sourcing. Global supply chain. International logistics.', 'sourcing' ),
+                                'shipping' => array( 'Move your cargo forward.', 'Compare transport options around your cargo and destination.', 'shipping-menu' ),
+                                'sourcing' => array( 'Start at the source.', 'Connect supplier coordination, inspection and consolidation in China.', 'sourcing-menu' ),
+                                'supply-chain' => array( 'Connect every stage.', 'Bring sourcing, storage, transport and delivery into one coordinated flow.', 'supply-chain-menu' ),
+                                'amazon-fba' => array( 'Plan your next shipment.', 'Explore transport and warehouse-delivery options for Amazon FBA.', 'fba-menu' ),
+                                'industries' => array( 'Built around your business.', 'Find a starting point for your supply and shipping needs.', 'industries-menu' ),
+                                'resources' => array( 'Make informed decisions.', 'Explore practical shipping knowledge, updates and real logistics cases.', 'resources-menu' ),
+                                'about-us' => array( 'Beyond expectations.', 'China sourcing. Global supply chain. International logistics.', 'about-menu' ),
                             );
                             $feature = $features[ $group[1] ];
+                            $media_ids = isset( $attributes['featureMedia'] ) && is_array( $attributes['featureMedia'] ) ? $attributes['featureMedia'] : array();
+                            $media = bexstar_render_media( array( 'slot' => $feature[2], 'decorative' => true, 'imageId' => absint( $media_ids[ $group[1] ] ?? 0 ) ) );
                             ?>
                             <div class="bex-nav-feature">
                                 <p class="bex-eyebrow"><?php echo esc_html( $group[0] ); ?></p>
                                 <p class="bex-nav-title"><?php echo esc_html( $feature[0] ); ?></p>
                                 <p><?php echo esc_html( $feature[1] ); ?></p>
                                 <a href="<?php echo esc_url( bexstar_section_url( $group[1], 'about-us' === $group[1] ? 'introduction' : $group[1] ) ); ?>"><?php echo esc_html( sprintf( __( 'Explore %s', 'bexstar' ), $group[0] ) ); ?> →</a>
+                                <?php if ( count( $group[2] ) > 1 ) : ?><div class="bex-nav-feature-media"><?php echo $media; ?></div><?php endif; ?>
                             </div>
                             <?php if ( 1 === count( $group[2] ) ) : ?>
-                                <div class="bex-nav-media"><?php echo bexstar_render_media( array( 'slot' => $feature[2], 'decorative' => true ) ); ?></div>
+                                <div class="bex-nav-media"><?php echo $media; ?></div>
                             <?php endif; ?>
                         </div>
                     </details></li>

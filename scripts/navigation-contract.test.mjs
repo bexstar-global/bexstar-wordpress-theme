@@ -48,6 +48,25 @@ function fixture({mobile=false,hover=true}={}) {
 test('desktop starts with navigation visible and mobile trigger hidden',()=>{
  const x=fixture();assert.equal(x.nav.hidden,false);assert.equal(x.toggle.hidden,true);
 });
+test('click opens immediately, clicking another switches, clicking again closes',()=>{
+ const x=fixture();let prevented=0;
+ const click=m=>m.summary.fire('click',{preventDefault(){prevented++;}});
+ click(x.menus[0]);assert.equal(x.menus[0].open,true);
+ click(x.menus[1]);assert.equal(x.menus[0].open,false);assert.equal(x.menus[1].open,true);
+ click(x.menus[1]);assert.equal(x.menus[1].open,false);assert.equal(prevented,3);
+});
+test('click closes a hover-open menu without a delayed reopen',()=>{
+ const x=fixture();x.menus[0].fire('pointerenter');x.tick(160);
+ x.menus[0].summary.fire('click',{preventDefault(){}});x.tick(500);
+ assert.equal(x.menus[0].open,false);
+});
+test('mobile click works without hover and cancels a pending desktop hover',()=>{
+ const x=fixture({mobile:true});x.toggle.fire('click');
+ x.menus[0].summary.fire('click',{preventDefault(){}});assert.equal(x.menus[0].open,true);
+ const y=fixture();y.menus[0].fire('pointerenter');
+ y.menus[1].summary.fire('click',{preventDefault(){}});y.tick(200);
+ assert.equal(y.menus[0].open,false);assert.equal(y.menus[1].open,true);
+});
 test('hover intent delays opening; leaving cancels accidental flyover',()=>{
  const x=fixture();x.menus[0].fire('pointerenter');x.tick(100);assert.equal(x.menus[0].open,false);
  x.menus[0].fire('pointerleave');x.tick(300);assert.equal(x.menus[0].open,false);

@@ -3,20 +3,22 @@
 Custom WordPress block theme for BEXSTAR Global Website.
 
 ## Status
-V3 Phase 2 desktop UI pass, version 0.2.0. Visual acceptance pending; not production-ready.
-Phase 1 technical activation was accepted by the owner on an isolated development site.
+V3 Phase 2.1 desktop navigation and media polish, version 0.2.1. Runtime/visual acceptance pending.
+The owner reports Phase 1 and Phase 2 are active on the isolated development site.
 The repository root IS the theme root. Do not add another nested bexstar directory.
-No deployment or production connection is configured by this change.
+The owner reports Hostinger automatically deploys main to the isolated development site.
+A commit may therefore trigger that existing automation; this change adds no deployment configuration.
 
 ## Included
 - theme.json design tokens; seven standard block templates and two template parts.
 - Editable homepage patterns; desktop mega-menu and mobile disclosure navigation.
-- 24 media slots with Media Library selection and safe no-media fallbacks.
+- 32 media slots with Media Library selection and safe no-media fallbacks.
 - Customer-facing Coming soon states for unavailable tools, not fake APIs.
 - Published case-study selection, conditional legal links and real-logo fallbacks.
 - Architecture, media, editorial and staging handoff documentation.
 
-Start with [Phase 2 report](docs/phase-2-report.md),
+Start with [Phase 2.1 report](docs/phase-2.1-report.md),
+[Phase 2 historical report](docs/phase-2-report.md),
 [Phase 2 gap analysis](docs/phase-2-dsv-gap-analysis.md),
 [Phase 1 historical report](docs/phase-1-report.md),
 [DSV analysis](docs/dsv-architecture-analysis.md),
@@ -36,10 +38,11 @@ PHP lint on a machine with PHP 8+:
 find . -name '*.php' -not -path './node_modules/*' -exec php -l {} \;
 ```
 Read the validation limitations in the report before calling this theme validated.
-Phase 2 editor save/reload and real-browser tests at 1440/1536/1920 remain acceptance gates.
+Phase 2.1 editor save/reload and real-browser tests at 1440/1536/1920 remain acceptance gates.
 The navigation test uses a simulated DOM; it is not a viewport or native-browser test.
 
 ## Safety
-Do not deploy to Hostinger, change DNS or modify bexgl.com without separate approval.
+Do not manually deploy to Hostinger, change DNS or modify production bexgl.com.
+Phase 2.1 explicitly authorizes committing main despite the existing test-site auto-deployment.
 No credentials, customer personal data, invented results or third-party media belong here.
-See [staging handoff](docs/staging-handoff.md). Stop after Phase 2; Phase 3 requires approval.
+See [staging handoff](docs/staging-handoff.md). Stop after Phase 2.1; Phase 3 requires approval.
