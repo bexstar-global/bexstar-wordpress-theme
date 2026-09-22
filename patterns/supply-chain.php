@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <div class="wp-block-group bex-editorial-copy">
 <!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">CONNECT EVERY STAGE</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">From individual steps<br>to one connected plan.</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Plan the movement of your goods from sourcing and storage through international transport and delivery.</p><!-- /wp:paragraph --><!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( bexstar_section_url( 'supply-chain', 'supply-chain' ) ); ?>">EXPLORE SUPPLY CHAIN</a></div><!-- /wp:button --></div><!-- /wp:buttons -->
 </div>
-<!-- /wp:group --><!-- wp:bexstar/media {"slot":"supply-chain"} /-->
+<!-- /wp:group --><!-- wp:bexstar/media {"slot":"supply-chain","decorative":false,"alt":"Warehouse staff scanning and preparing packages for shipment"} /-->
 
 </div>
 <!-- /wp:group --><!-- wp:group {"tagName":"div","className":"bex-process","layout":{"type":"default"}} -->
