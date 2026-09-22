@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <section id="amazon-fba" class="wp-block-group bex-section">
 <!-- wp:group {"tagName":"div","className":"bex-editorial bex-fba-layout","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-editorial bex-fba-layout">
-<!-- wp:bexstar/media {"slot":"fba"} /-->
+<!-- wp:bexstar/media {"slot":"fba","decorative":false,"alt":"Warehouse worker scanning a carton for Amazon FBA shipment preparation","position":"20% 50%","mobilePosition":"20% 50%"} /-->
 <!-- wp:group {"tagName":"div","className":"bex-editorial-copy","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-editorial-copy">
 <!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">FOR AMAZON SELLERS</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Your next FBA shipment<br>starts here.</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Explore sea freight, air freight and express options, alongside warehouse delivery and preparation requirements.</p><!-- /wp:paragraph --><!-- wp:group {"tagName":"div","className":"bex-fba-links","layout":{"type":"default"}} -->
