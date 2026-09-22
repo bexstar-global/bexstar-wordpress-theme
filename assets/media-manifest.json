@@ -316,7 +316,6 @@
   },
   "more-than-freight": {
     "path": "assets/images/home/more-than-freight.webp",
-    "fallbackPath": "assets/images/sourcing/sourcing-main.webp",
     "width": 1600,
     "height": 1000,
     "section": "Corporate introduction",
