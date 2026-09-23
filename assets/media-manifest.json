@@ -236,8 +236,8 @@
   },
   "final-cta": {
     "path": "assets/images/home/final-cta.webp",
-    "width": 1920,
-    "height": 1080,
+    "width": 1916,
+    "height": 821,
     "section": "Final CTA",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
