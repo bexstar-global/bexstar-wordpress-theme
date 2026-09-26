@@ -225,9 +225,9 @@
     "purpose": "Industries editorial context"
   },
   "case-study": {
-    "path": "assets/images/cases/case-study.webp",
-    "width": 1600,
-    "height": 1000,
+    "path": "assets/images/cases/case-studies-main.webp",
+    "width": 1440,
+    "height": 900,
     "section": "Case study",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
