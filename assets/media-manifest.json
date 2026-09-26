@@ -315,9 +315,9 @@
     "purpose": "Category-specific industries context; decorative, hidden in mobile navigation"
   },
   "more-than-freight": {
-    "path": "assets/images/home/more-than-freight.webp",
-    "width": 1600,
-    "height": 1000,
+    "path": "assets/images/home/more-than-freight-forwarding.webp",
+    "width": 1280,
+    "height": 800,
     "section": "Corporate introduction",
     "desktopCrop": "50% 50%",
     "mobileCrop": "50% 50%",
