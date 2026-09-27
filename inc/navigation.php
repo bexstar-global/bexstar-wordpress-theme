@@ -97,7 +97,22 @@ function bexstar_render_navigation( $attributes = array() ) {
                             );
                             $feature = $features[ $group[1] ];
                             $media_ids = isset( $attributes['featureMedia'] ) && is_array( $attributes['featureMedia'] ) ? $attributes['featureMedia'] : array();
-                            $media = bexstar_render_media( array( 'slot' => $feature[2], 'decorative' => true, 'imageId' => absint( $media_ids[ $group[1] ] ?? 0 ) ) );
+                            $media_alts = array(
+                                'shipping' => __( 'Container ship at an international seaport', 'bexstar' ),
+                                'sourcing' => __( 'BEXSTAR sourcing team inspecting products in China', 'bexstar' ),
+                                'supply-chain' => __( 'BEXSTAR warehouse team coordinating supply chain operations', 'bexstar' ),
+                                'amazon-fba' => __( 'BEXSTAR team preparing shipments for Amazon FBA', 'bexstar' ),
+                                'industries' => __( 'BEXSTAR team preparing e-commerce shipments', 'bexstar' ),
+                                'resources' => __( 'Warehouse fulfillment team preparing customer shipments', 'bexstar' ),
+                                'about-us' => __( 'BEXSTAR team coordinating sourcing and logistics', 'bexstar' ),
+                            );
+                            $media_attributes = array( 'slot' => $feature[2], 'decorative' => false, 'alt' => $media_alts[ $group[1] ], 'imageId' => absint( $media_ids[ $group[1] ] ?? 0 ) );
+                            if ( 'amazon-fba' === $group[1] ) {
+                                $media_attributes['position'] = '50% 0%';
+                            } elseif ( 'industries' === $group[1] ) {
+                                $media_attributes['position'] = '50% 20%';
+                            }
+                            $media = bexstar_render_media( $media_attributes );
                             ?>
                             <div class="bex-nav-feature">
                                 <p class="bex-eyebrow"><?php echo esc_html( $group[0] ); ?></p>
