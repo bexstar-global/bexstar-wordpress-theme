@@ -205,6 +205,18 @@
       }
     }
   },
+  "customTemplates": [
+    {
+      "name": "page-get-a-quote",
+      "title": "BEXSTAR — Get a Quote",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-contact",
+      "title": "BEXSTAR — Contact",
+      "postTypes": ["page"]
+    }
+  ],
   "templateParts": [
     {
       "name": "header",
