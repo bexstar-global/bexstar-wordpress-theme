@@ -80,6 +80,7 @@ button,summary { cursor: pointer; }
 .bex-hero .bex-lead { max-width: 570px; color: #e4eaee; }
 .bex-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 32px; }
 .bex-hero-actions > * { margin: 0; }
+.bex-hero-actions .wp-block-button__link { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; }
 .bex-hero .is-style-outline .wp-block-button__link { color: #fff; border: 1px solid #fff; background: transparent; }
 .bex-hero .is-style-outline .wp-block-button__link:hover { color: #071E33; background: #fff; }
 .bex-quick { background: #F5F7F8; border-bottom: 1px solid var(--bex-line); }
@@ -109,6 +110,10 @@ button,summary { cursor: pointer; }
 .bex-video-toggle { position: absolute; top: 16px; right: 16px; z-index: 3; background: #fff; color: #071E33; border: 0; padding: .6rem 1rem; min-height: 44px; font-size: .8rem; }
 .bex-editorial { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: clamp(32px,5vw,80px); }
 .bex-editorial > * { min-width: 0; }
+/* Grid gap owns spacing; WordPress flow margins must not offset grid items. */
+.bex-main .bex-editorial > *,
+.bex-main .bex-digital-layout > *,
+.bex-main .bex-digital-tools > * { margin-block: 0; }
 .bex-editorial-copy > :first-child { margin-top: 0; }
 .bex-editorial-copy > p:not(.bex-eyebrow) { max-width: 46ch; }
 .bex-editorial-copy .wp-block-buttons { margin-top: 28px; }
@@ -184,6 +189,7 @@ button,summary { cursor: pointer; }
 .bex-unavailable { flex-direction: column; gap: 3px; cursor: default; }
 .bex-unavailable small { font-weight: 400; font-size: .7rem; text-transform: none; }
 .bex-unavailable:hover { background: #FFC400; }
+.bex-contact-actions > .bex-unavailable:nth-child(2):hover { background: transparent; color: #fff; }
 .bex-footer { background: #071E33; color: #fff; padding: 64px max(var(--bex-gutter),calc((100% - var(--bex-wide))/2 + var(--bex-gutter))) 32px; border-top: 1px solid #355064; }
 .bex-footer-brand { font-size: 1.8rem; font-weight: 700; letter-spacing: -.055em; margin: 0 0 12px; }
 .bex-footer .bex-eyebrow { color: #b7c9d4; font-size: .65rem; }
@@ -268,6 +274,7 @@ button,summary { cursor: pointer; }
     .bex-destination-copy p { margin-top: 8px; }
     .bex-destination h3 { font-size: 1.2rem; }
     .bex-process { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px 12px; }
+    .bex-process p { min-width: 0; overflow-wrap: anywhere; }
     .bex-media { aspect-ratio: var(--bex-mobile-ratio,4/5); }
     .bex-media img,.bex-media video { object-position: var(--bex-mobile-position,50% 50%); }
     .bex-media-break > .bex-media { aspect-ratio: 4/3; }
