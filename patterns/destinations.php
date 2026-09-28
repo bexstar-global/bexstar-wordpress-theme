@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-destination","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-destination">
-<!-- wp:bexstar/media {"slot":"europe","decorative":false,"alt":"Container freight train in Duisburg, Germany"} /-->
+<!-- wp:bexstar/media {"slot":"europe","decorative":false,"alt":"China-Europe freight train from Yiwu to Madrid at an intermodal rail terminal"} /-->
 <!-- wp:group {"tagName":"div","className":"bex-destination-copy","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-destination-copy">
 <!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Europe</h3><!-- /wp:heading --><!-- wp:paragraph --><p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/china-to-europe', 'destinations' ) ); ?>">Explore route →</a></p><!-- /wp:paragraph -->
