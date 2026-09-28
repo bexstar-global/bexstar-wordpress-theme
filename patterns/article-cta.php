@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:heading --><!-- wp:paragraph -->
 <p>Have your destination, package count, dimensions and weight ready.</p>
 <!-- /wp:paragraph --><!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( bexstar_section_url( 'get-a-quote', 'contact' ) ); ?>">Get a Quote</a></div><!-- /wp:button --></div>
+<div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/get-a-quote/' ) ); ?>">Get a Quote</a></div><!-- /wp:button --></div>
 <!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->

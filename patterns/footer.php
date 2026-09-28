@@ -110,10 +110,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <p><a href="<?php echo esc_url( bexstar_section_url( 'track', 'digital-logistics' ) ); ?>">Track</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p><a href="<?php echo esc_url( bexstar_section_url( 'get-a-quote', 'contact' ) ); ?>">Get a Quote</a></p>
+<p><a href="<?php echo esc_url( home_url( '/get-a-quote/' ) ); ?>">Get a Quote</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p><a href="<?php echo esc_url( bexstar_section_url( 'contact', 'contact' ) ); ?>">Contact</a></p>
+<p><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Contact</a></p>
 <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

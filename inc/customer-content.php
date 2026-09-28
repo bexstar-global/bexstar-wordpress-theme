@@ -6,16 +6,12 @@ function bexstar_published_url( $path ) {
     return $page && 'publish' === get_post_status( $page ) ? get_permalink( $page ) : '';
 }
 
-/** Published pages only. No fake enquiry submission or unavailable-page links. */
+/** Active CTA routes; the destination pages own their content and form availability. */
 function bexstar_render_customer_actions() {
     $html = '<div class="bex-contact-actions">';
     foreach ( array( 'get-a-quote' => __( 'GET A QUOTE', 'bexstar' ), 'contact' => __( 'CONTACT BEXSTAR', 'bexstar' ) ) as $path => $label ) {
-        $url = bexstar_published_url( $path );
-        if ( $url ) {
-            $html .= '<a class="bex-button" href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a>';
-        } else {
-            $html .= '<span class="bex-button bex-unavailable" aria-disabled="true">' . esc_html( $label ) . '<small>' . esc_html__( 'Coming soon', 'bexstar' ) . '</small></span>';
-        }
+        $url = home_url( '/' . $path . '/' );
+        $html .= '<a class="bex-button" href="' . esc_url( $url ) . '">' . esc_html( $label ) . '</a>';
     }
     return $html . '</div>';
 }

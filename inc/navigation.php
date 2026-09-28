@@ -3,6 +3,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /** Until a service Page is published, link to its relevant homepage overview. */
 function bexstar_nav_link( $label, $path ) {
+    // Quote and Contact are published pages, not homepage overview anchors.
+    if ( in_array( trim( $path, '/' ), array( 'get-a-quote', 'contact' ), true ) ) {
+        return '<a href="' . esc_url( home_url( '/' . trim( $path, '/' ) . '/' ) ) . '">' . esc_html( $label ) . '</a>';
+    }
     $page = get_page_by_path( trim( $path, '/' ) );
     if ( $page && 'publish' === get_post_status( $page ) ) {
         return '<a href="' . esc_url( get_permalink( $page ) ) . '">' . esc_html( $label ) . '</a>';
@@ -58,14 +62,14 @@ function bexstar_render_navigation( $attributes = array() ) {
     <div class="bex-header" data-bex-header>
         <a class="bex-skip" href="#main"><?php esc_html_e( 'Skip to content', 'bexstar' ); ?></a>
         <div class="bex-utility">
-            <a href="<?php echo esc_url( bexstar_section_url( 'contact', 'contact' ) ); ?>"><?php esc_html_e( 'Contact', 'bexstar' ); ?></a>
+            <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'bexstar' ); ?></a>
             <span lang="en" aria-label="<?php esc_attr_e( 'Current language: English.', 'bexstar' ); ?>">English</span>
         </div>
         <div class="bex-header-row">
             <a class="bex-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php esc_attr_e( 'BEXSTAR home', 'bexstar' ); ?>"><?php echo bexstar_brand_markup(); ?></a>
             <div class="bex-header-actions">
                 <a href="<?php echo esc_url( bexstar_section_url( 'track', 'digital-logistics' ) ); ?>"><?php esc_html_e( 'Track', 'bexstar' ); ?></a>
-                <a class="bex-button" href="<?php echo esc_url( bexstar_section_url( 'get-a-quote', 'contact' ) ); ?>"><?php esc_html_e( 'Get a Quote', 'bexstar' ); ?></a>
+                <a class="bex-button" href="<?php echo esc_url( home_url( '/get-a-quote/' ) ); ?>"><?php esc_html_e( 'Get a Quote', 'bexstar' ); ?></a>
             </div>
             <button class="bex-menu-toggle" hidden aria-expanded="false" aria-controls="<?php echo esc_attr( $id ); ?>"><?php esc_html_e( 'Menu', 'bexstar' ); ?></button>
         </div>
