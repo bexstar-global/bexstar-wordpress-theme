@@ -133,7 +133,9 @@ function bexstar_render_quote_form() {
             <?php bexstar_quote_input( 'whatsapp', 'WhatsApp', $data, $errors, 'tel', false, 'autocomplete="tel" maxlength="32" placeholder="+1 555 123 4567"' ); ?>
             <?php bexstar_quote_input( 'email', 'Email', $data, $errors, 'email', false, 'autocomplete="email" maxlength="254"' ); ?>
         </div></fieldset>
-        <fieldset><legend>How would you like to describe your cargo?</legend>
+        <fieldset><legend>Cargo Information</legend>
+        <p class="bex-quote-hint">Not sure about the exact weight or volume? Send what you know — we can help.</p>
+        <p>How would you like to describe your cargo?</p>
         <div class="bex-quote-methods">
         <label><input type="radio" name="method" value="package" <?php checked( $method, 'package' ); ?>> Package details</label>
         <label><input type="radio" name="method" value="total" <?php checked( $method, 'total' ); ?>> Total cargo</label>
