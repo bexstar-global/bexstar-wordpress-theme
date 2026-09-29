@@ -293,3 +293,21 @@ button,summary { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
     *,*::before,*::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
 }
+
+/* Verified Contact page only; shared header, footer and homepage stay unchanged. */
+.bex-contact-page > section { margin-block-start: 0; }
+.bex-contact-page .bex-contact-intro { background: var(--bex-navy); color: #fff; }
+.bex-contact-page h1 { max-width: 18ch; font-size: clamp(2.5rem,5vw,4.5rem); line-height: 1.08; letter-spacing: -.035em; margin-block: 1rem 1.75rem; }
+.bex-contact-page .bex-contact-intro .bex-eyebrow { color: var(--bex-yellow); }
+.bex-contact-page .bex-contact-intro p { max-width: 65ch; }
+.bex-contact-page .bex-contact-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px 48px; }
+.bex-contact-page .bex-contact-detail { margin-block-start: 0; min-width: 0; padding-top: 20px; border-top: 1px solid var(--bex-line); }
+.bex-contact-page .bex-contact-detail h3 { margin: 0 0 8px; font-size: 1.1rem; line-height: 1.4; }
+.bex-contact-page .bex-contact-detail p { margin: 0; overflow-wrap: anywhere; }
+.bex-contact-page .bex-contact-detail a { display: inline-block; padding-block: 6px; text-underline-offset: .2em; }
+.bex-contact-page .bex-contact-quote { background: #f4f6f8; }
+.bex-contact-page .bex-contact-quote p { max-width: 60ch; }
+.bex-contact-page .wp-block-buttons { margin-top: 28px; }
+@media (max-width: 640px) {
+    .bex-contact-page .bex-contact-grid { grid-template-columns: 1fr; gap: 24px; }
+}
