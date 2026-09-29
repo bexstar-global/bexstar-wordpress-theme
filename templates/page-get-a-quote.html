@@ -1,26 +1,15 @@
 <!-- wp:template-part {"slug":"header","tagName":"header","area":"header","align":"full"} /-->
-<!-- wp:group {"tagName":"main","anchor":"main","className":"bex-main","align":"full","layout":{"type":"default"}} -->
-<main id="main" class="wp-block-group alignfull bex-main">
-<!-- wp:group {"className":"bex-section bex-reading","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-section bex-reading">
-<!-- wp:post-title {"level":1} /-->
-<!-- wp:paragraph {"className":"bex-lead"} -->
-<p class="bex-lead">Plan your next shipment from China with BEXSTAR.</p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
-<p>Prepare your cargo details, origin, destination and preferred delivery timing for a future quote request.</p>
-<!-- /wp:paragraph -->
-<!-- wp:group {"anchor":"quote-form","layout":{"type":"default"}} -->
-<div id="quote-form" class="wp-block-group">
-<!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">Quote request</h2>
-<!-- /wp:heading -->
-<!-- wp:paragraph -->
-<p>The online quote form is not available yet. This page cannot accept or submit quote requests.</p>
-<!-- /wp:paragraph -->
-<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
-</div>
-<!-- /wp:group -->
+<!-- wp:group {"tagName":"main","anchor":"main","className":"bex-main bex-quote-page","align":"full","layout":{"type":"default"}} -->
+<main id="main" class="wp-block-group alignfull bex-main bex-quote-page">
+<!-- wp:group {"className":"bex-section bex-quote-wrap","layout":{"type":"default"}} -->
+<div class="wp-block-group bex-section bex-quote-wrap">
+<!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">GET A QUOTE</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":1} --><h1 class="wp-block-heading">Get a shipping quote.</h1><!-- /wp:heading -->
+<!-- wp:paragraph {"className":"bex-lead"} --><p class="bex-lead">Tell us where your cargo is going and provide the shipment details you already have. You do not need every detail to get started.</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Leave your WhatsApp or email and the BEXSTAR team can follow up if more information is needed.</p><!-- /wp:paragraph -->
+<!-- wp:shortcode -->
+[bexstar_quote_form]
+<!-- /wp:shortcode -->
 </div>
 <!-- /wp:group -->
 </main>

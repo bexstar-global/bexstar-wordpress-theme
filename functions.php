@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 require_once __DIR__ . '/inc/navigation.php';
 require_once __DIR__ . '/inc/media.php';
 require_once __DIR__ . '/inc/customer-content.php';
+require_once __DIR__ . '/inc/quote-form.php';
 
 add_action( 'after_setup_theme', function () {
     load_theme_textdomain( 'bexstar', get_template_directory() . '/languages' );

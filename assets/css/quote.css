@@ -1,0 +1,29 @@
+/* Loaded only on the quote page. */
+.bex-quote-page h1 { max-width: 20ch; font-size: clamp(2.5rem,5vw,4.5rem); line-height: 1.08; letter-spacing: -.035em; margin-block: 1rem 1.75rem; }
+.bex-quote-page .bex-quote-wrap { max-width: 1040px; }
+.bex-quote-page .bex-quote-form { margin-top: 40px; }
+.bex-quote-form fieldset { min-width: 0; border: 0; margin: 0 0 24px; padding: 0; }
+.bex-quote-form legend { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; padding: 0; }
+.bex-quote-form p { margin: 0 0 16px; }
+.bex-quote-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px 24px; }
+.bex-quote-field { min-width: 0; }
+.bex-quote-field label { display: block; font-weight: 600; margin-bottom: 6px; font-size: .95rem; }
+.bex-quote-field input,.bex-quote-field select,.bex-quote-field textarea { box-sizing: border-box; width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #647587; border-radius: 0; background: white; color: #071E33; font: inherit; }
+.bex-quote-field textarea { resize: vertical; }
+.bex-quote-form :where(input,select,textarea,summary):focus-visible { outline: 3px solid #1177c7; outline-offset: 3px; }
+.bex-quote-methods { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.bex-quote-methods label { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #f4f6f8; border: 1px solid #647587; cursor: pointer; }
+.bex-quote-methods label:has(input:checked) { border-color: #071E33; background: #fff3c2; }
+.bex-quote-methods input { accent-color: #071E33; width: 18px; height: 18px; }
+.bex-quote-form [data-cargo-method] legend { font-size: 1rem; }
+.bex-quote-form .bex-quote-optional { border-top: 1px solid #d6dfe4; margin-bottom: 24px; }
+.bex-quote-optional summary { padding: 16px 0; cursor: pointer; }
+.bex-quote-optional > .bex-quote-field { margin-top: 16px; }
+.bex-quote-hint { color: #485869; font-size: .9rem; }
+.bex-quote-error { color: #9e2424; }
+.bex-quote-field [aria-invalid="true"] { border-color: #9e2424; }
+.bex-quote-notice { margin-block: 24px; padding: 20px; border: 1px solid currentColor; overflow-wrap: anywhere; }
+.bex-quote-notice p { margin-top: 0; }
+.bex-quote-form .bex-quote-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.bex-quote-form .bex-button { border: 0; cursor: pointer; min-height: 48px; }
+@media (max-width: 640px) { .bex-quote-grid { grid-template-columns: 1fr; } .bex-quote-form .bex-button { width: 100%; } }
