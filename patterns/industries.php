@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-industry","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-industry">
-<!-- wp:bexstar/media {"slot":"retailers","decorative":false,"alt":"Warehouse staff checking and packing clothing and merchandise for retailers"} /-->
+<!-- wp:bexstar/media {"slot":"retailers","decorative":false,"alt":"Warehouse packing and smart sorting operation for retail order fulfillment"} /-->
 <!-- wp:heading {"level":3} --><h3 class="wp-block-heading"><a href="<?php echo esc_url( bexstar_section_url( 'industries/retailers', 'industries' ) ); ?>">Retailers →</a></h3><!-- /wp:heading -->
 </div>
 <!-- /wp:group -->
