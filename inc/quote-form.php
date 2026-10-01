@@ -130,11 +130,11 @@ function bexstar_render_quote_form() {
         <fieldset><legend>How can we reach you?</legend><p id="bex-q-contact-help">WhatsApp or email — at least one is required.</p>
         <p class="bex-quote-error" id="bex-q-contact-error" role="alert" <?php echo isset( $errors['contact'] ) ? '' : 'hidden'; ?>>Please provide your WhatsApp number or email so we can send your quotation.</p>
         <div class="bex-quote-grid">
-            <?php bexstar_quote_input( 'whatsapp', 'WhatsApp', $data, $errors, 'tel', false, 'autocomplete="tel" maxlength="32" placeholder="+1 555 123 4567"' ); ?>
+            <?php bexstar_quote_input( 'whatsapp', 'WhatsApp', $data, $errors, 'tel', false, 'autocomplete="tel" maxlength="32" placeholder="+ Country code + phone number"' ); ?>
             <?php bexstar_quote_input( 'email', 'Email', $data, $errors, 'email', false, 'autocomplete="email" maxlength="254"' ); ?>
         </div></fieldset>
         <fieldset><legend>Cargo Information</legend>
-        <p class="bex-quote-hint">Not sure about the exact weight or volume? Send what you know — we can help.</p>
+        <p class="bex-quote-hint">Not sure about the exact weight or volume? Send what you know — we can help. Estimates are fine.</p>
         <p>How would you like to describe your cargo?</p>
         <div class="bex-quote-methods">
         <label><input type="radio" name="method" value="package" <?php checked( $method, 'package' ); ?>> Package details</label>
