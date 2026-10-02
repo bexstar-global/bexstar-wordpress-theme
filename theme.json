@@ -208,12 +208,17 @@
   "customTemplates": [
     {
       "name": "page-get-a-quote",
-      "title": "BEXSTAR — Get a Quote",
+      "title": "BEXSTAR \u2014 Get a Quote",
       "postTypes": ["page"]
     },
     {
       "name": "page-contact",
-      "title": "BEXSTAR — Contact",
+      "title": "BEXSTAR \u2014 Contact",
+      "postTypes": ["page"]
+    },
+    {
+      "name": "page-track",
+      "title": "BEXSTAR \u2014 Track Shipment",
       "postTypes": ["page"]
     }
   ],

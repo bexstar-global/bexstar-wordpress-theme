@@ -1,0 +1,107 @@
+# Phase 3A Tracking Core — dormant contracts
+
+This skeleton performs no HTTP requests, registers no REST endpoint, creates no
+WordPress pages or database tables, and returns no public tracking results.
+`bexstar_tracking_ready()` deliberately returns false. Header/footer Track links
+retain their existing homepage anchor even if a Track page is published.
+The disabled page foundation is available as “BEXSTAR — Track Shipment”. Create
+a draft page with slug `track` and select that template for a future preview;
+page publication and service activation are separate acceptance steps.
+
+## Internal mapping
+
+`MappingRepository` is the persistence boundary; there is no production storage
+implementation yet. The in-memory implementation exists only inside offline tests.
+A future database implementation should use a parent shipment table with a unique,
+case-sensitive BEXSTAR number and a child reference table with a foreign shipment
+key, unique reference ID, leg ID, provider code, provider tracking number, role,
+and optional account/configuration reference. Save parent and children atomically.
+Do not store secrets in mappings. Only controlled administrator imports may write.
+Keep shipments independent of the active theme; a later plugin extraction must
+preserve the tables. Migrations require explicit execution, not frontend requests.
+
+One BEXSTAR number may contain many legs. Every leg has exactly one primary
+reference and zero or more fallback references. A split shipment uses separate
+leg IDs. A transfer/last-mile leg is explicit, never inferred from number format.
+The resolver uses exact internal mapping only and never enumerates providers.
+Its execution plan is PRIVATE; it contains provider codes and provider references.
+A missing mapping returns not_found. Current provisional BEXSTAR syntax is 3–64
+ASCII letters/digits/hyphens starting with a letter/digit, case preserved. Confirm
+actual issuing rules before importing existing shipments.
+
+## Adapter and configuration boundaries
+
+Adapters implement `ProviderAdapter::code()` and `fetch($reference)` and raise
+`TrackingError` for known failures. Registry registration is explicit and rejects
+collisions; it must never auto-load a class from public request data. The skeleton
+registers no adapters. Config defaults disable public access, remote requests and
+fallback. Limits are contract defaults, not a rate limiter or network transport.
+The future controller/service must enforce them before invoking any adapter.
+
+Future 17TRACK support uses an adapter key such as `seventeentrack` and a mapped
+fallback reference for a specific leg. The aggregator may need a carrier identifier,
+registration step, account reference or different lookup number: obtain these from
+its API contract rather than assuming it accepts a BEXSTAR number. The resolver
+includes only explicitly enabled mapped fallback references, in stored order,
+bounded by max_fallbacks_per_leg. A future executor first attempts the enabled
+direct adapter and invokes a fallback only for documented eligible errors
+(e.g. timeout/unavailable, or confirmed no-result where policy permits). It must
+never fan out blindly or treat malformed/authentication failures as not_found.
+Disabled direct adapters must not be called. Without an eligible fallback, fail
+safely. Adding an adapter must not change the public page or schema.
+
+## Normalized contract
+
+`response.schema.json` is the public success contract. Provider names/codes,
+provider tracking numbers, account references and raw payloads are intentionally
+excluded with additionalProperties=false. The internal mapping supplies provider
+identity; adapters may retain private metadata separately. Do not JSON-serialize
+adapter arrays directly to the browser. A future normalizer/public projector must
+validate the final response against this contract.
+
+Missing data is null; unknown status is `unknown`, never a fabricated milestone.
+Event `status` and `description` must be customer-safe plain text (no raw provider
+technical text, addresses, phone numbers or secrets). Timestamps require a known
+UTC offset. Never guess a timezone; preserve ambiguous source times privately
+and publish null until resolved. `last_updated` is a shipment update, not fetch time.
+Use an opaque event ID. Deduplicate within a source using provider event ID or a
+stable fingerprint; do not collapse legitimate events across separate legs merely
+because their timestamps match. Sort dated events consistently and undated events
+separately. Keep leg IDs opaque. Mark partial data explicitly. Never mark the whole
+shipment delivered unless all required legs have confirmed delivery; ambiguous
+leg status should remain unknown. Fallback results must not overwrite stronger
+confirmed milestones with an older snapshot. These normalization/aggregation rules
+are contracts for the next implementation, not implemented live behavior.
+
+## Required before enabling
+
+- Persistent mapping repository and authorized import workflow.
+- Controller/service, public-data projection, normalization and contract validation.
+- Public-reference entropy/access policy and atomic rate limiting.
+- Server-only credentials, fixed HTTPS allowlists, response/timeout limits.
+- Cache, request coalescing, provider circuit breakers and redacted logs.
+- Provider-specific documented status/timezone/error mappings.
+- Anshida acceptance first; Shangyi second; no aggregator integration yet.
+- Frontend timeline and accessible error/loading states; six-width acceptance.
+- Explicit review of the readiness gate and homepage integration.
+
+No customer result fixtures may be loaded in production. Fixture identifiers use
+TEST prefixes and are illustrative only, not real provider responses.
+
+## Offline checks
+
+Run from the theme root with PHP 7.4+:
+
+    php -r "define('BEXSTAR_TRACKING_TEST', true); require 'tests/tracking/core.php';"
+
+The test defines minimal WordPress stubs and uses only an in-memory repository and
+a fixture adapter. It sends no email and makes no network/database requests.
+`tests/tracking/schema.mjs` needs development-only `ajv` and `ajv-formats` packages;
+run it with `BEXSTAR_TEST_NODE_MODULES` pointing to their node_modules directory.
+Nothing from those packages is needed by the theme at runtime.
+
+API documentation still required for BOTH Anshida and Shangyi: exact company/API
+identity and version, sandbox/production endpoints, auth/signature specification
+(no secrets in chat/Git), lookup-number types, request/response envelopes, status
+codes, timezone conventions, pagination/multi-piece behavior, rate limits, IP
+allowlists, and sanitized success/no-result/auth-error/timeout response samples.

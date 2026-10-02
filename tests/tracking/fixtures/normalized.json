@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "shipment": {
+    "tracking_number": "TEST-BEX-0001",
+    "transport_mode": null,
+    "origin": null,
+    "destination": null,
+    "current_status": "unknown",
+    "last_updated": null
+  },
+  "events": [],
+  "meta": {
+    "fetched_at": null,
+    "stale": false,
+    "partial": false
+  }
+}

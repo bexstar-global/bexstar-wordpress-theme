@@ -8,6 +8,7 @@ require_once __DIR__ . '/inc/navigation.php';
 require_once __DIR__ . '/inc/media.php';
 require_once __DIR__ . '/inc/customer-content.php';
 require_once __DIR__ . '/inc/quote-form.php';
+require_once __DIR__ . '/inc/tracking/bootstrap.php';
 
 add_action( 'after_setup_theme', function () {
     load_theme_textdomain( 'bexstar', get_template_directory() . '/languages' );
@@ -46,6 +47,9 @@ add_action( 'init', function () {
 
 /** Resolve links against this WordPress installation, not the future production domain. */
 function bexstar_section_url( $path, $anchor ) {
+    if ( 'track' === trim( $path, '/' ) && ! bexstar_tracking_ready() ) {
+        return home_url( '/#' . sanitize_title( $anchor ) );
+    }
     $page = get_page_by_path( trim( $path, '/' ) );
     if ( $page && 'publish' === get_post_status( $page ) ) {
         return get_permalink( $page );

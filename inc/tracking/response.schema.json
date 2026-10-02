@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:bexstar:tracking:public-response:v1",
+  "title": "Public BEXSTAR tracking response (provider identifiers excluded)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "shipment",
+    "events",
+    "meta"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "shipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tracking_number",
+        "transport_mode",
+        "origin",
+        "destination",
+        "current_status",
+        "last_updated"
+      ],
+      "properties": {
+        "tracking_number": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]{2,63}$"
+        },
+        "transport_mode": {
+          "enum": [
+            "sea",
+            "air",
+            "rail",
+            "truck",
+            "express",
+            "multimodal",
+            null
+          ]
+        },
+        "origin": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 500
+        },
+        "destination": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "maxLength": 500
+        },
+        "current_status": {
+          "enum": [
+            "shipment_created",
+            "cargo_received",
+            "warehouse_processing",
+            "departed_origin",
+            "in_transit",
+            "arrived_destination",
+            "customs_clearance",
+            "customs_released",
+            "out_for_delivery",
+            "delivered",
+            "exception",
+            "unknown"
+          ]
+        },
+        "last_updated": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 2000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "leg_id",
+          "timestamp",
+          "location",
+          "status",
+          "description",
+          "normalized_status"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "leg_id": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 128
+          },
+          "timestamp": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "status": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "description": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "maxLength": 500
+          },
+          "normalized_status": {
+            "enum": [
+              "shipment_created",
+              "cargo_received",
+              "warehouse_processing",
+              "departed_origin",
+              "in_transit",
+              "arrived_destination",
+              "customs_clearance",
+              "customs_released",
+              "out_for_delivery",
+              "delivered",
+              "exception",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fetched_at",
+        "stale",
+        "partial"
+      ],
+      "properties": {
+        "fetched_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "partial": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
