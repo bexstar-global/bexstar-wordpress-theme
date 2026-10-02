@@ -177,8 +177,8 @@ button,summary { cursor: pointer; }
 .bex-editorial > * { min-width: 0; }
 /* Grid gap owns spacing; WordPress flow margins must not offset grid items. */
 .bex-main .bex-editorial > *,
-.bex-main .bex-digital-layout > *,
-.bex-main .bex-digital-tools > * { margin-block: 0; }
+.bex-main .bex-solutions-grid > *,
+.bex-main .bex-solution > * { margin-block: 0; }
 .bex-editorial-copy > :first-child { margin-top: 0; }
 .bex-editorial-copy > p:not(.bex-eyebrow) { max-width: 46ch; }
 .bex-editorial-copy .wp-block-buttons { margin-top: 28px; }
@@ -225,15 +225,34 @@ button,summary { cursor: pointer; }
 .bex-industry h3 a { text-decoration: none; }
 .bex-dark { background: #071E33; color: #fff; max-width: none; padding-inline: max(var(--bex-gutter),calc((100% - var(--bex-wide))/2 + var(--bex-gutter))); }
 .bex-dark a { color: #fff; }
-.bex-digital-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; }
-.bex-digital-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.bex-digital-feature { border-top: 2px solid #FFC400; padding-top: 18px; min-width: 0; }
-.bex-digital-feature h3 { margin-top: 0; font-size: 1.35rem; }
-.bex-digital-feature p { font-size: .92rem; color: #d5dfe6; }
+/* Editorial solution cards reuse the shared media block and its fallback. */
+.bex-solutions-intro { max-width: 850px; margin-bottom: 40px; }
+.bex-solutions-intro h2 { margin: 16px 0 20px; }
+.bex-solutions-intro .bex-lead { color: #d5dfe6; }
+.bex-solutions-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 20px; }
+.bex-solution { display: flex; flex-direction: column; min-width: 0; background: #fff; color: var(--bex-navy); }
+.bex-digital-solutions .bex-solution > .bex-media { width: 100%; aspect-ratio: 4/3; flex: none; }
+.bex-solution .bex-media img { object-fit: cover; }
+.bex-solution-body { display: flex; flex: 1; flex-direction: column; padding: 24px 20px; }
+.bex-solution-body h3 { margin: 0 0 16px; font-size: 1.3rem; line-height: 1.25; min-height: 2.5em; }
+.bex-solution-body > p { margin: 0 0 24px; font-size: 1rem; line-height: 1.6; }
+.bex-solution-action { margin-top: auto; padding-top: 18px; border-top: 2px solid var(--bex-yellow); }
+.bex-solution-action p { margin: 0; }
+.bex-digital-solutions .bex-solution-action a { display: inline-flex; align-items: center; min-height: 44px; color: var(--bex-navy); font-size: .75rem; font-weight: 700; line-height: 1.5; text-underline-offset: 4px; }
+.bex-solution-action a:hover { text-decoration-thickness: 2px; }
+.bex-solution-unavailable { font-size: .75rem; font-weight: 700; line-height: 1.5; color: #53616e; }
 .bex-status { font-size: .75rem !important; letter-spacing: .06em; text-transform: uppercase; }
-.bex-future-tools { grid-column: 1/-1; padding-top: 16px; border-top: 1px solid #426073; }
-.bex-future-tools p { display: flex; justify-content: space-between; gap: 20px; font-size: .875rem; }
-.bex-future-tools span { color: #b1c3cf; font-size: .75rem; }
+.bex-solution-action .bex-status { margin-top: 8px; color: #53616e; }
+@media (min-width: 768px) and (max-width: 1239px) {
+    .bex-solutions-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; }
+}
+@media (min-width: 1000px) and (max-width: 1239px) {
+    .bex-solutions-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 767px) {
+    .bex-solutions-grid { grid-template-columns: minmax(0,1fr); gap: 28px; }
+    .bex-solution-body h3 { min-height: 0; }
+}
 .bex-case-empty { border-top: 1px solid var(--bex-line); margin-top: 36px; padding-top: 20px; color: #5F6B76; }
 .bex-case-grid,.bex-reasons { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: var(--bex-gap); margin-top: 40px; }
 .bex-case-item { min-width: 0; }
@@ -314,7 +333,6 @@ button,summary { cursor: pointer; }
     .bex-panel > ul { grid-column: auto; display: block; }
     .bex-nav-media,.bex-nav-feature-media { display: none; }
     .bex-mega-editorial .bex-nav-feature { border-left: 1px solid var(--bex-line); }
-    .bex-digital-layout { gap: 40px; }
 }
 @media (min-width: 768px) and (max-width: 1239px) {
     .bex-main .bex-services-primary > .bex-service-feature { margin-block: 0; }
@@ -331,7 +349,7 @@ button,summary { cursor: pointer; }
     .bex-headline-line { white-space: normal; }
     .bex-panel,.bex-mega-editorial .bex-panel { grid-template-columns: 1fr; }
     .bex-nav-feature,.bex-mega-editorial .bex-nav-feature { border-left: 0; border-top: 1px solid var(--bex-line); padding: 20px 0 0; }
-    .bex-editorial,.bex-services-primary,.bex-digital-layout { grid-template-columns: 1fr; gap: 32px; }
+    .bex-editorial,.bex-services-primary { grid-template-columns: 1fr; gap: 32px; }
     .bex-service-feature:nth-child(2) { padding-top: 0; }
     .bex-services-secondary { grid-template-columns: 1fr 1fr; }
     .bex-destinations-grid,.bex-industries-grid { grid-template-columns: 1fr 1fr; gap: 28px 16px; }
@@ -349,7 +367,7 @@ button,summary { cursor: pointer; }
     .bex-final { min-height: 420px; }
 }
 @media (max-width: 379px) {
-    .bex-destinations-grid,.bex-industries-grid,.bex-digital-tools { grid-template-columns: 1fr; }
+    .bex-destinations-grid,.bex-industries-grid { grid-template-columns: 1fr; }
     .bex-fba-links { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: no-preference) {
