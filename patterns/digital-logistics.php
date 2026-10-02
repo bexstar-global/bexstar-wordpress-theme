@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <div class="wp-block-group bex-digital-tools">
 <!-- wp:group {"tagName":"div","className":"bex-digital-feature","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-digital-feature">
-<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Get a Quote</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Share the details of your next shipment.</p><!-- /wp:paragraph --><!-- wp:paragraph {"className":"bex-status"} --><p class="bex-status">Coming soon</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3 class="wp-block-heading"><a href="<?php echo esc_url( home_url( '/get-a-quote/' ) ); ?>">Get a Quote</a></h3><!-- /wp:heading --><!-- wp:paragraph --><p>Share the details of your next shipment.</p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group --><!-- wp:group {"tagName":"div","className":"bex-digital-feature","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-digital-feature">

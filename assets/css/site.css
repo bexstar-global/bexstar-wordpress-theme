@@ -251,6 +251,10 @@ button,summary { cursor: pointer; }
     .bex-mega-editorial .bex-nav-feature { border-left: 1px solid var(--bex-line); }
     .bex-digital-layout { gap: 40px; }
 }
+@media (min-width: 768px) and (max-width: 1239px) {
+    .bex-main .bex-services-primary > .bex-service-feature { margin-block: 0; }
+    .bex-service-feature:nth-child(2) { padding-top: 0; }
+}
 @media (max-width: 767px) {
     .bex-header-row { flex-wrap: wrap; gap: 12px; }
     .bex-header-actions { order: 3; width: 100%; justify-content: space-between; }
