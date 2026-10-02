@@ -93,7 +93,7 @@ button,summary { cursor: pointer; }
 .bex-hub-quote h2 { font-size: 1.35rem; }
 .bex-hub-form { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 .bex-hub-routes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
-.bex-hub-route .bex-hub-fields { grid-template-columns: 1fr; gap: 18px; }
+.bex-hub-route .bex-hub-fields { grid-template-columns: 1fr; gap: 26px; }
 .bex-hub-route .bex-hub-fields input { margin-top: 8px; }
 .bex-hub-section p,.bex-hub-section li { font-size: .875rem; line-height: 1.55; }
 .bex-hub-section > p { margin: 0 0 16px; }
@@ -102,6 +102,8 @@ button,summary { cursor: pointer; }
 .bex-hub-fields input { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: 6px; padding: 10px; border: 1px solid #7b8995; border-radius: 0; background: #fff; color: var(--bex-navy); font: inherit; font-size: 1rem; }
 .bex-hub-form fieldset { min-width: 0; margin: 0 0 20px; padding: 0; border: 0; }
 .bex-hub-form legend { margin-bottom: 10px; padding: 0; font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
+.bex-hub-form .bex-hub-modes { margin-bottom: 28px; }
+.bex-hub-form .bex-hub-route legend { margin-bottom: 18px; }
 .bex-hub-mode-options { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 6px; }
 .bex-hub-mode-options label { position: relative; min-width: 0; cursor: pointer; }
 .bex-hub-mode-options input { position: absolute; opacity: 0; width: 1px; height: 1px; }
@@ -113,7 +115,10 @@ button,summary { cursor: pointer; }
 .bex-hub-section .bex-button { border: 0; }
 .bex-hub-next .bex-button { min-width: 120px; }
 .bex-hub-section .bex-hub-disabled { background: #e8edf0; color: #485869; cursor: not-allowed; margin-top: 8px; }
+.bex-hub-customers .bex-hub-disabled:disabled,
+.bex-hub-customers .bex-hub-disabled:disabled:hover { background: #f1f4f6; color: #34485a; border: 1px solid #a5b2bd; opacity: 1; box-shadow: none; transition: none; }
 .bex-hub-fields input:disabled { background: #f4f6f8; cursor: not-allowed; }
+.bex-hub-tracking .bex-hub-fields input:disabled:not([aria-invalid="true"]) { border-color: #7b8995; box-shadow: none; }
 .bex-hub-section .bex-hub-status { margin: 8px 0 0; font-size: .75rem; color: #485869; }
 .bex-hub-tracking .bex-hub-fields { grid-template-columns: 1fr; }
 .bex-hub-secondary { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--bex-line); }
