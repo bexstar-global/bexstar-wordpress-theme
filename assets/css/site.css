@@ -84,6 +84,20 @@ button,summary { cursor: pointer; }
 .bex-hero .is-style-outline .wp-block-button__link { color: #fff; border: 1px solid #fff; background: transparent; }
 .bex-hero .is-style-outline .wp-block-button__link:hover { color: #071E33; background: #fff; }
 .bex-quick { background: #fff; border-bottom: 1px solid var(--bex-line); }
+/* Compose the cinematic hero and action panel without changing mobile flow. */
+@media (min-width: 768px) {
+    .bex-main > .bex-hero + .bex-quick {
+        position: relative;
+        z-index: 1;
+        width: 90%;
+        margin: -48px auto 24px;
+        border: 1px solid var(--bex-line);
+        box-shadow: 0 12px 32px rgb(7 30 51 / 12%);
+    }
+}
+@media (min-width: 1240px) {
+    .bex-main > .bex-hero + .bex-quick { margin-top: -60px; margin-bottom: 32px; }
+}
 .bex-action-hub { display: grid; grid-template-columns: minmax(0,23fr) minmax(0,54fr) minmax(0,23fr); width: 100%; max-width: var(--bex-wide); margin: 0 auto; padding: 32px var(--bex-gutter); color: var(--bex-navy); }
 .bex-hub-section { min-width: 0; padding-inline: 24px; }
 .bex-hub-customers { grid-column: 1; grid-row: 1; padding-left: 0; }
