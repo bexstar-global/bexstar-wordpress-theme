@@ -2,6 +2,7 @@
 /** Offline tests only. Run: php -r "define('BEXSTAR_TRACKING_TEST', true); require 'tests/tracking/core.php';" */
 if ( ! defined( 'BEXSTAR_TRACKING_TEST' ) ) { exit; }
 define( 'ABSPATH', __DIR__ );
+function add_action( $hook, $callback ) {}
 function add_shortcode( $name, $callback ) { $GLOBALS['shortcodes'][$name] = $callback; }
 function esc_url( $url ) { return $url; }
 function home_url( $path ) { return 'https://example.test' . $path; }
@@ -71,3 +72,10 @@ $race = new RacingRepository();
 (new TrackingNumberAllocator($race))->create(new DateTimeImmutable('2026-10-02'),array($refs[0]));
 check($race->inserts===2,'atomic insert collision retried');
 echo "PASS: canonical format, date validation, duplicate protection, random allocation, race retry and cross-year exhaustion\n";
+check(substr_count($html,'<form ')===1,'single BEXSTAR primary form');
+check(strpos($html,'BEXSTAR Tracking Number')!==false && strpos($html,'BEXSTAR1002037')!==false && strpos($html,'TRACK NOW')!==false,'approved form copy');
+check(substr_count($html,'data-tracking-error=')===4,'four safe error templates');
+check(strpos($html,'bex-tracking-results-title" hidden')!==false,'results hidden until real data');
+check(Config::partnerUrl()==='', 'partner URL pending');
+check(strpos($html,'provider_tracking_number')===false && strpos($html,'provider_code')===false,'no private mapping fields in view');
+echo "PASS: BEXSTAR-first page structure, pending partner URL and empty result states\n";

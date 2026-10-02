@@ -127,3 +127,39 @@ references require a separate authorized operation, not duplicate parent inserts
 This short number is guessable and is not a secret/access token. Before public
 activation, implement rate limits and the previously planned public-data/access
 policy. All live tracking remains disabled.
+
+## BEXSTAR-first tracking UX
+
+`templates/page-track.html` uses the existing shared header/footer and loads the
+`bexstar_tracking` shortcode from `inc/tracking/view.php`. Tracking CSS is loaded
+only on the Track page/template. There is one primary form, with the canonical
+example and TRACK NOW CTA. Its fieldset stays disabled until a separately reviewed
+Core endpoint and activation change exist. No result or error is fabricated; empty
+result fields, timeline template and four customer-safe error templates are hidden.
+The readiness gate still prevents homepage/header/footer activation.
+
+17TRACK is a small text-only partner area below the primary form, not a second
+lookup channel. No official BEXSTAR EXPRESS carrier-page URL is documented in
+this repository. After verification, set `BEXSTAR_17TRACK_CARRIER_URL` in protected
+server configuration (for example wp-config.php) to that exact HTTPS carrier-page
+URL. Only 17track.net or its subdomains are accepted; credentials and custom ports
+are rejected. Without a valid configured URL the partner element is non-clickable
+and explicitly pending. No support/registration claim beyond the requested partner
+label is added. No logos or external branding assets are used.
+
+When the endpoint is implemented, the primary form must submit exclusively to the
+BEXSTAR Tracking Core. Do not wire this form directly to 17TRACK or a provider.
+The future frontend must render only the public schema via textContent, omit
+unknown optional fields, announce loading/results, show an allowlisted error
+message, and ignore stale requests. Status labels map to the canonical enum;
+`unknown` is allowed without inventing milestones. The existing error-template
+keys are invalid_number, not_found, unavailable and provider_unavailable. No
+technical details or actual provider names may be interpolated into these messages.
+
+A future OUTBOUND aggregator adapter (BEXSTAR queries 17TRACK) is separate from a
+future INBOUND BEXSTAR Carrier API (17TRACK queries BEXSTAR). The inbound API must
+accept the canonical BEXSTAR public number and use the same Core/public projection.
+It must exclude provider_code, provider_tracking_number, internal TMS IDs, credentials
+and underlying errors. Add versioning, partner authentication/scopes, rate limits
+and contract tests before publishing it. Do not expose the private resolver plan.
+Neither API direction is activated by this page foundation or its partner link.

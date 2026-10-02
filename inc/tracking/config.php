@@ -3,6 +3,15 @@ namespace Bexstar\Tracking;
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 final class Config {
+    /** Only a reviewed official carrier-page URL should be set in server configuration. */
+    public static function partnerUrl(): string {
+        $url = defined( 'BEXSTAR_17TRACK_CARRIER_URL' ) ? BEXSTAR_17TRACK_CARRIER_URL : '';
+        if ( ! is_string( $url ) || ! filter_var( $url, FILTER_VALIDATE_URL ) ) { return ''; }
+        $parts = parse_url( $url );
+        $host = strtolower( $parts['host'] ?? '' );
+        if ( 'https' !== ($parts['scheme'] ?? '') || isset($parts['user']) || isset($parts['pass']) || isset($parts['port']) || ! preg_match('/(?:^|\.)17track\.net$/', $host) ) { return ''; }
+        return $url;
+    }
     // Contract defaults only: no endpoints, secrets or live adapters.
     public static function defaults(): array {
         return array(

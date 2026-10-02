@@ -7,6 +7,9 @@ foreach ( array( 'errors', 'mapping', 'storage', 'allocator', 'config', 'resolve
 /** Deliberately closed until endpoint security and real-provider acceptance are complete. */
 function bexstar_tracking_ready() { return false; }
 
-add_shortcode( 'bexstar_tracking', function () {
-    return '<div class="bex-tracking-foundation"><p id="bex-tracking-availability">Shipment tracking is coming soon. Please contact BEXSTAR for shipment updates.</p><p><label for="bex-tracking-number">BEXSTAR tracking number</label><br><input id="bex-tracking-number" type="text" disabled aria-describedby="bex-tracking-availability"></p><button type="button" disabled aria-describedby="bex-tracking-availability">TRACK — Coming soon</button><p><a href="' . esc_url( home_url( '/contact/' ) ) . '">CONTACT BEXSTAR</a></p></div>';
+require_once __DIR__ . '/view.php';
+add_shortcode( 'bexstar_tracking', 'bexstar_render_tracking_page' );
+add_action( 'wp_enqueue_scripts', function () {
+    if ( ! is_page( 'track' ) && ! is_page_template( 'page-track' ) ) { return; }
+    wp_enqueue_style( 'bexstar-tracking', get_theme_file_uri( 'assets/css/tracking.css' ), array( 'bexstar-site' ), filemtime( get_theme_file_path( 'assets/css/tracking.css' ) ) );
 } );

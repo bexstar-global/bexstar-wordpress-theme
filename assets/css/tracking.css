@@ -1,0 +1,37 @@
+/* Scoped Tracking page foundation; provider lookup remains disabled. */
+.bex-tracking-wrap { max-width: 1000px; }
+.bex-tracking-wrap > h1 { margin-bottom: 24px; }
+.bex-tracking-wrap > .bex-lead { max-width: 680px; }
+.bex-tracking-foundation { margin-top: 36px; color: var(--bex-navy); }
+.bex-tracking-form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.bex-tracking-form label { display: block; margin-bottom: 12px; font-weight: 700; }
+.bex-tracking-entry { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px; }
+.bex-tracking-entry input { box-sizing: border-box; width: 100%; min-width: 0; min-height: 56px; padding: 14px 16px; border: 1px solid #7b8995; border-radius: 0; background: #fff; color: var(--bex-navy); font: inherit; }
+.bex-tracking-entry input::placeholder { color: #53616e; opacity: 1; }
+.bex-tracking-entry .bex-button { min-height: 56px; padding: 14px 28px; border: 1px solid var(--bex-yellow); background: var(--bex-yellow); color: var(--bex-navy); font: inherit; font-weight: 700; border-radius: 0; }
+.bex-tracking-entry :disabled { cursor: not-allowed; opacity: 1; }
+.bex-tracking-entry input:disabled { background: #f3f5f6; -webkit-text-fill-color: #53616e; }
+.bex-tracking-entry .bex-button:disabled:hover { background: var(--bex-yellow); color: var(--bex-navy); transform: none; box-shadow: none; }
+.bex-tracking-notice { margin: 16px 0 28px; font-size: .9rem; line-height: 1.6; color: #53616e; }
+.bex-tracking-partner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-top: 22px; border-top: 1px solid var(--bex-line); }
+.bex-tracking-partner p { margin: 0; font-size: .85rem; color: #53616e; }
+.bex-tracking-partner-link { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border: 1px solid #b1bdc7; color: var(--bex-navy); font-size: .85rem; font-weight: 700; background: #fff; text-decoration: none; }
+.bex-tracking-partner-note { font-size: .8rem; color: #53616e; }
+.bex-tracking-foundation [hidden] { display: none !important; }
+.bex-tracking-feedback:empty { display: none; }
+.bex-tracking-results,.bex-tracking-error:not([hidden]) { margin-top: 32px; }
+.bex-tracking-summary { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; }
+.bex-tracking-summary dt { font-size: .85rem; color: #53616e; }
+.bex-tracking-summary dd { margin: 8px 0 0; font-weight: 700; overflow-wrap: anywhere; }
+.bex-tracking-timeline { list-style: none; margin: 24px 0 0; padding: 0 0 0 24px; border-left: 2px solid var(--bex-line); }
+.bex-tracking-timeline li { position: relative; padding-bottom: 28px; overflow-wrap: anywhere; }
+.bex-tracking-timeline li::before { content: ''; position: absolute; width: 10px; height: 10px; left: -30px; top: 8px; background: var(--bex-yellow); border: 1px solid var(--bex-navy); }
+.bex-tracking-timeline time { font-size: .85rem; }
+.bex-tracking-timeline h4 { margin: 8px 0; }
+.bex-tracking-timeline p { margin: 4px 0; }
+@media (max-width: 767px) {
+    .bex-tracking-entry,.bex-tracking-summary { grid-template-columns: minmax(0,1fr); }
+    .bex-tracking-entry .bex-button { width: 100%; }
+    .bex-tracking-partner { align-items: flex-start; }
+    .bex-tracking-partner p { flex-basis: 100%; }
+}
