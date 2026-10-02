@@ -25,9 +25,10 @@ reference and zero or more fallback references. A split shipment uses separate
 leg IDs. A transfer/last-mile leg is explicit, never inferred from number format.
 The resolver uses exact internal mapping only and never enumerates providers.
 Its execution plan is PRIVATE; it contains provider codes and provider references.
-A missing mapping returns not_found. Current provisional BEXSTAR syntax is 3–64
-ASCII letters/digits/hyphens starting with a letter/digit, case preserved. Confirm
-actual issuing rules before importing existing shipments.
+A missing mapping returns not_found. Canonical public syntax is BEXSTAR + MMDD + three serial digits, no year; for
+example BEXSTAR1002037. Input is trimmed and normalized to uppercase. Validate
+month/day (February 29 is allowed because no year is encoded). Serial range is
+000–999. Provider reference formats remain independent and internal.
 
 ## Adapter and configuration boundaries
 
@@ -85,8 +86,8 @@ are contracts for the next implementation, not implemented live behavior.
 - Frontend timeline and accessible error/loading states; six-width acceptance.
 - Explicit review of the readiness gate and homepage integration.
 
-No customer result fixtures may be loaded in production. Fixture identifiers use
-TEST prefixes and are illustrative only, not real provider responses.
+No customer result fixtures may be loaded in production. Provider fixture identifiers use TEST prefixes. The public fixture uses the
+canonical example BEXSTAR1002037; all fixture data is offline-only and illustrative.
 
 ## Offline checks
 
@@ -105,3 +106,24 @@ identity and version, sandbox/production endpoints, auth/signature specification
 (no secrets in chat/Git), lookup-number types, request/response envelopes, status
 codes, timezone conventions, pagination/multi-piece behavior, rate limits, IP
 allowlists, and sanitized success/no-result/auth-error/timeout response samples.
+
+## Allocation and permanent uniqueness
+
+`TrackingNumberAllocator` uses the Asia/Shanghai issue date and random serial
+selection without replacement. It checks the repository before each insert and
+retries when an atomic insert loses a concurrent race. A full MMDD namespace raises
+number_space_exhausted; it never adds a year, expands the serial or overwrites data.
+There are only 1,000 numbers per MMDD across ALL years, not 1,000 renewed annually.
+Archive/deletion must preserve reserved numbers. Store issue year/timestamp as
+internal metadata, never as part of the public number or uniqueness key.
+
+`MappingRepository::insert()` replaces the ambiguous save/upsert contract. The
+in-memory test implementation rejects duplicates. Production persistence is still
+not implemented: before activation its database MUST enforce a UNIQUE index on
+the canonical public number and atomically insert all child references. A lookup
+before insert alone does not prevent concurrent collisions. Updates to provider
+references require a separate authorized operation, not duplicate parent inserts.
+
+This short number is guessable and is not a secret/access token. Before public
+activation, implement rate limits and the previously planned public-data/access
+policy. All live tracking remains disabled.

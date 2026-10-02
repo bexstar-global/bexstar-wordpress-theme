@@ -6,7 +6,7 @@ function add_shortcode( $name, $callback ) { $GLOBALS['shortcodes'][$name] = $ca
 function esc_url( $url ) { return $url; }
 function home_url( $path ) { return 'https://example.test' . $path; }
 require dirname( __DIR__, 2 ) . '/inc/tracking/bootstrap.php';
-use Bexstar\Tracking\{TrackingNumber,TrackingError,ShipmentMapping,MappingRepository,InternalMappingResolver,Config,ProviderAdapter,AdapterRegistry};
+use Bexstar\Tracking\{TrackingNumber,TrackingError,ShipmentMapping,MappingRepository,InternalMappingResolver,Config,TrackingNumberAllocator,ProviderAdapter,AdapterRegistry};
 function check( $value, $label ) { if ( ! $value ) { throw new Exception( $label ); } }
 function rejects( $callback, $reason ) {
     try { $callback(); } catch ( TrackingError $e ) { check( $e->reason() === $reason, 'wrong error' ); return; }
@@ -15,7 +15,7 @@ function rejects( $callback, $reason ) {
 final class MemoryRepository implements MappingRepository {
     private $items = array();
     public function find( string $number ): ?ShipmentMapping { return $this->items[$number] ?? null; }
-    public function save( ShipmentMapping $mapping ): void { $this->items[$mapping->number()] = $mapping; }
+    public function insert( ShipmentMapping $mapping ): bool { if ( isset($this->items[$mapping->number()]) ) { return false; } $this->items[$mapping->number()] = $mapping; return true; }
 }
 final class FixtureAdapter implements ProviderAdapter {
     public function code(): string { return 'test_fixture'; }
@@ -27,18 +27,18 @@ $refs = array(
     array( 'reference_id'=>'r2','leg_id'=>'leg-b','provider_code'=>'shangyi','provider_tracking_number'=>'TEST-S-002','role'=>'primary' ),
     array( 'reference_id'=>'r3','leg_id'=>'leg-a','provider_code'=>'seventeentrack','provider_tracking_number'=>'TEST-LASTMILE-003','role'=>'fallback' ),
 );
-$repo->save( new ShipmentMapping( 'TEST-BEX-0001', $refs ) );
+$repo->insert( new ShipmentMapping( 'BEXSTAR1002037', $refs ) );
 $resolver = new InternalMappingResolver( $repo );
-check( count( $resolver->resolve('TEST-BEX-0001')['legs'] ) === 2, 'split shipment' );
-check( $resolver->resolve('TEST-BEX-0001')['legs']['leg-a']['fallbacks'] === array(), 'fallback disabled' );
+check( count( $resolver->resolve('BEXSTAR1002037')['legs'] ) === 2, 'split shipment' );
+check( $resolver->resolve('BEXSTAR1002037')['legs']['leg-a']['fallbacks'] === array(), 'fallback disabled' );
 $enabled = new InternalMappingResolver( $repo, array( 'fallback_enabled'=>true,'enabled_adapters'=>array('seventeentrack') ) );
-check( $enabled->resolve('TEST-BEX-0001')['legs']['leg-a']['fallbacks'][0]['provider_code'] === 'seventeentrack', 'mapped aggregator' );
-rejects( function() use($resolver) { $resolver->resolve('TEST-UNMAPPED'); }, 'not_found' );
+check( $enabled->resolve('BEXSTAR1002037')['legs']['leg-a']['fallbacks'][0]['provider_code'] === 'seventeentrack', 'mapped aggregator' );
+rejects( function() use($resolver) { $resolver->resolve('BEXSTAR1002999'); }, 'not_found' );
 rejects( function() { TrackingNumber::parse(array()); }, 'invalid_number' );
 rejects( function() { TrackingNumber::parse('ABC<script>'); }, 'invalid_number' );
-check( TrackingNumber::parse(' 001a-BC ') === '001a-BC', 'leading zero and case preserved' );
-rejects( function() use($refs) { new ShipmentMapping('TEST-BEX-0001',array($refs[0],$refs[0])); }, 'configuration' );
-rejects( function() use($refs) { new ShipmentMapping('TEST-BEX-0001',array($refs[2])); }, 'configuration' );
+check( TrackingNumber::parse(' bexstar1002037 ') === 'BEXSTAR1002037', 'canonical uppercase and leading zero' );
+rejects( function() use($refs) { new ShipmentMapping('BEXSTAR1002037',array($refs[0],$refs[0])); }, 'configuration' );
+rejects( function() use($refs) { new ShipmentMapping('BEXSTAR1002037',array($refs[2])); }, 'configuration' );
 $registry = new AdapterRegistry();
 rejects( function() use($registry) { $registry->get('anshida'); }, 'provider_unavailable' );
 $registry->register(new FixtureAdapter());
@@ -50,3 +50,24 @@ check( !bexstar_tracking_ready(), 'readiness gate' );
 $html = $GLOBALS['shortcodes']['bexstar_tracking']();
 check( strpos($html,'Coming soon') !== false && strpos($html,'TEST-') === false && strpos($html,'disabled') !== false, 'honest foundation' );
 echo "PASS: offline resolver, split mapping, fallback, registry, validation, safe errors and disabled foundation\n";
+
+foreach ( array('BEXSTAR20261002037','BEXSTAR100237','BEXSTAR10020037','BEXSTAR0230037','BEXSTAR0431037','BEXSTAR0001037','BEXSTAR1301037') as $bad ) {
+    rejects( function() use($bad) { TrackingNumber::parse($bad); }, 'invalid_number' );
+}
+check( TrackingNumber::parse('BEXSTAR0229000') === 'BEXSTAR0229000', 'leap day valid without a year' );
+check( !$repo->insert(new ShipmentMapping('BEXSTAR1002037',array($refs[0]))), 'duplicate insert rejected' );
+check( count($repo->find('BEXSTAR1002037')->references()) === 3, 'duplicate cannot replace existing references' );
+$full = new MemoryRepository();
+for($i=0;$i<1000;$i++) { if($i!==37) { $full->insert(new ShipmentMapping('BEXSTAR1002'.sprintf('%03d',$i),array($refs[0]))); } }
+$allocator = new TrackingNumberAllocator($full);
+check( $allocator->create(new DateTimeImmutable('2026-10-01T16:00:00Z'),array($refs[0]))->number() === 'BEXSTAR1002037', 'collision scan and Shanghai date' );
+rejects(function() use($allocator,$refs) { $allocator->create(new DateTimeImmutable('2027-10-02T12:00:00+08:00'),array($refs[0])); }, 'number_space_exhausted');
+final class RacingRepository implements MappingRepository {
+    public $inserts=0;
+    public function find(string $number): ?ShipmentMapping { return null; }
+    public function insert(ShipmentMapping $mapping): bool { return ++$this->inserts > 1; }
+}
+$race = new RacingRepository();
+(new TrackingNumberAllocator($race))->create(new DateTimeImmutable('2026-10-02'),array($refs[0]));
+check($race->inserts===2,'atomic insert collision retried');
+echo "PASS: canonical format, date validation, duplicate protection, random allocation, race retry and cross-year exhaustion\n";

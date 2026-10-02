@@ -3,11 +3,11 @@ namespace Bexstar\Tracking;
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 final class TrackingNumber {
-    // Provisional BEXSTAR-only contract; preserve case and leading zeros.
+    // Canonical public format: BEXSTAR + MMDD + exactly three serial digits.
     public static function parse( $value ): string {
         if ( ! is_string( $value ) ) { throw new TrackingError( 'invalid_number' ); }
-        $value = trim( $value );
-        if ( ! preg_match( '/\A[A-Za-z0-9][A-Za-z0-9-]{2,63}\z/', $value ) ) { throw new TrackingError( 'invalid_number' ); }
+        $value = strtoupper( trim( $value ) );
+        if ( ! preg_match( '/\ABEXSTAR([0-9]{2})([0-9]{2})[0-9]{3}\z/', $value, $parts ) || ! checkdate( (int) $parts[1], (int) $parts[2], 2000 ) ) { throw new TrackingError( 'invalid_number' ); }
         return $value;
     }
 }

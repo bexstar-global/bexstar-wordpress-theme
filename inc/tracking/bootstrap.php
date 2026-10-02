@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-foreach ( array( 'errors', 'mapping', 'storage', 'config', 'resolver', 'providers/interface' ) as $module ) {
+foreach ( array( 'errors', 'mapping', 'storage', 'allocator', 'config', 'resolver', 'providers/interface' ) as $module ) {
     require_once __DIR__ . '/' . $module . '.php';
 }
 

@@ -12,6 +12,7 @@ final class TrackingError extends \RuntimeException {
         'timeout' => 'Tracking information is temporarily unavailable.',
         'malformed_response' => 'Tracking information is temporarily unavailable.',
         'rate_limited' => 'Please wait before trying again.',
+        'number_space_exhausted' => 'Tracking information is temporarily unavailable.',
         'configuration' => 'Tracking information is temporarily unavailable.',
     );
     public function __construct( $reason ) {
@@ -20,7 +21,7 @@ final class TrackingError extends \RuntimeException {
     }
     public function reason(): string { return $this->reason; }
     public function publicError(): array {
-        $public = in_array( $this->reason, array( 'timeout', 'malformed_response', 'configuration' ), true ) ? 'unavailable' : $this->reason;
+        $public = in_array( $this->reason, array( 'timeout', 'malformed_response', 'configuration', 'number_space_exhausted' ), true ) ? 'unavailable' : $this->reason;
         return array( 'code' => $public, 'message' => self::MESSAGES[$public] );
     }
 }
