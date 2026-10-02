@@ -2,6 +2,11 @@
 namespace Bexstar\Tracking;
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+// Public partner URL; a server-level definition may override this default.
+if ( ! defined( 'BEXSTAR_17TRACK_CARRIER_URL' ) ) {
+    define( 'BEXSTAR_17TRACK_CARRIER_URL', 'https://www.17track.net/en/carriers/bexstar-express' );
+}
+
 final class Config {
     /** Only a reviewed official carrier-page URL should be set in server configuration. */
     public static function partnerUrl(): string {

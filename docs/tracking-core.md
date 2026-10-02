@@ -139,10 +139,10 @@ result fields, timeline template and four customer-safe error templates are hidd
 The readiness gate still prevents homepage/header/footer activation.
 
 17TRACK is a small text-only partner area below the primary form, not a second
-lookup channel. No official BEXSTAR EXPRESS carrier-page URL is documented in
-this repository. After verification, set `BEXSTAR_17TRACK_CARRIER_URL` in protected
-server configuration (for example wp-config.php) to that exact HTTPS carrier-page
-URL. Only 17track.net or its subdomains are accepted; credentials and custom ports
+lookup channel. The verified BEXSTAR EXPRESS carrier-page URL is
+https://www.17track.net/en/carriers/bexstar-express. It is defined as the default
+`BEXSTAR_17TRACK_CARRIER_URL` in `inc/tracking/config.php`. A pre-existing definition
+in server configuration (for example wp-config.php) takes precedence. Only 17track.net or its subdomains are accepted; credentials and custom ports
 are rejected. Without a valid configured URL the partner element is non-clickable
 and explicitly pending. No support/registration claim beyond the requested partner
 label is added. No logos or external branding assets are used.
