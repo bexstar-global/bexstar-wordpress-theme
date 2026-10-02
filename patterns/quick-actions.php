@@ -23,13 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
                     <label><input type="radio" name="transport_mode" value="express"><span>Express</span></label>
                 </div>
             </fieldset>
+            <div class="bex-hub-routes">
             <fieldset class="bex-hub-route">
                 <legend>FROM</legend>
                 <div class="bex-hub-fields">
-                    <label for="bex-hub-origin">Country / Origin
+                    <label for="bex-hub-origin">Origin Country
                         <input id="bex-hub-origin" name="origin_country" type="text" value="China" maxlength="100">
                     </label>
-                    <label for="bex-hub-city">Origin city (optional)
+                    <label for="bex-hub-city">Origin City (optional)
                         <input id="bex-hub-city" name="origin_city" type="text" maxlength="100">
                     </label>
                 </div>
@@ -37,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
             <fieldset class="bex-hub-route">
                 <legend>TO</legend>
                 <div class="bex-hub-fields">
-                    <label for="bex-hub-country">Destination country
+                    <label for="bex-hub-country">Destination Country
                         <input id="bex-hub-country" name="destination_country" type="text" maxlength="100">
                     </label>
                     <label for="bex-hub-postal">Destination ZIP / Postal Code
@@ -45,9 +46,10 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
                     </label>
                 </div>
             </fieldset>
+            </div>
             <div class="bex-hub-next">
-                <button class="bex-button" type="submit">NEXT</button>
                 <p>Start your quote — no account required.</p>
+                <button class="bex-button" type="submit">NEXT</button>
             </div>
         </form>
     </section>

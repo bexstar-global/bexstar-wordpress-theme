@@ -22,7 +22,11 @@ add_action( 'after_setup_theme', function () {
 
 add_action( 'wp_enqueue_scripts', function () {
     $version = wp_get_theme()->get( 'Version' );
-    wp_enqueue_style( 'bexstar-site', get_theme_file_uri( 'assets/css/site.css' ), array(), $version );
+    // Refresh cached styles when a deployment changes the stylesheet.
+    $style_path = get_theme_file_path( 'assets/css/site.css' );
+    $style_hash = is_readable( $style_path ) ? md5_file( $style_path ) : false;
+    $style_version = $style_hash ? substr( $style_hash, 0, 12 ) : $version;
+    wp_enqueue_style( 'bexstar-site', get_theme_file_uri( 'assets/css/site.css' ), array(), $style_version );
     wp_enqueue_script( 'bexstar-site', get_theme_file_uri( 'assets/js/site.js' ), array(), $version, true );
 } );
 
