@@ -5,10 +5,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 interface ProviderAdapter {
     public function code(): string;
     /**
-     * Internal input: one explicitly mapped reference, not user-selected provider data.
+     * Internal input: one explicitly mapped reference including bexstar_reference.
+     * Every adapter starts from this public reference; provider IDs stay internal.
      * Output: normalized shipment/events contract plus optional private source metadata.
      * Errors: TrackingError. Implementations must enforce timeout/size/config limits.
-     * No provider implementation is registered or invoked by this skeleton.
+     * Adapters are registered explicitly; loading a class never activates public lookup.
      */
     public function fetch( array $reference ): array;
 }

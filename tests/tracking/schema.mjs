@@ -15,7 +15,9 @@ for(const field of ['provider','provider_tracking_number','credentials']) {
 const invalid=structuredClone(fixture);invalid.shipment.current_status='made_up';assert(!validate(invalid));
 const timestamp=structuredClone(fixture);timestamp.shipment.last_updated='yesterday';assert(!validate(timestamp));
 console.log('PASS: normalized schema, null fields, unknown status, invalid timestamp/status, private-field rejection');
-for(const number of ['BEXSTAR20261002037','BEXSTAR0230037','BEXSTAR100237']) {
+for(const number of ['','x'.repeat(129),'reference\u0000bad']) {
  const value=structuredClone(fixture);value.shipment.tracking_number=number;assert(!validate(value),number);
 }
-console.log('PASS: schema rejects year, impossible date and short serial');
+console.log('PASS: lookup schema rejects unsafe references; canonical allocation tested separately');
+
+for (const number of ['BEXSTAR1002037','BEXSTAR0924US-10','BEXMX0920US-1','154554','111111123','order/Abc_1']) { const v=structuredClone(fixture); v.shipment.tracking_number=number; assert(validate(v)); }

@@ -1,3 +1,8 @@
+> Phase 3A.1 update: KQD is implemented for controlled CLI validation only. See
+> [KQD adapter and live-test runbook](tracking-kqd.md). Lookup is format-agnostic (including numeric/provider-stored references); canonical allocation and historical uniqueness are unchanged.
+> The resolver now passes `bexstar_reference` to every adapter; stored provider
+> tracking numbers are optional and remain private. No public endpoint is enabled.
+
 # Phase 3A Tracking Core — dormant contracts
 
 This skeleton performs no HTTP requests, registers no REST endpoint, creates no
@@ -91,7 +96,7 @@ canonical example BEXSTAR1002037; all fixture data is offline-only and illustrat
 
 ## Offline checks
 
-Run from the theme root with PHP 7.4+:
+Run from the theme root with PHP 8.0+:
 
     php -r "define('BEXSTAR_TRACKING_TEST', true); require 'tests/tracking/core.php';"
 

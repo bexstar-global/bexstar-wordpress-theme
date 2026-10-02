@@ -1,0 +1,74 @@
+{
+  "in_transit": {
+    "success": 1,
+    "data": {
+      "origin_country": "CN",
+      "destination_country_name": "United States",
+      "track_status_ename": "In transit",
+      "server_hawbcode": "INTERNAL-TEST-ID",
+      "details": [
+        {
+          "track_occur_date": "2026-10-01 12:00:00",
+          "gmt_offset": 8,
+          "track_location": "Test terminal",
+          "track_description_en": "Cargo departed terminal",
+          "track_description": "货物离开测试场站",
+          "track_status_ename": "In transit",
+          "track_code": "UNDOCUMENTED"
+        }
+      ]
+    }
+  },
+  "delivered": {
+    "success": 1,
+    "data": {
+      "track_status_ename": "Delivered",
+      "details": [
+        {
+          "track_occur_date": "2026-10-02 09:30:00",
+          "gmt_offset": "-04:00",
+          "track_description_en": "Shipment delivered",
+          "track_status_ename": "Delivered"
+        }
+      ]
+    }
+  },
+  "no_result": {
+    "success": 1,
+    "data": []
+  },
+  "auth_failure": {
+    "success": 0,
+    "message": "Synthetic authentication failure"
+  },
+  "malformed": {
+    "data": {
+      "details": []
+    }
+  },
+  "mapping": {
+    "success": 1,
+    "data": {
+      "reference_no": "BEXSTAR0101TEST-1",
+      "shipping_method_no": "TEST-MASTER",
+      "packages": []
+    }
+  },
+  "children": {
+    "success": 1,
+    "data": {
+      "reference_no": "BEXSTAR0101TEST-1",
+      "packages": [
+        {
+          "child_tracknumber": "TEST-CHILD-A"
+        },
+        {
+          "child_tracknumber": "TEST-CHILD-B"
+        },
+        {
+          "child_tracknumber": "TEST-CHILD-A"
+        }
+      ]
+    }
+  }
+}

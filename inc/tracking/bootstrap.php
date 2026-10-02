@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-foreach ( array( 'errors', 'mapping', 'storage', 'allocator', 'config', 'resolver', 'providers/interface' ) as $module ) {
+foreach ( array( 'errors', 'mapping', 'storage', 'allocator', 'config', 'resolver', 'providers/interface', 'providers/kqd-transport', 'providers/kqd-normalizer', 'providers/kqd', 'cli' ) as $module ) {
     require_once __DIR__ . '/' . $module . '.php';
 }
 
