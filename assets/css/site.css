@@ -84,14 +84,35 @@ button,summary { cursor: pointer; }
 .bex-hero .is-style-outline .wp-block-button__link { color: #fff; border: 1px solid #fff; background: transparent; }
 .bex-hero .is-style-outline .wp-block-button__link:hover { color: #071E33; background: #fff; }
 .bex-quick { background: #F5F7F8; border-bottom: 1px solid var(--bex-line); }
-.bex-actions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; max-width: var(--bex-wide); margin: 0 auto; padding-inline: var(--bex-gutter); }
-.bex-actions p { margin: 0; }
-.bex-actions p + p { border-left: 1px solid var(--bex-line); }
-.bex-actions a { display: flex; justify-content: space-between; align-items: center; gap: 16px; height: 100%; min-height: 80px; padding: 22px 28px; color: #071E33; font-size: .9rem; font-weight: 700; text-decoration: none; transition: background-color .16s; }
-.bex-actions a:hover { background: #e8edf0; }
-.bex-actions span { flex: 0 0 28px; text-align: right; font-size: 1.25rem; transition: transform .16s; }
-.bex-actions a:hover span { transform: translateX(3px); }
-.bex-actions a:focus-visible { outline-offset: -5px; background: #e8edf0; }
+.bex-action-hub { display: grid; grid-template-columns: 1fr 1.45fr 1fr; width: 100%; max-width: var(--bex-wide); margin: 0 auto; padding: 32px var(--bex-gutter); color: var(--bex-navy); }
+.bex-hub-section { min-width: 0; padding-inline: 28px; }
+.bex-hub-customers { grid-column: 1; grid-row: 1; padding-left: 0; }
+.bex-hub-quote { grid-column: 2; grid-row: 1; border-inline: 1px solid var(--bex-line); }
+.bex-hub-tracking { grid-column: 3; grid-row: 1; padding-right: 0; }
+.bex-hub-section h2 { margin: 0 0 12px; font-size: 1.35rem; line-height: 1.25; letter-spacing: -.025em; }
+.bex-hub-section > p { margin: 0 0 20px; font-size: .9rem; line-height: 1.6; }
+.bex-hub-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.bex-hub-fields label { min-width: 0; font-size: .8rem; font-weight: 700; }
+.bex-hub-fields input { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: 6px; padding: 10px; border: 1px solid #7b8995; border-radius: 0; background: #fff; color: var(--bex-navy); font: inherit; font-size: 1rem; }
+.bex-hub-form .bex-button { margin-top: 16px; border: 0; }
+.bex-hub-section .bex-hub-pending { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 0; }
+.bex-hub-pending span { font-size: .8rem; font-weight: 700; }
+.bex-hub-pending small { font-size: .75rem; color: #485869; }
+@media (min-width: 768px) and (max-width: 1239px) {
+    .bex-action-hub { grid-template-columns: 1fr 1.5fr 1fr; }
+    .bex-hub-section { padding-inline: 20px; }
+    .bex-hub-customers { padding-left: 0; }
+    .bex-hub-tracking { padding-right: 0; }
+    .bex-hub-fields { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+    .bex-action-hub { grid-template-columns: 1fr; }
+    .bex-hub-section { grid-column: auto; grid-row: auto; padding: 24px 0; border: 0; }
+    .bex-hub-quote { padding-top: 0; }
+    .bex-hub-customers,.bex-hub-tracking { border-top: 1px solid var(--bex-line); }
+    .bex-hub-tracking { padding-bottom: 0; }
+    .bex-hub-fields { grid-template-columns: 1fr; }
+}
 .bex-media { margin: 0; position: relative; isolation: isolate; overflow: hidden; aspect-ratio: var(--bex-ratio,3/2); background: #dce4e8; }
 .bex-media-fallback { position: absolute; inset: 0; background: #dce4e8 url("../images/placeholders/logistics-neutral.svg") center/cover no-repeat; }
 .bex-media[data-bex-slot="sourcing-menu"] .bex-media-fallback,
@@ -264,9 +285,6 @@ button,summary { cursor: pointer; }
     .bex-hero-copy { padding-block: 56px; }
     .bex-hero h1 { font-size: clamp(30px,6vw,46px); }
     .bex-headline-line { white-space: normal; }
-    .bex-actions { grid-template-columns: 1fr; }
-    .bex-actions p + p { border-left: 0; border-top: 1px solid var(--bex-line); }
-    .bex-actions a { padding: 18px 0; }
     .bex-panel,.bex-mega-editorial .bex-panel { grid-template-columns: 1fr; }
     .bex-nav-feature,.bex-mega-editorial .bex-nav-feature { border-left: 0; border-top: 1px solid var(--bex-line); padding: 20px 0 0; }
     .bex-editorial,.bex-services-primary,.bex-digital-layout { grid-template-columns: 1fr; gap: 32px; }
