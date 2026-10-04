@@ -1,3 +1,6 @@
+> The adapter is now reused by the gated [Tracking API v1](tracking-api-v1.md).
+> Public activation still requires explicit configuration and live acceptance.
+
 # KQD — Phase 3A.1 controlled validation
 
 ## Scope and release gate

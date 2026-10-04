@@ -25,18 +25,24 @@ final class KqdSettings {
 }
 
 final class WordPressKqdTransport implements KqdTransport {
+    private $budget;
+    public function __construct(?RequestBudget $budget=null) { $this->budget=$budget; }
     public function request(string $method, array $params): array {
         if (!in_array($method, ['gettrack','gettrackingnumber'], true)) { throw new TrackingError('configuration'); }
         $c = KqdSettings::credentials();
         // Safe HTTP rejects private hosts; HTTPS only, no credential-bearing redirects.
         $response = wp_safe_remote_post($c['endpoint'], [
-            'timeout'=>6, 'redirection'=>0, 'sslverify'=>true, 'limit_response_size'=>1048576,
+            'timeout'=>$this->budget ? $this->budget->timeout() : 6, 'redirection'=>0, 'sslverify'=>true, 'limit_response_size'=>1048576,
             'headers'=>['Content-Type'=>'application/x-www-form-urlencoded'],
             'body'=>http_build_query(['appToken'=>$c['appToken'], 'appKey'=>$c['appKey'],
                 'serviceMethod'=>$method, 'paramsJson'=>json_encode($params, JSON_UNESCAPED_UNICODE)], '', '&'),
         ]);
-        if (is_wp_error($response)) { throw new TrackingError('provider_unavailable'); }
+        if (is_wp_error($response)) {
+            $message=method_exists($response,'get_error_message') ? $response->get_error_message() : '';
+            throw new TrackingError(stripos($message,'timed out')!==false || stripos($message,'timeout')!==false ? 'timeout' : 'provider_unavailable');
+        }
         $status = wp_remote_retrieve_response_code($response);
+        if ($status===401 || $status===403) { throw new TrackingError('auth_error'); }
         if ($status < 200 || $status >= 300) { throw new TrackingError('provider_unavailable'); }
         $body = wp_remote_retrieve_body($response);
         if (strlen($body) >= 1048576) { throw new TrackingError('malformed_response'); }

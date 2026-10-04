@@ -73,7 +73,7 @@ foreach ([['code'=>200,'body'=>'{bad'],['code'=>200,'body'=>'null']] as $respons
     $GLOBALS['http_result']=$response; rejects(fn()=>$http->request('gettrack',[]),'malformed_response');
 }
 foreach ([['code'=>401,'body'=>'private'],['code'=>500,'body'=>'private'],new Exception('private timeout')] as $response) {
-    $GLOBALS['http_result']=$response; rejects(fn()=>$http->request('gettrack',[]),'provider_unavailable');
+    $GLOBALS['http_result']=$response; rejects(fn()=>$http->request('gettrack',[]),is_array($response) && $response['code']===401 ? 'auth_error' : 'provider_unavailable');
 }
 $GLOBALS['http_result']=['code'=>200,'body'=>json_encode($f['in_transit'])];
 $http->request('gettrack',['tracking_number'=>'BEXSTAR0101TEST-1']);

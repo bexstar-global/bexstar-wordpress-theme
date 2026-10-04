@@ -4,6 +4,7 @@ if ( ! defined( 'BEXSTAR_TRACKING_TEST' ) ) { exit; }
 define( 'ABSPATH', __DIR__ );
 function add_action( $hook, $callback ) {}
 function add_shortcode( $name, $callback ) { $GLOBALS['shortcodes'][$name] = $callback; }
+function rest_url($path) { return 'https://example.test/wp-json/' . $path; }
 function esc_url( $url ) { return $url; }
 function home_url( $path ) { return 'https://example.test' . $path; }
 require dirname( __DIR__, 2 ) . '/inc/tracking/bootstrap.php';
@@ -34,7 +35,7 @@ check( count( $resolver->resolve('BEXSTAR1002037')['legs'] ) === 2, 'split shipm
 check( $resolver->resolve('BEXSTAR1002037')['legs']['leg-a']['fallbacks'] === array(), 'fallback disabled' );
 $enabled = new InternalMappingResolver( $repo, array( 'fallback_enabled'=>true,'enabled_adapters'=>array('seventeentrack') ) );
 check( $enabled->resolve('BEXSTAR1002037')['legs']['leg-a']['fallbacks'][0]['provider_code'] === 'seventeentrack', 'mapped aggregator' );
-rejects( function() use($resolver) { $resolver->resolve('BEXSTAR1002999'); }, 'not_found' );
+rejects( function() use($resolver) { $resolver->resolve('BEXSTAR1002999'); }, 'not_mapped' );
 rejects( function() { TrackingNumber::parse(array()); }, 'invalid_number' );
 rejects( function() { TrackingNumber::parse('ABC<script>'); }, 'invalid_number' );
 check( TrackingNumber::parse(' bexstar1002037 ') === 'BEXSTAR1002037', 'canonical uppercase and leading zero' );
@@ -73,7 +74,7 @@ $race = new RacingRepository();
 check($race->inserts===2,'atomic insert collision retried');
 echo "PASS: canonical format, date validation, duplicate protection, random allocation, race retry and cross-year exhaustion\n";
 check(substr_count($html,'<form ')===1,'single BEXSTAR primary form');
-check(strpos($html,'BEXSTAR Tracking Number')!==false && strpos($html,'BEXSTAR1002037')!==false && strpos($html,'TRACK NOW')!==false,'approved form copy');
+check(strpos($html,'Tracking / Reference Number')!==false && strpos($html,'BEXSTAR1002037')!==false && strpos($html,'TRACK SHIPMENT')!==false,'approved form copy');
 check(substr_count($html,'data-tracking-error=')===4,'four safe error templates');
 check(strpos($html,'bex-tracking-results-title" hidden')!==false,'results hidden until real data');
 check(Config::partnerUrl()==='https://www.17track.net/en/carriers/bexstar-express', 'verified partner URL');

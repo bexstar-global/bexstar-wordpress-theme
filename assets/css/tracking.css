@@ -1,4 +1,4 @@
-/* Scoped Tracking page foundation; provider lookup remains disabled. */
+/* Scoped Tracking page. Live API activation is a separate server configuration gate. */
 .bex-tracking-wrap { max-width: 1000px; }
 .bex-tracking-wrap > h1 { margin-bottom: 24px; }
 .bex-tracking-wrap > .bex-lead { max-width: 680px; }
@@ -35,3 +35,9 @@
     .bex-tracking-partner { align-items: flex-start; }
     .bex-tracking-partner p { flex-basis: 100%; }
 }
+
+.bex-tracking-entry input:focus-visible,.bex-tracking-entry button:focus-visible,.bex-tracking-partner-link:focus-visible { outline: 3px solid var(--bex-navy); outline-offset: 3px; }
+.bex-tracking-entry input[aria-invalid="true"] { border-color: #a32929; }
+.bex-tracking-entry button:disabled { cursor: not-allowed; }
+.bex-tracking-error { border-left: 3px solid #a32929; padding: 12px 16px; color: var(--bex-navy); background: #f7f8f9; overflow-wrap: anywhere; }
+.bex-tracking-feedback,.bex-tracking-partial,.bex-tracking-empty { color: #53616e; line-height: 1.6; }

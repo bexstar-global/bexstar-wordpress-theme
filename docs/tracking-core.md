@@ -1,3 +1,7 @@
+> Current API foundation: see [Tracking API v1](tracking-api-v1.md) for the implemented
+> REST/service/persistence/UI layers. Earlier phase notes below describe historical
+> boundaries; the API and live switches still default closed.
+
 > Phase 3A.1 update: KQD is implemented for controlled CLI validation only. See
 > [KQD adapter and live-test runbook](tracking-kqd.md). Lookup is format-agnostic (including numeric/provider-stored references); canonical allocation and historical uniqueness are unchanged.
 > The resolver now passes `bexstar_reference` to every adapter; stored provider

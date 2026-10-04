@@ -17,7 +17,20 @@ final class Config {
         if ( 'https' !== ($parts['scheme'] ?? '') || isset($parts['user']) || isset($parts['pass']) || isset($parts['port']) || ! preg_match('/(?:^|\.)17track\.net$/', $host) ) { return ''; }
         return $url;
     }
-    // Contract defaults only: no endpoints, secrets or live adapters.
+    public static function value(string $key): string {
+        $v = defined($key) ? constant($key) : getenv($key);
+        return is_string($v) ? trim($v) : ($v === true ? '1' : '');
+    }
+    public static function apiEnabled(): bool { return self::value('BEXSTAR_TRACKING_API_ENABLED') === '1'; }
+    public static function liveEnabled(): bool { return self::value('BEXSTAR_TRACKING_LIVE_ENABLED') === '1'; }
+    public static function enabledProviders(): array {
+        return array_values(array_filter(array_map('trim', explode(',', self::value('BEXSTAR_TRACKING_ENABLED_PROVIDERS')))));
+    }
+    public static function cacheTtl(): int {
+        $v=self::value('BEXSTAR_TRACKING_CACHE_TTL');
+        return $v === '' ? 300 : max(30, min(900, (int)$v));
+    }
+    // All activation switches default closed. No credentials are stored here.
     public static function defaults(): array {
         return array(
             'schema_version' => 1,

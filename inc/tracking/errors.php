@@ -7,6 +7,8 @@ final class TrackingError extends \RuntimeException {
     private const MESSAGES = array(
         'invalid_number' => 'Invalid tracking number.',
         'not_found' => 'Tracking number not found.',
+        'not_mapped' => 'Tracking information is temporarily unavailable.',
+        'auth_error' => 'Tracking information is temporarily unavailable.',
         'unavailable' => 'Tracking information is temporarily unavailable.',
         'provider_unavailable' => 'Provider temporarily unavailable.',
         'timeout' => 'Tracking information is temporarily unavailable.',

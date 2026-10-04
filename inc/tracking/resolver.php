@@ -17,7 +17,7 @@ final class InternalMappingResolver implements Resolver {
     public function resolve( string $number ): array {
         $number = TrackingReference::parse( $number );
         $mapping = $this->repository->find( $number );
-        if ( ! $mapping ) { throw new TrackingError( 'not_found' ); }
+        if ( ! $mapping ) { throw new TrackingError( 'not_mapped' ); }
         if ( $mapping->number() !== $number ) { throw new TrackingError( 'configuration' ); }
         $legs = array();
         foreach ( $mapping->references() as $ref ) {
