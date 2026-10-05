@@ -8,7 +8,11 @@ final class TrackingService {
         $this->resolver=$resolver;$this->store=$store;$this->registry=$registry;$this->guard=$guard;
         $this->live=$live;$this->enabled=$enabled;$this->ttl=$ttl;
     }
-    public function lookup(string $reference): array {
+    private $lookupSource='none';
+    /** Internal diagnostic only; never included in the public API response. */
+    public function lookupSource(): string { return $this->lookupSource; }
+    public function lookup(string $reference, bool $bypassCache=false): array {
+        $this->lookupSource='none';
         $reference=TrackingReference::parse($reference);
         $plan=$this->resolver->resolve($reference);
         $private=['KQD','开渠达','智行','大墨仓','安时达','商壹'];
@@ -28,8 +32,8 @@ final class TrackingService {
         foreach ($plan['legs'] as $leg) {
             if (!in_array($leg['primary']['provider_code'],$this->enabled,true)) { throw new TrackingError('provider_unavailable'); }
         }
-        $cached=$this->store->cached($reference,time());
-        if ($cached) { try { return $projector->project($cached,$reference); } catch (TrackingError $e) { /* Discard invalid cache and refresh. */ } }
+        $cached=$bypassCache ? null : $this->store->cached($reference,time());
+        if ($cached) { try { $result=$projector->project($cached,$reference);$this->lookupSource='cache';return $result; } catch (TrackingError $e) { /* Discard invalid cache and refresh. */ } }
         $token=$this->guard->acquire($reference,time());
         try {
             $results=[];$partial=false;$lastError=null;$deadline=microtime(true)+20;
@@ -41,6 +45,7 @@ final class TrackingService {
                     if (!in_array($ref['provider_code'],$this->enabled,true)) { continue; }
                     if ($index>0 && (!$lastError || !in_array($lastError->reason(),['not_found','provider_unavailable','timeout'],true))) { break; }
                     try {
+                        $this->lookupSource='provider';
                         $raw=$this->registry->get($ref['provider_code'])->fetch($ref);
                         $results[]=$projector->project($raw,$reference);$done=true;break;
                     } catch (TrackingError $e) { $lastError=$e; }

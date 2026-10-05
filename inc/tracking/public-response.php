@@ -28,6 +28,18 @@ final class PublicResponse {
         } catch (\Throwable $e) { return null; }
     }
     public static function status($value): string { return in_array($value,self::STATUSES,true) ? $value : 'unknown'; }
+    /** Input must already be public-projected events. Untimed events are not candidates. */
+    public static function latestEvent(array $events): ?array {
+        $latest=null;
+        foreach ($events as $event) {
+            if (!is_array($event)) { continue; }
+            $timestamp=self::date($event['timestamp'] ?? null);
+            if ($timestamp!==null && ($latest===null || strcmp($timestamp,$latest['timestamp'])>0)) {
+                $latest=$event;$latest['timestamp']=$timestamp;
+            }
+        }
+        return $latest;
+    }
     public function project(array $data,string $reference): array {
         if (($data['schema_version'] ?? null)!==1 || !isset($data['shipment'],$data['events'],$data['meta'])
             || !is_array($data['shipment']) || !is_array($data['events']) || !is_array($data['meta'])
@@ -52,14 +64,14 @@ final class PublicResponse {
         }
         $events=array_values($events);
         usort($events,static fn($a,$b)=>strcmp($a['timestamp'] ?? '~',$b['timestamp'] ?? '~'));
-        $times=array_values(array_filter(array_column($events,'timestamp')));
+        $latest=self::latestEvent($events);
         $status=self::status($shipment['current_status'] ?? null);
         if ($partial && $status==='delivered') { $status='unknown'; }
         return ['schema_version'=>1,'shipment'=>[
             'tracking_number'=>$reference,
             'transport_mode'=>in_array($shipment['transport_mode'] ?? null,['sea','air','rail','truck','express','multimodal'],true) ? $shipment['transport_mode'] : null,
             'origin'=>$this->text($shipment['origin'] ?? null),'destination'=>$this->text($shipment['destination'] ?? null),
-            'current_status'=>$status,'last_updated'=>$times ? max($times) : self::date($shipment['last_updated'] ?? null),
+            'current_status'=>$status,'last_updated'=>$latest!==null ? $latest['timestamp'] : self::date($shipment['last_updated'] ?? null),
         ],'events'=>$events,'meta'=>['fetched_at'=>self::date($data['meta']['fetched_at'] ?? null),'stale'=>false,'partial'=>$partial]];
     }
     public function merge(array $results,string $reference,bool $partial): array {

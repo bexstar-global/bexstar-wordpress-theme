@@ -70,3 +70,15 @@ putenv('BEXSTAR_TRACKING_API_ENABLED=0');
 $request=new WP_REST_Request('POST','/bexstar-tracking/v1/lookup');$request->set_header('Content-Type','application/json');$request->set_body('{"reference":"154554"}');
 verify_db($server->dispatch($request)->get_status()===503 && $calls===3,'real API closed gate');
 echo "PASS: real WordPress REST, MariaDB schema/uniqueness/case/cache/rate limits/locks, mocked KQD HTTP\n";
+
+// Controlled CLI runner must reuse the same persisted mapping/cache while API is closed.
+$runner=\Bexstar\Tracking\ControlledKqdValidation::production();
+$cached=$runner->run('154554');
+verify_db($cached['internal_diagnostics']['source']==='cache_hit' && $calls===3,'controlled runner reads API cache');
+verify_db($cached['internal_diagnostics']['live_authentication_test']==='not_performed_cache_hit','no cached authentication claim');
+$fresh=$runner->run('154554',true);
+verify_db($fresh['internal_diagnostics']['source']==='provider_request' && $calls===4,'controlled runner bypass with mocked HTTP');
+verify_db($fresh['internal_diagnostics']['latest_event']['timestamp']===$fresh['public_response']['shipment']['last_updated'],'latest event from service result');
+verify_db($runner->run('154554')['internal_diagnostics']['source']==='cache_hit' && $calls===4,'normal caching resumes');
+verify_db(!\Bexstar\Tracking\Config::apiEnabled(),'public API remains closed');
+echo "PASS: controlled service runner with actual persistent mapping/cache/locks and mocked provider HTTP\n";

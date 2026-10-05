@@ -9,8 +9,8 @@ KQD (开渠达) implements the generic ProviderAdapter, registered by lowercase 
 `kqd` (the business identifier is KQD). Loading the class does not register a public
 adapter or enable requests. `/track/` and homepage tracking remain pre-live.
 No credentials, real shipment responses, endpoint values or live calls are included.
-The existing persistent mapping repository is still an abstraction; this work does
-not create shipment records or production database tables.
+The existing WordPress persistence layer supplies mappings and cache storage; this
+command does not create shipment mappings or change the database schema.
 
 ## Reference and execution contract
 
@@ -27,8 +27,9 @@ also the existing 17TRACK BEXSTAR EXPRESS carrier recognition convention; it is 
 a lookup restriction.
 No provider inference or blind fan-out is introduced.
 
-The CLI explicitly selects KQD for one approved reference; this is controlled
-provider-record discovery, not automatic production routing.
+The CLI requires an existing explicit KQD mapping for one approved reference. It
+uses InternalMappingResolver and TrackingService; missing or non-KQD primary mappings
+fail before provider/cache access. It never creates or guesses mappings.
 
 1. POST `gettrack`, `paramsJson={"tracking_number": bexstar_reference}`.
 2. Return a nonempty successful direct result immediately.
@@ -41,7 +42,9 @@ provider-record discovery, not automatic production routing.
    Missing/failed children or truncated package sets mark `meta.partial=true`.
    A partial or mixed-status shipment is never declared wholly delivered.
 
-Maximum eleven HTTP requests, six seconds each, zero redirects, 1 MiB per response,
+One KQD lookup has at most eleven HTTP requests; the controlled command now shares
+the service path with a 20-second / 12-call budget across legs, at most six seconds
+per request, zero redirects, 1 MiB per response,
 200 events per source, at most 100 package entries examined. HTTPS with verification
 and WordPress safe HTTP private-address checks. No background retry loop.
 
@@ -126,17 +129,38 @@ normalizer memory. Production display must use textContent/escaping, never raw H
    works, PHP CLI is 8.0+, WordPress/theme loads, and KQD has allowlisted the server
    IP if required. Ensure HTTP-debug/APM plugins do not record POST bodies/responses.
    Disable debug display and avoid shell tracing or recording sensitive output.
-4. From WordPress root, run (substitute one explicitly approved reference):
+4. Supply the approved reference through an existing stored mapping with primary
+   `provider_code` set to `kqd`. If it has not been imported, the operator must use
+   the existing `wp bexstar tracking-map /private/path/shipment.json` workflow
+   documented in [Tracking API v1](tracking-api-v1.md),
+   with verified mapping data outside the web root. The test command never imports
+   or repairs mappings. From WordPress root, run (substitute that approved reference):
 
    ```sh
-   wp bexstar tracking-test-kqd '<approved-BEXSTAR-reference>' --approved
+   wp bexstar tracking-test-kqd '<approved-reference>' --approved --bypass-cache
    ```
 
    The command refuses without the server enable flag, credentials or `--approved`.
-   It does not create mappings, write files or activate public tracking. The known
+   It requires an existing KQD mapping, never creates mappings or changes public
+   tracking switches, and uses normal cache writes, lookup counters and owned locks. The known
    manually verified reference is not embedded in production code; supply it only
-   when approved for that run. Output is the normalized contract, or a fixed safe
-   BEXSTAR error; stack traces, raw API errors and credentials are not printed.
+   when approved for that run. Output contains `public_response` (the unchanged normalized API envelope) and a
+   clearly separated `internal_diagnostics` object. Fixed normalized error codes
+   and safe messages are printed on failure, never stack traces or raw provider errors.
+   `--bypass-cache` skips only this lookup's cache read. A successful result still
+   refreshes the normal cache; other lookups retain normal caching. Omit the flag for
+   a second approved lookup of the same reference to validate a cache hit.
+
+   Diagnostics distinguish `source=provider_request` from `source=cache_hit` and
+   include only request count, bypass flag, safe authentication-test evidence and
+   the latest public-safe timed event. A cache hit always reports
+   `live_authentication_test=not_performed_cache_hit`. A partial result reports
+   `incomplete_partial_result`; otherwise a fresh success reports
+   `provider_response_received`, not a claim that all provider scenarios passed.
+   `latest_event` is the event with the newest valid timestamp, or null. Untimed
+   events remain in `public_response.events` but cannot become latest. Public
+   `current_status` and `last_updated` remain unchanged, with no new public field.
+
 5. Verify actual events, timestamp offset, status, direct-call success and sanitized
    output against the operator's provider view. Test fallback separately only with
    an explicitly approved reference known to need it. Do not publish raw responses.
@@ -150,6 +174,7 @@ No live requests were made as part of this change.
 
 ```sh
 php -r "define('BEXSTAR_TRACKING_TEST',true); require 'tests/tracking/kqd.php';"
+php -r "define('BEXSTAR_TRACKING_TEST',true); require 'tests/tracking/controlled.php';"
 BEXSTAR_TEST_NODE_MODULES=/path/to/node_modules node tests/tracking/schema.mjs
 node scripts/validate.mjs
 ```

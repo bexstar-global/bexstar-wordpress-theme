@@ -152,7 +152,8 @@ An operator behind a proxy must establish trusted IP handling at the server/WAF 
 A 45-second owned lease prevents concurrent same-reference refreshes; release checks
 ownership. KQD REST requests share a 20-second / 12-call budget across legs; individual
 calls have at most six seconds, HTTPS verification, response-size cap and no redirects.
-Existing operator-only KQD CLI testing retains its separately documented bounds.
+The operator-only KQD validation CLI now reuses the same service/resolver and request
+budget; see tracking-kqd.md for mapping requirements and per-call cache bypass.
 
 ## Server setup — explicit operator actions, not executed on Hostinger
 
@@ -234,6 +235,7 @@ Offline tests:
 ```sh
 php -r "define('BEXSTAR_TRACKING_TEST',true); require 'tests/tracking/kqd.php';"
 php -r "define('BEXSTAR_TRACKING_TEST',true); require 'tests/tracking/api.php';"
+php -r "define('BEXSTAR_TRACKING_TEST',true); require 'tests/tracking/controlled.php';"
 BEXSTAR_TEST_NODE_MODULES=/path/to/node_modules node tests/tracking/schema.mjs
 BEXSTAR_TEST_NODE_MODULES=/path/to/node_modules node tests/tracking/api-schema.mjs
 node scripts/validate.mjs

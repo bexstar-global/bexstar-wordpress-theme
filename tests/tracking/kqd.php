@@ -90,32 +90,8 @@ check(count($calls)===10 && $bounded['meta']['partial'] && $bounded['shipment'][
 $bad=$f['in_transit'];$bad['data']['details']='bad';rejects(fn()=>kqd_run([$bad]),'malformed_response');
 $bad=$f['mapping'];$bad['data']['reference_no']=[];rejects(fn()=>kqd_run([$f['no_result'],$bad]),'malformed_response');
 $bad=$f['in_transit'];$bad['data']['details']=[null];[$r]=kqd_run([$bad]);check($r['meta']['partial'],'malformed row is partial');
-// Exercise the CLI entry point with the same stub HTTP function, never live I/O.
-class WP_CLI {
-    public static $command;
-    public static $output;
-    public static function add_command($name,$handler) { self::$command=$handler; }
-    public static function error($message) { throw new RuntimeException($message); }
-    public static function line($message) { self::$output=$message; }
-}
-define('WP_CLI',true);
-require dirname(__DIR__,2).'/inc/tracking/cli.php';
-function cli_rejected($args,$flags) {
-    try { (WP_CLI::$command)($args,$flags); } catch (RuntimeException $e) { return; }
-    throw new Exception('Expected CLI gate');
-}
-putenv('BEXSTAR_KQD_LIVE_TEST_ENABLED');
-cli_rejected(['BEXSTAR0101TEST-1'],['approved'=>true]);
-putenv('BEXSTAR_KQD_LIVE_TEST_ENABLED=1');
-cli_rejected(['BEXSTAR0101TEST-1'],[]);
-cli_rejected(['BEXSTAR0101TEST-1','BEXSTAR0101TEST-2'],['approved'=>true]);
-putenv('KQD_APP_KEY');cli_rejected(['BEXSTAR0101TEST-1'],['approved'=>true]);
-putenv('KQD_APP_KEY=synthetic-test-key');
-(WP_CLI::$command)(['BEXSTAR0101TEST-1'],['approved'=>true]);
-check(json_decode(WP_CLI::$output,true)['shipment']['tracking_number']==='BEXSTAR0101TEST-1','controlled CLI normalized output');
-check(strpos(WP_CLI::$output,'synthetic-test')===false,'CLI secrets absent');
-foreach (['KQD_API_ENDPOINT','KQD_APP_TOKEN','KQD_APP_KEY','BEXSTAR_KQD_LIVE_TEST_ENABLED'] as $key) { putenv($key); }
-echo "PASS: fan-out bounds, malformed shapes and controlled CLI gates (stub HTTP only)\n";
+// The mapped service-based CLI is covered by tests/tracking/controlled.php.
+foreach (['KQD_API_ENDPOINT','KQD_APP_TOKEN','KQD_APP_KEY'] as $key) { putenv($key); }
 
 check(TrackingReference::parse('order/Abc_1')==='order/Abc_1','lookup preserves case and punctuation');
 

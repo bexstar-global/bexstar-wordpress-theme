@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-foreach ( array( 'errors', 'mapping', 'storage', 'allocator', 'config', 'resolver', 'providers/interface', 'providers/kqd-transport', 'providers/kqd-normalizer', 'providers/kqd', 'persistence', 'providers/pending', 'provider-catalog', 'public-response', 'service', 'controller', 'cli', 'admin-cli' ) as $module ) {
+foreach ( array( 'errors', 'mapping', 'storage', 'allocator', 'config', 'resolver', 'providers/interface', 'providers/kqd-transport', 'providers/kqd-normalizer', 'providers/kqd', 'persistence', 'providers/pending', 'provider-catalog', 'public-response', 'service', 'controller', 'controlled-validation', 'cli', 'admin-cli' ) as $module ) {
     require_once __DIR__ . '/' . $module . '.php';
 }
 
