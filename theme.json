@@ -220,6 +220,11 @@
       "name": "page-track",
       "title": "BEXSTAR \u2014 Track Shipment",
       "postTypes": ["page"]
+    },
+    {
+      "name": "page-china-to-uk",
+      "title": "BEXSTAR \u2014 China to UK Shipping",
+      "postTypes": ["page"]
     }
   ],
   "templateParts": [
