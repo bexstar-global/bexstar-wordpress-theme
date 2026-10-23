@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 function bexstar_quote_fields() {
-    return array( 'country', 'postal', 'whatsapp', 'email', 'method', 'package_weight', 'length', 'width', 'height', 'pieces', 'total_weight', 'volume', 'name', 'description', 'delivery', 'speed', 'additional' );
+    return array( 'country', 'postal', 'whatsapp', 'email', 'method', 'package_weight', 'length', 'width', 'height', 'pieces', 'total_weight', 'volume', 'name', 'description', 'delivery', 'last_mile', 'speed', 'additional' );
 }
 
 function bexstar_quote_validate( $input ) {
@@ -45,7 +45,11 @@ function bexstar_quote_validate( $input ) {
             }
         }
     }
-    $choices = array( 'delivery' => array( '', 'Amazon FBA', 'Commercial Address', 'Residential Address', 'Warehouse', 'Not sure' ), 'speed' => array( '', 'Fastest available', 'Standard', 'Economy / flexible', 'Not sure' ) );
+    $choices = array(
+        'delivery' => array( '', 'Amazon FBA', 'Commercial Address', 'Residential Address', 'Warehouse', 'Not sure' ),
+        'last_mile' => array( '', 'Courier / parcel', 'Truck / pallet', 'Not sure' ),
+        'speed' => array( '', 'Fastest available', 'Standard', 'Economy / flexible', 'Not sure' ),
+    );
     foreach ( $choices as $key => $allowed ) {
         if ( ! in_array( $data[$key], $allowed, true ) ) { $errors[$key] = 'Please select one of the listed options.'; }
     }
@@ -59,7 +63,7 @@ function bexstar_quote_message( $data ) {
     } else {
         $text .= "Method: Total cargo\nTotal weight (kg): {$data['total_weight']}\nTotal volume (CBM): {$data['volume']}\n";
     }
-    return $text . "\nOptional information\nCargo description: {$data['description']}\nDelivery type: {$data['delivery']}\nPreferred delivery speed: {$data['speed']}\nAdditional information:\n{$data['additional']}\n";
+    return $text . "\nOptional information\nCargo description: {$data['description']}\nDestination type: {$data['delivery']}\nLast-mile delivery preference: {$data['last_mile']}\nPreferred delivery speed: {$data['speed']}\nAdditional information:\n{$data['additional']}\n";
 }
 
 function bexstar_quote_process( $input ) {
@@ -147,14 +151,14 @@ function bexstar_render_quote_form() {
         <fieldset data-cargo-method="total"><legend>Total cargo</legend><div class="bex-quote-grid">
         <?php foreach ( array( 'total_weight' => 'Total weight (kg)', 'volume' => 'Total volume (CBM)' ) as $key => $label ) { bexstar_quote_input( $key, $label . ' *', $data, $errors, 'number', false, 'min="0.000001" step="any" inputmode="decimal"' ); } ?>
         </div></fieldset></fieldset>
-        <details class="bex-quote-optional" <?php echo array_intersect( array_keys( $errors ), array( 'name', 'description', 'delivery', 'speed', 'additional' ) ) ? 'open' : ''; ?>>
+        <details class="bex-quote-optional" <?php echo array_intersect( array_keys( $errors ), array( 'name', 'description', 'delivery', 'last_mile', 'speed', 'additional' ) ) ? 'open' : ''; ?>>
         <summary>Add more information (optional)</summary><div class="bex-quote-grid">
         <?php bexstar_quote_input( 'name', 'Name (optional)', $data, $errors, 'text', false, 'autocomplete="name" maxlength="100"' ); ?>
         <?php bexstar_quote_input( 'description', 'Cargo description (optional)', $data, $errors, 'text', false, 'maxlength="500" placeholder="Furniture, clothing, machinery, Amazon FBA inventory, general cargo"' ); ?>
-        <?php foreach ( array( 'delivery' => array( 'Delivery type', 'Amazon FBA', 'Commercial Address', 'Residential Address', 'Warehouse', 'Not sure' ), 'speed' => array( 'Preferred delivery speed', 'Fastest available', 'Standard', 'Economy / flexible', 'Not sure' ) ) as $key => $options ) : $label = array_shift( $options ); ?>
+        <?php foreach ( array( 'delivery' => array( 'Destination type', 'Amazon FBA', 'Commercial Address', 'Residential Address', 'Warehouse', 'Not sure' ), 'last_mile' => array( 'Last-mile delivery preference', 'Courier / parcel', 'Truck / pallet', 'Not sure' ), 'speed' => array( 'Preferred delivery speed', 'Fastest available', 'Standard', 'Economy / flexible', 'Not sure' ) ) as $key => $options ) : $label = array_shift( $options ); ?>
         <div class="bex-quote-field"><label for="bex-q-<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $label ); ?> (optional)</label><select id="bex-q-<?php echo esc_attr( $key ); ?>" name="<?php echo esc_attr( $key ); ?>"><option value="">Select if known</option><?php foreach ( $options as $option ) : ?><option <?php selected( $data[$key] ?? '', $option ); ?>><?php echo esc_html( $option ); ?></option><?php endforeach; ?></select></div>
         <?php endforeach; ?>
-        </div><div class="bex-quote-field"><label for="bex-q-additional">Additional information (optional)</label><textarea id="bex-q-additional" name="additional" rows="3" maxlength="3000"><?php echo esc_textarea( $data['additional'] ?? '' ); ?></textarea></div></details>
+        </div><p class="bex-quote-hint">Courier or truck availability depends on your cargo and delivery address. We confirm the final service in your quote.</p><div class="bex-quote-field"><label for="bex-q-additional">Additional information (optional)</label><textarea id="bex-q-additional" name="additional" rows="3" maxlength="3000" placeholder="FBA center or warehouse, pallet count, delivery appointment, dock or forklift access"><?php echo esc_textarea( $data['additional'] ?? '' ); ?></textarea></div></details>
         <button class="bex-button" type="submit">REQUEST A QUOTE</button>
     </form>
     <?php return ob_get_clean();
