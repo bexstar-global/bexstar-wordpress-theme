@@ -11,7 +11,7 @@ function bexstar_render_media( $attributes ) {
     $alt = ! empty( $attributes['decorative'] ) ? '' : ( $attributes['alt'] ?? '' );
     $poster = '';
     $image = '';
-    $hero = 'hero' === $key;
+    $hero = 'hero' === $key || (bool) preg_match( '/-hero$/', $key );
     $image_path = ! empty( $slot['posterPath'] ) && is_file( get_theme_file_path( $slot['posterPath'] ) ) ? $slot['posterPath'] : $slot['path'];
     if ( ! is_file( get_theme_file_path( $image_path ) ) && ! empty( $slot['fallbackPath'] ) && is_file( get_theme_file_path( $slot['fallbackPath'] ) ) ) {
         $image_path = $slot['fallbackPath'];

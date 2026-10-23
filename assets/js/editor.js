@@ -41,7 +41,7 @@
             save: function () { return null; }
         });
     });
-    const slots = ['hero','sea-freight','air-freight','rail-truck','express','usa','europe','europe-hero','europe-air','europe-sea','europe-rail','europe-delivery','europe-fba','uk','canada','australia','middle-east','sourcing','supply-chain','fba','fba-video','port','ecommerce','amazon-sellers','importers','wholesalers','retailers','manufacturers','case-study','final-cta','more-than-freight','shipping-menu','sourcing-menu','supply-chain-menu','fba-menu','resources-menu','about-menu','industries-menu'];
+    const slots = ['hero','sea-freight','air-freight','rail-truck','express','usa','europe','europe-hero','europe-air','europe-sea','europe-rail','europe-delivery','europe-fba','uk','canada','australia','australia-hero','australia-air','australia-sea','australia-delivery','australia-fba','middle-east','sourcing','supply-chain','fba','fba-video','port','ecommerce','amazon-sellers','importers','wholesalers','retailers','manufacturers','case-study','final-cta','more-than-freight','shipping-menu','sourcing-menu','supply-chain-menu','fba-menu','resources-menu','about-menu','industries-menu'];
     wp.blocks.registerBlockType('bexstar/media', {
         apiVersion: 3, title: __('BEXSTAR media slot', 'bexstar'), category: 'media', icon: 'format-image',
         supports: {html: false},
