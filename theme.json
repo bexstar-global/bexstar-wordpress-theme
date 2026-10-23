@@ -227,6 +227,11 @@
       "postTypes": ["page"]
     },
     {
+      "name": "page-china-to-europe",
+      "title": "BEXSTAR \u2014 China to Europe Shipping",
+      "postTypes": ["page"]
+    },
+    {
       "name": "page-china-to-usa-fba",
       "title": "BEXSTAR \u2014 China to USA Shipping",
       "postTypes": ["page"]

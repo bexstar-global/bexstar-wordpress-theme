@@ -1,0 +1,65 @@
+/* Editorial destination landing page. Content remains editable in Gutenberg. */
+.bex-eu-page { color: var(--bex-navy, #071e33); }
+.bex-eu-page > *, .bex-eu-page .bex-section > * { min-width: 0; }
+.bex-eu-page > .bex-section { margin-block: 0; }
+.bex-eu-page h1 { font-size: clamp(2.7rem, 5.2vw, 5.4rem); line-height: 1.02; letter-spacing: -.045em; max-width: 12ch; margin: .8rem 0 1.2rem; }
+.bex-eu-page h2 { max-width: 20ch; }
+.bex-eu-page p { line-height: 1.55; }
+.bex-eu-page .bex-eu-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(540px, 65vw, 780px); max-width: none; padding: clamp(40px, 6vw, 96px) max(var(--bex-gutter), calc((100vw - var(--bex-wide)) / 2 + var(--bex-gutter))); overflow: hidden; background: #071e33; color: #fff; }
+.bex-eu-page .bex-eu-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(4,22,40,.90) 0%, rgba(4,22,40,.69) 38%, rgba(4,22,40,.08) 78%), linear-gradient(0deg, rgba(4,22,40,.56), transparent 55%); }
+.bex-eu-page .bex-eu-hero > .bex-media { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; aspect-ratio: auto; }
+.bex-eu-page .bex-eu-hero-copy { max-width: 700px; margin: 0; }
+.bex-eu-page .bex-eu-hero .bex-eyebrow { color: var(--bex-yellow); }
+.bex-eu-page .bex-eu-hero .bex-lead { max-width: 36ch; font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
+.bex-eu-page .bex-eu-hero .wp-block-buttons { margin-top: 2rem; }
+.bex-eu-page .bex-eu-hero .wp-element-button { min-height: 54px; }
+.bex-eu-page .bex-eu-hero .bex-eu-modes { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; }
+.bex-eu-page .bex-eu-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-bottom: 1px solid var(--bex-line); padding-block: clamp(24px, 3vw, 40px); }
+.bex-eu-page .bex-eu-proof > div { padding: 0 clamp(18px, 2.5vw, 40px); border-right: 1px solid var(--bex-line); margin: 0; }
+.bex-eu-page .bex-eu-proof > div:first-child { padding-left: 0; }
+.bex-eu-page .bex-eu-proof > div:last-child { border-right: 0; }
+.bex-eu-page .bex-eu-proof strong { display: block; font-size: clamp(1.2rem, 2.2vw, 1.75rem); line-height: 1.15; }
+.bex-eu-page .bex-eu-proof p { margin: .45rem 0 0; color: var(--bex-muted, #5f6b76); font-size: .93rem; }
+.bex-eu-page .bex-eu-intro { max-width: 720px; }
+.bex-eu-page .bex-eu-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); margin-top: clamp(30px, 4vw, 60px); }
+.bex-eu-page .bex-eu-card { margin: 0; background: #f5f7f8; overflow: hidden; }
+.bex-eu-page .bex-eu-card .bex-media { aspect-ratio: 8 / 5; }
+.bex-eu-page .bex-eu-card-copy { padding: clamp(22px, 3vw, 42px); margin: 0; }
+.bex-eu-page .bex-eu-card .bex-eyebrow { color: #496174; margin-bottom: .3rem; }
+.bex-eu-page .bex-eu-card h3 { font-size: clamp(1.45rem, 2.4vw, 2.15rem); line-height: 1.15; margin: .3rem 0 .8rem; }
+.bex-eu-page .bex-eu-card p:last-child { max-width: 42ch; margin-bottom: 0; }
+.bex-eu-page .bex-eu-feature { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; background: var(--bex-navy); color: #fff; padding: 0; max-width: none; }
+.bex-eu-page .bex-eu-feature .bex-media { height: 100%; aspect-ratio: auto; }
+.bex-eu-page .bex-eu-feature-copy { align-self: center; max-width: 700px; padding: clamp(40px, 6vw, 100px); margin: 0; }
+.bex-eu-page .bex-eu-feature h2 { color: #fff; }
+.bex-eu-page .bex-eu-feature .bex-eyebrow { color: var(--bex-yellow); }
+.bex-eu-page .bex-eu-feature p { max-width: 42ch; }
+.bex-eu-page .bex-eu-feature .wp-element-button { min-height: 50px; }
+.bex-eu-page .bex-eu-destinations { background: #f5f7f8; max-width: none; }
+.bex-eu-page .bex-eu-destinations-inner { width: 100%; max-width: var(--bex-wide); margin: 0 auto; }
+.bex-eu-page .bex-eu-country-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
+.bex-eu-page .bex-eu-country-list p { display: inline-block; padding: 12px 18px; margin: 0; background: #fff; border: 1px solid var(--bex-line); font-weight: 700; }
+.bex-eu-page .bex-eu-disclaimer { font-size: .88rem; color: var(--bex-muted, #5f6b76); max-width: 80ch; }
+.bex-eu-page .bex-eu-close { max-width: none; background: var(--bex-navy); color: #fff; text-align: center; }
+.bex-eu-page .bex-eu-close > * { margin-left: auto; margin-right: auto; }
+.bex-eu-page .bex-eu-close h2 { color: #fff; max-width: 22ch; }
+.bex-eu-page .bex-eu-close .bex-eyebrow { color: var(--bex-yellow); }
+.bex-eu-page .bex-eu-close .wp-block-buttons { justify-content: center; margin-top: 2rem; }
+.bex-eu-page .bex-eu-close a:not(.wp-element-button) { color: var(--bex-yellow); }
+@media (max-width: 800px) {
+  .bex-eu-page .bex-eu-hero { min-height: 620px; }
+  .bex-eu-page .bex-eu-hero > .bex-media img { object-position: 70% 50%; }
+  .bex-eu-page .bex-eu-proof { grid-template-columns: 1fr; }
+  .bex-eu-page .bex-eu-proof > div { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--bex-line); }
+  .bex-eu-page .bex-eu-proof > div:last-child { border-bottom: 0; }
+  .bex-eu-page .bex-eu-feature { grid-template-columns: 1fr; }
+  .bex-eu-page .bex-eu-feature .bex-media { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 599px) {
+  .bex-eu-page .bex-eu-hero { min-height: 650px; }
+  .bex-eu-page .bex-eu-hero::before { background: linear-gradient(0deg, rgba(4,22,40,.94), rgba(4,22,40,.24) 90%); }
+  .bex-eu-page .bex-eu-cards { grid-template-columns: 1fr; }
+  .bex-eu-page .bex-eu-card .bex-media { aspect-ratio: 4 / 3; }
+  .bex-eu-page .wp-block-button, .bex-eu-page .wp-element-button { width: 100%; }
+  .bex-eu-page .bex-eu-close .wp-block-buttons { width: 100%; }
+}
