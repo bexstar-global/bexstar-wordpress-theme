@@ -40,10 +40,6 @@
             "shipping/china-to-usa",
             [
               [
-                "Overview",
-                "shipping/china-to-usa"
-              ],
-              [
                 "Air Freight",
                 "shipping/china-to-usa#air-freight"
               ],
