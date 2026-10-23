@@ -38,6 +38,7 @@
 
 /* USA FBA route portfolio. All options remain editable Gutenberg groups. */
 .bex-uk-page .bex-us-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--bex-gap); margin-top: 2.25rem; }
+.bex-uk-page .bex-us-options > .bex-us-option, .bex-uk-page .bex-us-sailings > .bex-us-sailing { margin-block: 0; }
 .bex-uk-page .bex-us-option { min-width: 0; border: 1px solid var(--bex-line); border-top: 4px solid var(--bex-yellow); padding: clamp(24px,3vw,40px); background: #fff; }
 .bex-uk-page .bex-us-option .bex-eyebrow { color: #516577; }
 .bex-uk-page .bex-us-option h3 { margin: .75rem 0 1rem; font-size: clamp(1.5rem,2.2vw,2rem); }
