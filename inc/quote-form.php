@@ -165,4 +165,3 @@ function bexstar_render_quote_form() {
     <?php return ob_get_clean();
 }
 add_shortcode( 'bexstar_quote_form', 'bexstar_render_quote_form' );
-
