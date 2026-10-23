@@ -25,6 +25,9 @@ function check( $yes, $message ) { global $count; if ( ! $yes ) { throw new Exce
 $r = bexstar_quote_process( $base ); check( $r['sent'], 'WhatsApp only, package method' );
 check( 'quotes@bexgl.com' === $GLOBALS['mail_calls'][0]['to'], 'Recipient' );
 check( false !== strpos( $GLOBALS['mail_calls'][0]['message'], '47 x 31 x 43' ), 'Package dimensions in notification' );
+$r = bexstar_quote_process( array_merge( $base, array( 'delivery' => 'Amazon FBA', 'last_mile' => 'Truck / pallet' ) ) );
+check( $r['sent'], 'Optional destination and truck preference' );
+check( false !== strpos( end( $GLOBALS['mail_calls'] )['message'], "Destination type: Amazon FBA\nLast-mile delivery preference: Truck / pallet" ), 'Routing preferences in notification' );
 $r = bexstar_quote_process( array_merge( $base, array( 'whatsapp' => '', 'email' => 'client@example.com' ) ) ); check( $r['sent'], 'Email only' );
 $r = bexstar_quote_process( array_merge( $base, array( 'method' => 'total', 'total_weight' => '109.2', 'volume' => '.25' ) ) ); check( $r['sent'], 'Total method, inactive package ignored' );
 $message = end( $GLOBALS['mail_calls'] )['message']; check( false !== strpos( $message, 'Total volume (CBM): .25' ) && false === strpos( $message, 'Weight per package' ), 'Only selected cargo method is sent' );
@@ -32,7 +35,7 @@ $failures = array(
     array( 'whatsapp' => '', 'email' => '' ), array( 'email' => 'invalid' ), array( 'email' => "a@example.com\r\nBcc: attacker@example.com" ),
     array( 'country' => '' ), array( 'postal' => '' ), array( 'method' => 'invalid' ), array( 'pieces' => '1.5' ),
     array( 'package_weight' => '-1' ), array( 'package_weight' => '1e9' ), array( 'package_weight' => 'INF' ),
-    array( 'whatsapp' => '123' ), array( 'bex_quote_nonce' => 'invalid' ), array( 'website' => 'spam' ), array( 'delivery' => 'unsupported' ),
+    array( 'whatsapp' => '123' ), array( 'bex_quote_nonce' => 'invalid' ), array( 'website' => 'spam' ), array( 'delivery' => 'unsupported' ), array( 'last_mile' => 'unlisted provider' ),
     array( 'email' => array( 'bad' ), 'whatsapp' => '' ), array( 'additional' => str_repeat( 'x', 3001 ) ),
 );
 foreach ( array( 'package_weight', 'length', 'width', 'height', 'pieces' ) as $field ) { $failures[] = array( $field => '' ); }
@@ -41,6 +44,7 @@ foreach ( $failures as $input ) { $calls = count( $GLOBALS['mail_calls'] ); $r =
 $GLOBALS['mail_ok'] = false; $r = bexstar_quote_process( $base ); check( ! $r['sent'] && isset( $r['errors']['send'] ), 'Mail failure' );
 $GLOBALS['bexstar_quote_result'] = $r; check( false === strpos( bexstar_render_quote_form(), 'Thank you. We received' ), 'No false success' );
 check( false !== strpos( bexstar_render_quote_form(), 'value="97-220"' ), 'Failed submission retains fields' );
+check( false !== strpos( bexstar_render_quote_form(), 'Last-mile delivery preference' ) && false !== strpos( bexstar_render_quote_form(), 'Truck / pallet' ), 'Last-mile selection renders' );
 $GLOBALS['bexstar_quote_result'] = array( 'data' => array(), 'errors' => array(), 'sent' => true ); check( false !== strpos( bexstar_render_quote_form(), 'Thank you. We received your shipment details.' ), 'Success message' );
 list( $data ) = bexstar_quote_validate( array_merge( $base, array( 'name' => '<script>alert(1)</script>' ) ) ); check( false === strpos( $data['name'], '<script>' ), 'Sanitization' );
 unset( $GLOBALS['bexstar_quote_result'] );
