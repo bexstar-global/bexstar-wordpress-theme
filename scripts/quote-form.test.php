@@ -31,15 +31,19 @@ check( false !== strpos( end( $GLOBALS['mail_calls'] )['message'], "Destination 
 $r = bexstar_quote_process( array_merge( $base, array( 'whatsapp' => '', 'email' => 'client@example.com' ) ) ); check( $r['sent'], 'Email only' );
 $r = bexstar_quote_process( array_merge( $base, array( 'method' => 'total', 'total_weight' => '109.2', 'volume' => '.25' ) ) ); check( $r['sent'], 'Total method, inactive package ignored' );
 $message = end( $GLOBALS['mail_calls'] )['message']; check( false !== strpos( $message, 'Total volume (CBM): .25' ) && false === strpos( $message, 'Weight per package' ), 'Only selected cargo method is sent' );
+$minimal = array_merge( $base, array( 'postal' => '', 'package_weight' => '', 'length' => '', 'width' => '', 'height' => '', 'pieces' => '' ) );
+$r = bexstar_quote_process( $minimal ); check( $r['sent'], 'Destination and contact alone can start an inquiry' );
+check( false !== strpos( end( $GLOBALS['mail_calls'] )['message'], 'Country: Poland' ), 'Minimal inquiry retains destination' );
+$r = bexstar_quote_process( array_merge( $minimal, array( 'package_weight' => '12.5', 'pieces' => '2' ) ) ); check( $r['sent'], 'Partial cargo details accepted' );
+$r = bexstar_quote_process( array_merge( $minimal, array( 'method' => 'total', 'volume' => '.25' ) ) ); check( $r['sent'], 'Partial total cargo details accepted' );
 $failures = array(
     array( 'whatsapp' => '', 'email' => '' ), array( 'email' => 'invalid' ), array( 'email' => "a@example.com\r\nBcc: attacker@example.com" ),
-    array( 'country' => '' ), array( 'postal' => '' ), array( 'method' => 'invalid' ), array( 'pieces' => '1.5' ),
+    array( 'country' => '' ), array( 'method' => 'invalid' ), array( 'pieces' => '1.5' ),
     array( 'package_weight' => '-1' ), array( 'package_weight' => '1e9' ), array( 'package_weight' => 'INF' ),
     array( 'whatsapp' => '123' ), array( 'bex_quote_nonce' => 'invalid' ), array( 'website' => 'spam' ), array( 'delivery' => 'unsupported' ), array( 'last_mile' => 'unlisted provider' ),
     array( 'email' => array( 'bad' ), 'whatsapp' => '' ), array( 'additional' => str_repeat( 'x', 3001 ) ),
 );
-foreach ( array( 'package_weight', 'length', 'width', 'height', 'pieces' ) as $field ) { $failures[] = array( $field => '' ); }
-foreach ( array( 'total_weight', 'volume' ) as $field ) { $failures[] = array( 'method' => 'total', 'total_weight' => '100', 'volume' => '1', $field => '' ); }
+foreach ( array( 'total_weight', 'volume' ) as $field ) { $failures[] = array( 'method' => 'total', 'total_weight' => '100', 'volume' => '1', $field => '-1' ); }
 foreach ( $failures as $input ) { $calls = count( $GLOBALS['mail_calls'] ); $r = bexstar_quote_process( array_merge( $base, $input ) ); check( ! $r['sent'] && $r['errors'] && count( $GLOBALS['mail_calls'] ) === $calls, 'Invalid request must not send: ' . json_encode( $input ) ); }
 $GLOBALS['mail_ok'] = false; $r = bexstar_quote_process( $base ); check( ! $r['sent'] && isset( $r['errors']['send'] ), 'Mail failure' );
 $GLOBALS['bexstar_quote_result'] = $r; check( false === strpos( bexstar_render_quote_form(), 'Thank you. We received' ), 'No false success' );
