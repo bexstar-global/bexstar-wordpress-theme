@@ -20,7 +20,8 @@
   country.addEventListener('change', updateOtherCountry);
 
   const readNumber = (key, min, max, whole = false) => {
-    const value = Number(form.elements[key].value);
+    const input = form.elements.namedItem(key);
+    const value = Number(input?.value);
     if (!Number.isFinite(value) || value < min || value > max || (whole && !Number.isInteger(value))) return null;
     return value;
   };
