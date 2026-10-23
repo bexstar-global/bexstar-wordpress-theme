@@ -68,4 +68,3 @@
     });
     updateMethod();
 })();
-
