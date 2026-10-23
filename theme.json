@@ -225,6 +225,11 @@
       "name": "page-china-to-uk",
       "title": "BEXSTAR \u2014 China to UK Shipping",
       "postTypes": ["page"]
+    },
+    {
+      "name": "page-china-to-usa-fba",
+      "title": "BEXSTAR \u2014 China to USA FBA Shipping",
+      "postTypes": ["page"]
     }
   ],
   "templateParts": [
