@@ -25,8 +25,7 @@
     return value;
   };
 
-  form.addEventListener('submit', event => {
-    event.preventDefault();
+  const reviewParcel = () => {
     const pieces = readNumber('pieces', 1, 20, true);
     const weight = readNumber('weight', 0.01, 30);
     const length = readNumber('length', 0.01, 150);
@@ -56,7 +55,13 @@
     error.hidden = true;
     summary.hidden = false;
     panel.focus();
+  };
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    reviewParcel();
   });
+  form.querySelector('[data-sample-review]').addEventListener('click', reviewParcel);
 
   panel.querySelector('[data-sample-copy]').addEventListener('click', async () => {
     if (!clipboardText) return;
