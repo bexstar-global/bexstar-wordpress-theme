@@ -44,7 +44,6 @@
             const active = panel.dataset.cargoMethod === method;
             panel.hidden = !active;
             panel.disabled = !active;
-            panel.querySelectorAll('input').forEach(input => { input.required = active; });
         });
     }
     function clearContactError() {
