@@ -14,6 +14,7 @@ function esc_html( $s ) { return htmlspecialchars( $s, ENT_QUOTES ); }
 function esc_textarea( $s ) { return htmlspecialchars( $s, ENT_QUOTES ); }
 function esc_url( $s ) { return htmlspecialchars( $s, ENT_QUOTES ); }
 function home_url( $s ) { return 'https://example.test' . $s; }
+function get_privacy_policy_url() { return $GLOBALS['privacy_url'] ?? ''; }
 function wp_nonce_field( ...$args ) { echo '<input type="hidden" name="bex_quote_nonce" value="valid">'; }
 function checked( $a, $b ) { if ( $a === $b ) { echo 'checked="checked"'; } }
 function selected( $a, $b ) { if ( $a === $b ) { echo 'selected="selected"'; } }
@@ -49,6 +50,10 @@ $GLOBALS['mail_ok'] = false; $r = bexstar_quote_process( $base ); check( ! $r['s
 $GLOBALS['bexstar_quote_result'] = $r; check( false === strpos( bexstar_render_quote_form(), 'Thank you. We received' ), 'No false success' );
 check( false !== strpos( bexstar_render_quote_form(), 'value="97-220"' ), 'Failed submission retains fields' );
 check( false !== strpos( bexstar_render_quote_form(), 'Last-mile delivery preference' ) && false !== strpos( bexstar_render_quote_form(), 'Truck / pallet' ), 'Last-mile selection renders' );
+$GLOBALS['privacy_url'] = 'https://example.test/privacy-policy/';
+check( false !== strpos( bexstar_render_quote_form(), 'href="https://example.test/privacy-policy/"' ), 'Published privacy page linked at the inquiry form' );
+$GLOBALS['privacy_url'] = '';
+check( false === strpos( bexstar_render_quote_form(), 'Privacy Policy</a>' ), 'Unpublished privacy page is not linked' );
 $GLOBALS['bexstar_quote_result'] = array( 'data' => array(), 'errors' => array(), 'sent' => true ); check( false !== strpos( bexstar_render_quote_form(), 'Thank you. We received your shipment details.' ), 'Success message' );
 list( $data ) = bexstar_quote_validate( array_merge( $base, array( 'name' => '<script>alert(1)</script>' ) ) ); check( false === strpos( $data['name'], '<script>' ), 'Sanitization' );
 unset( $GLOBALS['bexstar_quote_result'] );
