@@ -10,6 +10,13 @@
   const summary = panel.querySelector('[data-sample-summary]');
   const copyStatus = panel.querySelector('[data-sample-copy-status]');
   let clipboardText = '';
+  let inquiryDetails = null;
+  const clearReview = () => {
+    inquiryDetails = null;
+    clipboardText = '';
+    panel.hidden = true;
+    try { sessionStorage.removeItem('bexstar_sample_inquiry'); } catch (_) { /* Storage may be blocked. */ }
+  };
 
   const updateOtherCountry = () => {
     const needed = country.value === 'EU-OTHER';
@@ -18,6 +25,8 @@
     if (!needed) otherCountry.value = '';
   };
   country.addEventListener('change', updateOtherCountry);
+  form.addEventListener('input', clearReview);
+  form.addEventListener('change', clearReview);
 
   const readNumber = (key, min, max, whole = false) => {
     const input = form.elements.namedItem(key);
@@ -39,6 +48,8 @@
     panel.hidden = false;
     copyStatus.textContent = '';
     if (!country.value || !name || name.length > 80 || postal.length > 24 || [pieces, weight, length, width, height].some(value => value === null)) {
+      inquiryDetails = null;
+      clipboardText = '';
       error.textContent = 'Choose a destination and enter valid weight, dimensions and parcel count.';
       error.hidden = false;
       summary.hidden = true;
@@ -53,6 +64,7 @@
     for (const card of panel.querySelectorAll('[data-sample-service]')) card.hidden = service !== 'both' && card.dataset.sampleService !== service;
     const serviceLabel = service === 'express' ? 'Express parcel' : service === 'air' ? 'Air parcel' : 'Express parcel / air parcel';
     clipboardText = `BEXSTAR sample shipping inquiry\nDestination: ${name}\nPostal code: ${postal || 'Not provided'}\nCargo type: ${cargo}\nParcels: ${pieces}\nWeight per parcel: ${weight} kg\nDimensions per parcel: ${length} × ${width} × ${height} cm\nTotal actual weight: ${actual.toFixed(2)} kg\nTotal volume: ${volume.toFixed(4)} m³\nInterested in: ${serviceLabel}`;
+    inquiryDetails = { version: 1, created: Date.now(), country: name, postal, service, cargo, pieces, weight, length, width, height };
     error.hidden = true;
     summary.hidden = false;
     panel.focus();
@@ -73,4 +85,13 @@
       copyStatus.textContent = 'Copy is unavailable in this browser. You can still request a quote and enter the parcel details there.';
     }
   });
+  panel.querySelector('[data-sample-quote]').addEventListener('click', () => {
+    if (!inquiryDetails) return;
+    try {
+      sessionStorage.setItem('bexstar_sample_inquiry', JSON.stringify(inquiryDetails));
+    } catch (_) {
+      // The quote form remains usable when browser storage is unavailable.
+    }
+  });
 })();
+
