@@ -7,9 +7,11 @@ function bexstar_nav_link( $label, $path ) {
     if ( in_array( trim( $path, '/' ), array( 'get-a-quote', 'contact' ), true ) ) {
         return '<a href="' . esc_url( home_url( '/' . trim( $path, '/' ) . '/' ) ) . '">' . esc_html( $label ) . '</a>';
     }
-    $page = get_page_by_path( trim( $path, '/' ) );
+    $parts = explode( '#', trim( $path, '/' ), 2 );
+    $page = get_page_by_path( $parts[0] );
     if ( $page && 'publish' === get_post_status( $page ) ) {
-        return '<a href="' . esc_url( get_permalink( $page ) ) . '">' . esc_html( $label ) . '</a>';
+        $fragment = isset( $parts[1] ) ? '#' . sanitize_title( $parts[1] ) : '';
+        return '<a href="' . esc_url( get_permalink( $page ) . $fragment ) . '">' . esc_html( $label ) . '</a>';
     }
     $root = explode( '/', trim( $path, '/' ) )[0];
     $anchor = 'about-us' === $root ? 'introduction' : $root;
@@ -21,7 +23,12 @@ function bexstar_nav_leaves( $items ) {
     $html = '<ul>';
     foreach ( $items as $item ) {
         $html .= '<li>';
-        if ( ! empty( $item[2] ) ) {
+        $show_children = ! empty( $item[2] );
+        if ( $show_children && isset( $item[3] ) && 'published-only' === $item[3] ) {
+            $page = get_page_by_path( trim( $item[1], '/' ) );
+            $show_children = $page && 'publish' === get_post_status( $page );
+        }
+        if ( $show_children ) {
             $html .= '<details class="bex-subnav"><summary>' . esc_html( $item[0] ) . '</summary>';
             $html .= bexstar_nav_link( __( 'Overview', 'bexstar' ), $item[1] );
             $html .= bexstar_nav_leaves( $item[2] ) . '</details>';

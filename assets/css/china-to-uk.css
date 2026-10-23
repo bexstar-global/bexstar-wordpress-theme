@@ -1,4 +1,4 @@
-/* UK landing page only; also loaded in Gutenberg for the editable pattern. */
+/* Route landing styles shared by the UK page and the editable USA FBA draft. */
 .bex-uk-page { color: var(--bex-navy, #071e33); }
 .bex-uk-page > *, .bex-uk-page .bex-section > * { min-width: 0; }
 .bex-uk-page .bex-section { margin-block: 0; }
@@ -34,4 +34,25 @@
   .bex-uk-page .bex-uk-split, .bex-uk-page .bex-uk-services, .bex-uk-page .bex-uk-process { grid-template-columns: 1fr; }
   .bex-uk-page .bex-media { aspect-ratio: 4 / 3; }
   .bex-uk-page .wp-block-button, .bex-uk-page .wp-element-button { width: 100%; }
+}
+
+/* USA FBA route portfolio. All options remain editable Gutenberg groups. */
+.bex-uk-page .bex-us-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--bex-gap); margin-top: 2.25rem; }
+.bex-uk-page .bex-us-option { min-width: 0; border: 1px solid var(--bex-line); border-top: 4px solid var(--bex-yellow); padding: clamp(24px,3vw,40px); background: #fff; }
+.bex-uk-page .bex-us-option .bex-eyebrow { color: #516577; }
+.bex-uk-page .bex-us-option h3 { margin: .75rem 0 1rem; font-size: clamp(1.5rem,2.2vw,2rem); }
+.bex-uk-page .bex-us-option p:last-child { margin-bottom: 0; }
+.bex-uk-page .bex-us-ocean { background: var(--bex-navy); color: #fff; }
+.bex-uk-page .bex-us-ocean h2, .bex-uk-page .bex-us-ocean h3 { color: #fff; }
+.bex-uk-page .bex-us-ocean > .bex-eyebrow { color: var(--bex-yellow); }
+.bex-uk-page .bex-us-sailings { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--bex-gap); margin-top: 2.5rem; }
+.bex-uk-page .bex-us-sailing { min-width: 0; background: #12334c; border-top: 3px solid var(--bex-yellow); padding: clamp(24px,3vw,40px); }
+.bex-uk-page .bex-us-sailing .bex-eyebrow { color: #b9d0df; margin-bottom: .5rem; }
+.bex-uk-page .bex-us-sailing h3 { margin: .25rem 0 .75rem; font-size: clamp(1.3rem,2vw,1.8rem); }
+.bex-uk-page .bex-us-sailing .bex-us-time { color: var(--bex-yellow); font-size: clamp(2rem,3.6vw,3.5rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.1; margin: .6rem 0; }
+.bex-uk-page .bex-us-sailing .bex-us-time span { font-size: .85rem; font-weight: 700; letter-spacing: .06em; }
+.bex-uk-page .bex-us-sailing p:last-child { margin-bottom: 0; }
+.bex-uk-page .bex-us-timing-note { border-top: 1px solid #5e7587; margin-top: 2rem; padding-top: 1.25rem; color: #d9e6ee; }
+@media (max-width: 700px) {
+  .bex-uk-page .bex-us-options, .bex-uk-page .bex-us-sailings { grid-template-columns: 1fr; }
 }
