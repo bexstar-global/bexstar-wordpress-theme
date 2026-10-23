@@ -8,6 +8,7 @@ function sanitize_textarea_field( $s ) { return trim( strip_tags( $s ) ); }
 function sanitize_email( $s ) { return filter_var( $s, FILTER_SANITIZE_EMAIL ); }
 function is_email( $s ) { return filter_var( $s, FILTER_VALIDATE_EMAIL ); }
 function wp_verify_nonce( $n, $action ) { return 'valid' === $n && 'bexstar_quote' === $action; }
+function wp_generate_uuid4() { return '12345678-1234-4234-8234-123456789abc'; }
 function wp_mail( $to, $subject, $message, $headers ) { $GLOBALS['mail_calls'][] = compact( 'to', 'subject', 'message', 'headers' ); return $GLOBALS['mail_ok']; }
 function esc_attr( $s ) { return htmlspecialchars( $s, ENT_QUOTES ); }
 function esc_html( $s ) { return htmlspecialchars( $s, ENT_QUOTES ); }
@@ -24,6 +25,9 @@ $count = 0;
 function check( $yes, $message ) { global $count; if ( ! $yes ) { throw new Exception( $message ); } $count++; }
 $r = bexstar_quote_process( $base ); check( $r['sent'], 'WhatsApp only, package method' );
 check( 'quotes@bexgl.com' === $GLOBALS['mail_calls'][0]['to'], 'Recipient' );
+check( 'BQ-12345678123442348234123456789ABC' === $r['reference'], 'Inquiry reference returned' );
+check( 1 === preg_match( '/^[A-Z0-9][A-Z0-9_-]{2,63}$/D', $r['reference'] ), 'Inquiry reference accepted by private dispatch' );
+check( false !== strpos( $GLOBALS['mail_calls'][0]['subject'], $r['reference'] ) && false !== strpos( $GLOBALS['mail_calls'][0]['message'], 'Inquiry reference: ' . $r['reference'] ), 'Matching reference in email subject and body' );
 check( false !== strpos( $GLOBALS['mail_calls'][0]['message'], '47 x 31 x 43' ), 'Package dimensions in notification' );
 $r = bexstar_quote_process( array_merge( $base, array( 'delivery' => 'Amazon FBA', 'last_mile' => 'Truck / pallet' ) ) );
 check( $r['sent'], 'Optional destination and truck preference' );
@@ -41,11 +45,12 @@ $failures = array(
 foreach ( array( 'package_weight', 'length', 'width', 'height', 'pieces' ) as $field ) { $failures[] = array( $field => '' ); }
 foreach ( array( 'total_weight', 'volume' ) as $field ) { $failures[] = array( 'method' => 'total', 'total_weight' => '100', 'volume' => '1', $field => '' ); }
 foreach ( $failures as $input ) { $calls = count( $GLOBALS['mail_calls'] ); $r = bexstar_quote_process( array_merge( $base, $input ) ); check( ! $r['sent'] && $r['errors'] && count( $GLOBALS['mail_calls'] ) === $calls, 'Invalid request must not send: ' . json_encode( $input ) ); }
-$GLOBALS['mail_ok'] = false; $r = bexstar_quote_process( $base ); check( ! $r['sent'] && isset( $r['errors']['send'] ), 'Mail failure' );
+$GLOBALS['mail_ok'] = false; $r = bexstar_quote_process( $base ); check( ! $r['sent'] && isset( $r['errors']['send'] ) && '' === $r['reference'], 'Mail failure does not expose reference' );
 $GLOBALS['bexstar_quote_result'] = $r; check( false === strpos( bexstar_render_quote_form(), 'Thank you. We received' ), 'No false success' );
 check( false !== strpos( bexstar_render_quote_form(), 'value="97-220"' ), 'Failed submission retains fields' );
 check( false !== strpos( bexstar_render_quote_form(), 'Last-mile delivery preference' ) && false !== strpos( bexstar_render_quote_form(), 'Truck / pallet' ), 'Last-mile selection renders' );
-$GLOBALS['bexstar_quote_result'] = array( 'data' => array(), 'errors' => array(), 'sent' => true ); check( false !== strpos( bexstar_render_quote_form(), 'Thank you. We received your shipment details.' ), 'Success message' );
+$GLOBALS['bexstar_quote_result'] = array( 'data' => array(), 'errors' => array(), 'sent' => true, 'reference' => 'BQ-12345678123442348234123456789ABC' ); check( false !== strpos( bexstar_render_quote_form(), 'Thank you. We received your shipment details.' ), 'Success message' );
+check( false !== strpos( bexstar_render_quote_form(), 'Your inquiry reference: <strong>BQ-12345678123442348234123456789ABC</strong>' ), 'Reference visible after accepted mail' );
 list( $data ) = bexstar_quote_validate( array_merge( $base, array( 'name' => '<script>alert(1)</script>' ) ) ); check( false === strpos( $data['name'], '<script>' ), 'Sanitization' );
 unset( $GLOBALS['bexstar_quote_result'] );
 if ( in_array( '--render', $argv, true ) ) { echo bexstar_render_quote_form(); } else { echo "PASS: $count server-side checks (mocked WordPress mail transport).\n"; }
