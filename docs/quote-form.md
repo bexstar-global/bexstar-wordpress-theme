@@ -30,8 +30,11 @@ logged by this implementation. Failed submissions retain sanitized values in the
 response. The quote page sends no-cache headers and defines DONOTCACHEPAGE;
 exclude `/get-a-quote/` from any upstream full-page cache that ignores these signals.
 
-Notifications go to `quotes@bexgl.com` through `wp_mail()`, with a fixed subject
-and a validated Reply-To only when an email was supplied. Each notification has
+Notifications go to `quotes@bexgl.com` through `wp_mail()`, with a generated
+`BQ-` inquiry reference in the subject and body and a validated Reply-To only
+when an email was supplied. The same reference appears on the success page and
+can be copied into the administrator-only Dispatch Routing form; this does not
+store contact data or provider assignments in the quote form. Each notification has
 Contact, Destination, selected Cargo data and Optional information groups.
 Success is displayed only when wp_mail returns true. This means the WordPress
 mail transport accepted the message, not that inbox delivery has been verified.
@@ -41,11 +44,11 @@ response; a browser-confirmed resubmission can send another inquiry.
 ## Validation performed
 
 - PHP syntax checked with PHP 8.5 CLI.
-- `php scripts/quote-form.test.php` passed 38 checks with mocked WordPress APIs and
+- `php scripts/quote-form.test.php` passed 42 checks with mocked WordPress APIs and
   mail transport. Covers WhatsApp-only, email-only, neither, both cargo methods,
   each missing cargo field, invalid email, header injection, numeric errors,
-  nonce/honeypot rejection, routing preferences, mail success/failure, escaping
-  and retained values.
+  nonce/honeypot rejection, routing preferences, inquiry reference consistency,
+  mail success/failure, escaping and retained values.
 - Earlier local browser preview of the base form covered 1440, 1536, 1920, 768,
   390 and 320px; it is not a deployed acceptance test for the new select field.
 
@@ -68,4 +71,6 @@ response; a browser-confirmed resubmission can send another inquiry.
    chosen value reaches the internal inquiry email. Agent names must remain absent
    from the public page and customer-facing response.
 
-No deployment is included in this change.
+Theme deployment does not create customer records or assign a provider. An
+administrator copies the received inquiry reference into Dispatch Routing only
+when a shipment is ready for an internal provider assignment.
