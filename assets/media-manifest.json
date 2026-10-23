@@ -160,6 +160,56 @@
     "mobileRatio": "4:3",
     "purpose": "Destinations editorial context"
   },
+  "australia-hero": {
+    "path": "assets/images/destinations/australia-hero-v1.webp",
+    "width": 1672,
+    "height": 941,
+    "section": "Australia page hero",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "65% 50%",
+    "mobileRatio": "4:5",
+    "purpose": "Dedicated Australia port hero"
+  },
+  "australia-air": {
+    "path": "assets/images/destinations/australia-air-v1.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Australia air freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Australia air freight visual"
+  },
+  "australia-sea": {
+    "path": "assets/images/destinations/australia-sea-v1.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Australia sea freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Australia sea freight visual"
+  },
+  "australia-delivery": {
+    "path": "assets/images/destinations/australia-delivery-v1.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Australia final-mile delivery",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Australia truck delivery visual"
+  },
+  "australia-fba": {
+    "path": "assets/images/destinations/australia-fba-v1.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Australia fulfillment delivery",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Australia warehouse visual"
+  },
   "middle-east": {
     "path": "assets/images/destinations/middle-east.webp",
     "width": 1200,

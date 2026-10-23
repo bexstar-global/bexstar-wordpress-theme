@@ -22,6 +22,7 @@ add_action( 'after_setup_theme', function () {
     add_editor_style( 'assets/css/site.css' );
     add_editor_style( 'assets/css/china-to-uk.css' );
     add_editor_style( 'assets/css/china-to-europe.css' );
+    add_editor_style( 'assets/css/china-to-australia.css' );
     register_nav_menus( array( 'bexstar-primary' => __( 'BEXSTAR primary navigation', 'bexstar' ) ) );
 } );
 
@@ -39,6 +40,10 @@ add_action( 'wp_enqueue_scripts', function () {
     if ( is_page_template( 'page-china-to-europe' ) ) {
         $europe_style = 'assets/css/china-to-europe.css';
         wp_enqueue_style( 'bexstar-china-to-europe', get_theme_file_uri( $europe_style ), array( 'bexstar-site' ), substr( md5_file( get_theme_file_path( $europe_style ) ), 0, 12 ) );
+    }
+    if ( is_page_template( 'page-china-to-australia' ) ) {
+        $australia_style = 'assets/css/china-to-australia.css';
+        wp_enqueue_style( 'bexstar-china-to-australia', get_theme_file_uri( $australia_style ), array( 'bexstar-site' ), substr( md5_file( get_theme_file_path( $australia_style ) ), 0, 12 ) );
     }
     wp_enqueue_script( 'bexstar-site', get_theme_file_uri( 'assets/js/site.js' ), array(), $version, true );
 } );
