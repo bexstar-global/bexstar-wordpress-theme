@@ -37,8 +37,10 @@
 .bex-eu-page .bex-eu-feature .wp-element-button { min-height: 50px; }
 .bex-eu-page .bex-eu-destinations { background: #f5f7f8; max-width: none; }
 .bex-eu-page .bex-eu-destinations-inner { width: 100%; max-width: var(--bex-wide); margin: 0 auto; }
-.bex-eu-page .bex-eu-country-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1.5rem; }
-.bex-eu-page .bex-eu-country-list p { display: inline-block; padding: 12px 18px; margin: 0; background: #fff; border: 1px solid var(--bex-line); font-weight: 700; }
+.bex-eu-page .bex-eu-country-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); margin-top: 2rem; }
+.bex-eu-page .bex-eu-country-group { min-width: 0; margin: 0; padding: clamp(22px, 2.5vw, 36px); background: #fff; border-top: 4px solid var(--bex-yellow); }
+.bex-eu-page .bex-eu-country-group .bex-eyebrow { font-size: .72rem; letter-spacing: .09em; margin: 0 0 1rem; color: #496174; }
+.bex-eu-page .bex-eu-country-group p:last-child { margin: 0; font-weight: 650; font-size: clamp(.98rem, 1.2vw, 1.12rem); line-height: 1.9; }
 .bex-eu-page .bex-eu-disclaimer { font-size: .88rem; color: var(--bex-muted, #5f6b76); max-width: 80ch; }
 .bex-eu-page .bex-eu-close { max-width: none; background: var(--bex-navy); color: #fff; text-align: center; }
 .bex-eu-page .bex-eu-close > * { margin-left: auto; margin-right: auto; }
@@ -54,6 +56,7 @@
   .bex-eu-page .bex-eu-proof > div:last-child { border-bottom: 0; }
   .bex-eu-page .bex-eu-feature { grid-template-columns: 1fr; }
   .bex-eu-page .bex-eu-feature .bex-media { aspect-ratio: 16 / 9; }
+  .bex-eu-page .bex-eu-country-groups { grid-template-columns: 1fr; }
 }
 @media (max-width: 599px) {
   .bex-eu-page .bex-eu-hero { min-height: 650px; }
