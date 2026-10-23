@@ -56,8 +56,12 @@ function bexstar_quote_validate( $input ) {
     return array( $data, $errors );
 }
 
-function bexstar_quote_message( $data ) {
-    $text = "BEXSTAR shipping inquiry\n\nContact\nName: {$data['name']}\nWhatsApp: {$data['whatsapp']}\nEmail: {$data['email']}\n\nDestination\nCountry: {$data['country']}\nZIP / Postal Code: {$data['postal']}\n\nCargo data\n";
+function bexstar_quote_reference() {
+    return 'BQ-' . strtoupper( str_replace( '-', '', wp_generate_uuid4() ) );
+}
+
+function bexstar_quote_message( $data, $reference ) {
+    $text = "BEXSTAR shipping inquiry\nInquiry reference: {$reference}\n\nContact\nName: {$data['name']}\nWhatsApp: {$data['whatsapp']}\nEmail: {$data['email']}\n\nDestination\nCountry: {$data['country']}\nZIP / Postal Code: {$data['postal']}\n\nCargo data\n";
     if ( 'package' === $data['method'] ) {
         $text .= "Method: Package details\nWeight per package (kg): {$data['package_weight']}\nDimensions (cm), L x W x H: {$data['length']} x {$data['width']} x {$data['height']}\nNumber of packages / pieces: {$data['pieces']}\n";
     } else {
@@ -74,12 +78,13 @@ function bexstar_quote_process( $input ) {
     if ( $errors ) { return array( 'data' => $data, 'errors' => $errors, 'sent' => false ); }
     $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
     if ( $data['email'] ) { $headers[] = 'Reply-To: ' . sanitize_email( $data['email'] ); }
+    $reference = bexstar_quote_reference();
     try {
-        $sent = wp_mail( 'quotes@bexgl.com', 'BEXSTAR shipping inquiry', bexstar_quote_message( $data ), $headers );
+        $sent = wp_mail( 'quotes@bexgl.com', 'BEXSTAR shipping inquiry [' . $reference . ']', bexstar_quote_message( $data, $reference ), $headers );
     } catch ( Throwable $error ) {
         $sent = false;
     }
-    return array( 'data' => $data, 'errors' => $sent ? array() : array( 'send' => 'We could not send your request. Please check the required fields or contact BEXSTAR directly.' ), 'sent' => (bool) $sent );
+    return array( 'data' => $data, 'errors' => $sent ? array() : array( 'send' => 'We could not send your request. Please check the required fields or contact BEXSTAR directly.' ), 'sent' => (bool) $sent, 'reference' => $sent ? $reference : '' );
 }
 
 add_action( 'template_redirect', function () {
@@ -112,7 +117,9 @@ function bexstar_render_quote_form() {
     $result = $GLOBALS['bexstar_quote_result'] ?? array( 'data' => array(), 'errors' => array(), 'sent' => false );
     $data = $result['data']; $errors = $result['errors'];
     if ( $result['sent'] ) {
-        return '<div class="bex-quote-notice" role="status" tabindex="-1" data-quote-result>Thank you. We received your shipment details. The BEXSTAR team will review your request and contact you shortly.</div>';
+        $reference = $result['reference'] ?? '';
+        return '<div class="bex-quote-notice" role="status" tabindex="-1" data-quote-result>Thank you. We received your shipment details. The BEXSTAR team will review your request and contact you shortly.'
+            . ( $reference ? '<p>Your inquiry reference: <strong>' . esc_html( $reference ) . '</strong></p>' : '' ) . '</div>';
     }
     $method = in_array( $data['method'] ?? '', array( 'package', 'total' ), true ) ? $data['method'] : 'package';
     ob_start(); ?>
