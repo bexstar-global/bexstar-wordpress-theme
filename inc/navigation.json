@@ -27,6 +27,10 @@
             "shipping/express"
           ],
           [
+            "Sample Shipping Planner",
+            "sample-calculator"
+          ],
+          [
             "DDP Shipping",
             "shipping/ddp"
           ]
@@ -316,3 +320,4 @@
     ]
   ]
 ]
+
