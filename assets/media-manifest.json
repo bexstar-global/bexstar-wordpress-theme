@@ -70,6 +70,66 @@
     "mobileRatio": "4:3",
     "purpose": "Destinations editorial context"
   },
+  "europe-hero": {
+    "path": "assets/images/destinations/europe-hero-v2.webp",
+    "width": 1983,
+    "height": 793,
+    "section": "Europe route hero",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "70% 50%",
+    "mobileRatio": "4:5",
+    "purpose": "Dedicated Europe route visual"
+  },
+  "europe-air": {
+    "path": "assets/images/destinations/europe-air-v2.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Europe air freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Europe air visual"
+  },
+  "europe-sea": {
+    "path": "assets/images/destinations/europe-sea-v2.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Europe sea freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Europe sea visual"
+  },
+  "europe-rail": {
+    "path": "assets/images/destinations/europe-rail-v2.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Europe rail freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Europe rail visual"
+  },
+  "europe-delivery": {
+    "path": "assets/images/destinations/europe-delivery-v2.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Europe road and warehouse delivery",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Europe delivery visual"
+  },
+  "europe-fba": {
+    "path": "assets/images/destinations/europe-fba-v2.webp",
+    "width": 1448,
+    "height": 1086,
+    "section": "Europe FBA and warehouse delivery",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Europe fulfillment visual"
+  },
   "uk": {
     "path": "assets/images/destinations/uk.webp",
     "width": 1200,
