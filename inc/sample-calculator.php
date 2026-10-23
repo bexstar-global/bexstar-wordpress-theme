@@ -3,7 +3,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_action( 'wp_enqueue_scripts', function () {
-    if ( ! is_page( 'sample-calculator' ) ) { return; }
+    if ( ! is_page( 'sample-calculator' ) && ! is_preview() ) { return; }
     $css = 'assets/css/sample-calculator.css';
     $js = 'assets/js/sample-calculator.js';
     wp_enqueue_style( 'bexstar-sample-calculator', get_theme_file_uri( $css ), array( 'bexstar-site' ), substr( md5_file( get_theme_file_path( $css ) ), 0, 12 ) );
@@ -37,7 +37,7 @@ function bexstar_render_sample_calculator() {
             <?php endforeach; ?>
             <div><label for="bex-sample-cargo">Cargo type</label><select id="bex-sample-cargo" name="cargo"><option value="general">General goods</option><option value="battery">Contains batteries</option><option value="liquid">Liquid or powder</option><option value="unsure">Not sure / other</option></select></div>
         </div>
-        <button class="bex-button" type="submit">REVIEW MY PARCEL</button>
+        <button class="bex-button" type="button" data-sample-review>REVIEW MY PARCEL</button>
     </form>
     <div class="bex-sample-result" data-sample-result hidden tabindex="-1" aria-live="polite">
         <p class="bex-sample-error" data-sample-error hidden></p>
