@@ -58,4 +58,3 @@ function bexstar_render_sample_calculator() {
     <?php return ob_get_clean();
 }
 add_shortcode( 'bexstar_sample_calculator', 'bexstar_render_sample_calculator' );
-
