@@ -15,9 +15,7 @@ function bexstar_quote_validate( $input ) {
         if ( strlen( $raw ) > $limit ) { $errors[$key] = 'Please shorten this field.'; }
         $data[$key] = 'additional' === $key ? sanitize_textarea_field( $raw ) : sanitize_text_field( $raw );
     }
-    foreach ( array( 'country' => 'destination country', 'postal' => 'destination ZIP / postal code' ) as $key => $label ) {
-        if ( '' === $data[$key] ) { $errors[$key] = 'Please enter your ' . $label . '.'; }
-    }
+    if ( '' === $data['country'] ) { $errors['country'] = 'Please enter your destination country.'; }
     if ( '' === $data['whatsapp'] && '' === $data['email'] ) {
         $errors['contact'] = 'Please provide your WhatsApp number or email so we can send your quotation.';
     }
@@ -38,6 +36,7 @@ function bexstar_quote_validate( $input ) {
     } else {
         foreach ( $methods[$data['method']] as $key ) {
             $value = $data[$key];
+            if ( '' === $value ) { continue; }
             if ( ! preg_match( '/^(?:\d+(?:\.\d+)?|\.\d+)$/D', $value ) || (float) $value <= 0 || (float) $value > 1000000000 ) {
                 $errors[$key] = 'Please enter a positive number.';
             } elseif ( 'pieces' === $key && ( ! ctype_digit( $value ) || (float) $value > 1000000 ) ) {
@@ -126,11 +125,11 @@ function bexstar_render_quote_form() {
         <?php wp_nonce_field( 'bexstar_quote', 'bex_quote_nonce', false ); ?>
         <input type="hidden" name="bex_quote_submit" value="1">
         <div class="bex-quote-trap" aria-hidden="true"><label for="bex-q-website">Leave this field empty</label><input id="bex-q-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-        <p class="bex-quote-notice" data-sample-handoff role="status" hidden>Parcel details added from the sample calculator. Check them, then provide any missing postal code and your WhatsApp or email before sending.</p>
-        <p class="bex-quote-hint">* Required. Provide either WhatsApp or email and one complete cargo method.</p>
+        <p class="bex-quote-notice" data-sample-handoff role="status" hidden>Parcel details added from the sample calculator. Check them, then provide your WhatsApp or email before sending.</p>
+        <p class="bex-quote-hint">* Required. Destination country and either WhatsApp or email are enough to start an inquiry. Add any cargo details you know.</p>
         <fieldset><legend>Where is your cargo going?</legend><div class="bex-quote-grid">
             <?php bexstar_quote_input( 'country', 'Destination country', $data, $errors, 'text', true, 'autocomplete="country-name" maxlength="80"' ); ?>
-            <?php bexstar_quote_input( 'postal', 'Destination ZIP / Postal Code', $data, $errors, 'text', true, 'autocomplete="postal-code" maxlength="30"' ); ?>
+            <?php bexstar_quote_input( 'postal', 'Destination ZIP / Postal Code (if known)', $data, $errors, 'text', false, 'autocomplete="postal-code" maxlength="30"' ); ?>
         </div></fieldset>
         <fieldset><legend>How can we reach you?</legend><p id="bex-q-contact-help">WhatsApp or email — at least one is required.</p>
         <p class="bex-quote-error" id="bex-q-contact-error" role="alert" <?php echo isset( $errors['contact'] ) ? '' : 'hidden'; ?>>Please provide your WhatsApp number or email so we can send your quotation.</p>
@@ -147,10 +146,10 @@ function bexstar_render_quote_form() {
         </div>
         <noscript><p>Complete only the cargo method selected above. The other method can be left blank.</p></noscript>
         <fieldset data-cargo-method="package"><legend>Package details</legend><div class="bex-quote-grid">
-        <?php foreach ( array( 'package_weight' => 'Weight per piece (kg)', 'length' => 'Length (cm)', 'width' => 'Width (cm)', 'height' => 'Height (cm)', 'pieces' => 'Number of pieces' ) as $key => $label ) { bexstar_quote_input( $key, $label . ' *', $data, $errors, 'number', false, 'min="' . ( 'pieces' === $key ? '1' : '0.000001' ) . '" step="' . ( 'pieces' === $key ? '1' : 'any' ) . '" inputmode="decimal"' ); } ?>
+        <?php foreach ( array( 'package_weight' => 'Weight per piece (kg)', 'length' => 'Length (cm)', 'width' => 'Width (cm)', 'height' => 'Height (cm)', 'pieces' => 'Number of pieces' ) as $key => $label ) { bexstar_quote_input( $key, $label, $data, $errors, 'number', false, 'min="' . ( 'pieces' === $key ? '1' : '0.000001' ) . '" step="' . ( 'pieces' === $key ? '1' : 'any' ) . '" inputmode="decimal"' ); } ?>
         </div></fieldset>
         <fieldset data-cargo-method="total"><legend>Total cargo</legend><div class="bex-quote-grid">
-        <?php foreach ( array( 'total_weight' => 'Total weight (kg)', 'volume' => 'Total volume (CBM)' ) as $key => $label ) { bexstar_quote_input( $key, $label . ' *', $data, $errors, 'number', false, 'min="0.000001" step="any" inputmode="decimal"' ); } ?>
+        <?php foreach ( array( 'total_weight' => 'Total weight (kg)', 'volume' => 'Total volume (CBM)' ) as $key => $label ) { bexstar_quote_input( $key, $label, $data, $errors, 'number', false, 'min="0.000001" step="any" inputmode="decimal"' ); } ?>
         </div></fieldset></fieldset>
         <details class="bex-quote-optional" <?php echo array_intersect( array_keys( $errors ), array( 'name', 'description', 'delivery', 'last_mile', 'speed', 'additional' ) ) ? 'open' : ''; ?>>
         <summary>Add more information (optional)</summary><div class="bex-quote-grid">
