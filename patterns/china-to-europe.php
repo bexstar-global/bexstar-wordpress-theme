@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <div class="wp-block-group bex-eu-hero-copy">
 <!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">CHINA TO EUROPE</p><!-- /wp:paragraph -->
 <!-- wp:heading {"level":1} --><h1 class="wp-block-heading">Europe, planned from the first mile.</h1><!-- /wp:heading -->
-<!-- wp:paragraph {"className":"bex-lead"} --><p class="bex-lead">Air, sea, rail or road DDP. One clear conversation about your cargo, destination and delivery needs.</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bex-lead"} --><p class="bex-lead">Air, sea, rail and road DDP options. One plan shaped around your cargo, destination and receiving point.</p><!-- /wp:paragraph -->
 <!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/get-a-quote/">PLAN MY SHIPMENT</a></div><!-- /wp:button --></div><!-- /wp:buttons -->
-<!-- wp:paragraph {"className":"bex-eu-modes"} --><p class="bex-eu-modes">AIR &nbsp;·&nbsp; SEA &nbsp;·&nbsp; RAIL &nbsp;·&nbsp; ROAD DDP</p><!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"bex-eu-modes"} --><p class="bex-eu-modes">AIR DDP &nbsp;·&nbsp; SEA DDP &nbsp;·&nbsp; RAIL DDP &nbsp;·&nbsp; ROAD DDP</p><!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 </section>
@@ -43,19 +43,19 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- wp:group {"tagName":"div","className":"bex-eu-cards","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-cards">
 <!-- wp:group {"tagName":"div","className":"bex-eu-card","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card">
 <!-- wp:bexstar/media {"slot":"europe-air","alt":"Cargo aircraft prepared for an international shipment"} /-->
-<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">01 / AIR</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Move when inventory matters.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Air options for eligible, time-sensitive cargo and replenishment.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">01 / AIR DDP</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Move when inventory matters.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Air parcel options for eligible FBA and commercial deliveries.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
 </div><!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-eu-card","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card">
 <!-- wp:bexstar/media {"slot":"europe-sea","alt":"Container vessel at a European seaport"} /-->
-<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">02 / SEA</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Make room for planned volume.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Sea options for planned stock, pallets and larger shipments.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">02 / SEA DDP</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Make room for planned volume.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Sea parcel routes, with selected FBA truck and oversized options.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
 </div><!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-eu-card","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card">
 <!-- wp:bexstar/media {"slot":"europe-rail","alt":"Freight train carrying containers through Europe"} /-->
-<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">03 / RAIL</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Keep another route in play.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Rail options for selected European destinations and shipment types.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">03 / RAIL DDP</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Keep another route in play.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Rail parcel routes across the network, with selected FBA truck delivery.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
 </div><!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-eu-card","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card">
 <!-- wp:bexstar/media {"slot":"europe-delivery","alt":"Freight truck at a European logistics hub"} /-->
-<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">04 / ROAD DDP</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Connect the overland legs.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Road DDP options where route, cargo and destination qualify.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-card-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-card-copy"><!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">04 / ROAD DDP</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Connect the overland legs.</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Overland parcel delivery, with selected FBA truck routes.</p><!-- /wp:paragraph --></div><!-- /wp:group -->
 </div><!-- /wp:group -->
 </div><!-- /wp:group -->
 </section>
@@ -74,11 +74,23 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- wp:group {"tagName":"section","className":"bex-section bex-eu-destinations","layout":{"type":"default"}} --><section class="wp-block-group bex-section bex-eu-destinations">
 <!-- wp:group {"tagName":"div","className":"bex-eu-destinations-inner","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-destinations-inner">
 <!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">YOUR EUROPEAN DESTINATION</p><!-- /wp:paragraph -->
-<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Start with the final address.</h2><!-- /wp:heading -->
-<!-- wp:group {"tagName":"div","className":"bex-eu-country-list","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-country-list">
-<!-- wp:paragraph --><p>Germany</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>France</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Italy</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Spain</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Netherlands</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Other European markets</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">A route for your destination.</h2><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Indicative DDP parcel coverage. Tell us the postcode and receiving point to confirm the fit.</p><!-- /wp:paragraph -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-country-groups","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-country-groups">
+<!-- wp:group {"tagName":"div","className":"bex-eu-country-group","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-country-group">
+<!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">AIR · SEA · RAIL · ROAD</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Germany · France · Italy · Spain · Netherlands · Poland · Belgium · Czechia</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
-<!-- wp:paragraph {"className":"bex-eu-disclaimer"} --><p class="bex-eu-disclaimer">Route and delivery availability depend on the country, postcode and cargo. The quotation confirms DDP, duties and taxes, customs responsibilities and the final-mile scope for each shipment.</p><!-- /wp:paragraph -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-country-group","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-country-group">
+<!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">AIR · SEA · RAIL · ROAD / ADDITIONAL</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Austria · Denmark · Finland · Hungary · Croatia · Ireland · Latvia · Lithuania · Luxembourg · Portugal · Sweden · Slovenia · Slovakia</p><!-- /wp:paragraph -->
+</div><!-- /wp:group -->
+<!-- wp:group {"tagName":"div","className":"bex-eu-country-group","layout":{"type":"default"}} --><div class="wp-block-group bex-eu-country-group">
+<!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">SEA · RAIL · ROAD / BY QUOTE</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p>Estonia · Bulgaria · Monaco · Romania · Greece</p><!-- /wp:paragraph -->
+</div><!-- /wp:group -->
+</div><!-- /wp:group -->
+<!-- wp:paragraph {"className":"bex-eu-disclaimer"} --><p class="bex-eu-disclaimer">Coverage is indicative for parcel delivery. FBA truck service covers selected warehouses only. Cargo, postcode, customs, duties and any secondary clearance are confirmed in the shipment quote; some destinations may incur additional taxes.</p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 </section><!-- /wp:group -->
 
