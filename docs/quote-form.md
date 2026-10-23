@@ -17,6 +17,11 @@ whole number); Total cargo requires positive weight and CBM. Only the selected
 method is validated and sent. Switching methods preserves unsent values in the
 browser. Without JavaScript both methods are visible and server validation still
 requires only the selected one. Optional information is collapsed initially.
+It includes destination type (Amazon FBA, business, residence or warehouse),
+last-mile preference (courier/parcel or truck/pallet) and speed. The preference
+does not promise a service: cargo and address acceptance are confirmed in the quote.
+The additional-information prompt asks for FBA/warehouse, pallet and delivery-access
+details when relevant. No carrier or agent names appear in the public form.
 
 The handler verifies a WordPress nonce and empty honeypot, accepts only scalar
 text values, sanitizes input, validates numeric and enumerated fields, and escapes
@@ -35,16 +40,14 @@ response; a browser-confirmed resubmission can send another inquiry.
 
 ## Validation performed
 
-- PHP syntax checked with PHP WASM CLI.
-- Run `php scripts/quote-form.test.php`: 34 checks with mocked WordPress APIs and
+- PHP syntax checked with PHP 8.5 CLI.
+- `php scripts/quote-form.test.php` passed 38 checks with mocked WordPress APIs and
   mail transport. Covers WhatsApp-only, email-only, neither, both cargo methods,
   each missing cargo field, invalid email, header injection, numeric errors,
-  nonce/honeypot rejection, mail success/failure, escaping and retained values.
-- Local browser preview of PHP-rendered form: 1440, 1536, 1920, 768, 390 and 320px;
-  no horizontal overflow; visible method only; keyboard radios/disclosure;
-  contact OR logic, native email/numeric validity, values retained on switching.
-- Preview uses theme CSS and a lightweight base typography stylesheet; it is not
-  a complete running WordPress installation or a deployed acceptance test.
+  nonce/honeypot rejection, routing preferences, mail success/failure, escaping
+  and retained values.
+- Earlier local browser preview of the base form covered 1440, 1536, 1920, 768,
+  390 and 320px; it is not a deployed acceptance test for the new select field.
 
 ## Staging acceptance after authorized installation
 
@@ -61,5 +64,8 @@ response; a browser-confirmed resubmission can send another inquiry.
    by this code and none was installed.
 5. Test with JavaScript disabled, then keyboard-only. Verify invalid requests do
    not generate notifications. Check upstream caching excludes the quote route.
+6. Check the new last-mile selector at desktop and mobile widths and verify its
+   chosen value reaches the internal inquiry email. Agent names must remain absent
+   from the public page and customer-facing response.
 
 No deployment is included in this change.
