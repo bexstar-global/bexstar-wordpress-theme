@@ -8,11 +8,16 @@ code when known, cargo type, number of identical parcels, weight and dimensions.
 It computes total actual weight and parcel volume in the browser.
 
 Phase 1 does **not** calculate, store or display prices, chargeable weights, transit
-promises or provider names. The input stays in the browser. Customers may copy a
+promises or provider names. Parcel input stays in the browser until the customer
+submits the separate inquiry form. Customers may copy a
 shipment summary and follow the existing Get a Quote link; they enter their
-contact details on that separate inquiry form. The new page is not linked in the
-site navigation until the WordPress page is created and reviewed. No WordPress
-database page is created by theme deployment.
+contact details on that separate inquiry form. After a valid review, clicking
+Request a Quote carries parcel fields through same-tab session storage, never a
+URL parameter. The quote form shows the transferred fields for review, then
+removes the temporary data. It does not auto-submit or store contact details.
+The navigation link resolves to the published page and falls back to the home
+page while that page is unavailable. No WordPress database page is created by
+theme deployment.
 
 ## Development-site publication
 
@@ -25,7 +30,7 @@ After the theme change is approved and deployed to the isolated development site
    actual-weight and volume arithmetic, validation and the copy action.
 3. Check the Request a Quote link and a real inquiry receipt. The calculator
    itself does not submit an inquiry.
-4. Add a navigation or service-page link only after the page is live and reviewed.
+4. Confirm the Shipping menu exposes the calculator only after it is live.
 
 Production bexgl.com is outside this workflow.
 

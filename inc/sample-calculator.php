@@ -50,7 +50,7 @@ function bexstar_render_sample_calculator() {
             <p class="bex-sample-destination" data-sample-destination></p>
             <div class="bex-sample-services"><div data-sample-service="express"><h3>Express parcel</h3><p>For small shipments when speed is a priority. Availability and delivery scope are confirmed after reviewing the parcel.</p></div><div data-sample-service="air"><h3>Air parcel</h3><p>For sample shipments that can follow an air cargo schedule. We check the weight, dimensions and destination before quoting.</p></div></div>
             <p>Shipping charges are confirmed by BEXSTAR after checking the destination, cargo type and chargeable weight. No price is calculated or displayed here.</p>
-            <div class="bex-sample-actions"><button type="button" class="bex-button bex-sample-copy" data-sample-copy>Copy parcel details</button><a class="bex-button" href="<?php echo esc_url( home_url( '/get-a-quote/' ) ); ?>">REQUEST A QUOTE</a></div>
+            <div class="bex-sample-actions"><button type="button" class="bex-button bex-sample-copy" data-sample-copy>Copy parcel details</button><a class="bex-button" data-sample-quote href="<?php echo esc_url( home_url( '/get-a-quote/' ) ); ?>">REQUEST A QUOTE</a></div>
             <p class="bex-sample-copy-status" data-sample-copy-status aria-live="polite"></p>
         </div>
     </div>
