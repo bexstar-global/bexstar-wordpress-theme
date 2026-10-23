@@ -126,6 +126,7 @@ function bexstar_render_quote_form() {
         <?php wp_nonce_field( 'bexstar_quote', 'bex_quote_nonce', false ); ?>
         <input type="hidden" name="bex_quote_submit" value="1">
         <div class="bex-quote-trap" aria-hidden="true"><label for="bex-q-website">Leave this field empty</label><input id="bex-q-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="bex-quote-notice" data-sample-handoff role="status" hidden>Parcel details added from the sample calculator. Check them, then provide any missing postal code and your WhatsApp or email before sending.</p>
         <p class="bex-quote-hint">* Required. Provide either WhatsApp or email and one complete cargo method.</p>
         <fieldset><legend>Where is your cargo going?</legend><div class="bex-quote-grid">
             <?php bexstar_quote_input( 'country', 'Destination country', $data, $errors, 'text', true, 'autocomplete="country-name" maxlength="80"' ); ?>
@@ -164,3 +165,4 @@ function bexstar_render_quote_form() {
     <?php return ob_get_clean();
 }
 add_shortcode( 'bexstar_quote_form', 'bexstar_render_quote_form' );
+
