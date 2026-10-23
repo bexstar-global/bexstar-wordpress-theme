@@ -160,6 +160,9 @@ function bexstar_render_quote_form() {
         <?php endforeach; ?>
         </div><p class="bex-quote-hint">Courier or truck availability depends on your cargo and delivery address. We confirm the final service in your quote.</p><div class="bex-quote-field"><label for="bex-q-additional">Additional information (optional)</label><textarea id="bex-q-additional" name="additional" rows="3" maxlength="3000" placeholder="FBA center or warehouse, pallet count, delivery appointment, dock or forklift access"><?php echo esc_textarea( $data['additional'] ?? '' ); ?></textarea></div></details>
         <button class="bex-button" type="submit">REQUEST A QUOTE</button>
+        <?php $privacy_url = get_privacy_policy_url(); if ( $privacy_url ) : ?>
+        <p class="bex-quote-hint">How we handle your inquiry details: <a href="<?php echo esc_url( $privacy_url ); ?>">Privacy Policy</a>.</p>
+        <?php endif; ?>
     </form>
     <?php return ob_get_clean();
 }
