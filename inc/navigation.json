@@ -37,7 +37,26 @@
         [
           [
             "China to USA",
-            "shipping/china-to-usa"
+            "shipping/china-to-usa",
+            [
+              [
+                "Overview",
+                "shipping/china-to-usa"
+              ],
+              [
+                "Air Freight",
+                "shipping/china-to-usa#air-freight"
+              ],
+              [
+                "Express",
+                "shipping/china-to-usa#express"
+              ],
+              [
+                "Ocean DDP",
+                "shipping/china-to-usa#ocean-ddp"
+              ]
+            ],
+            "published-only"
           ],
           [
             "China to Europe",
