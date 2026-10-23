@@ -94,7 +94,7 @@ function bexstar_render_private_dispatch() {
         }
         echo '</ul>';
     }
-    echo '<h2>Assign a shipment</h2><p>Enter the same internal reference used in your shipment workflow. Saving an existing reference updates its provider.</p>';
+    echo '<h2>Assign a shipment</h2><p>For a website inquiry, copy its BQ- reference from the notification email. For other shipments, use your existing internal reference. Saving an existing reference updates its provider.</p>';
     echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
     echo '<input type="hidden" name="action" value="bexstar_assign_provider">';
     wp_nonce_field( 'bexstar_assign_provider' );
