@@ -30,7 +30,7 @@ add_action( 'wp_enqueue_scripts', function () {
     $style_hash = is_readable( $style_path ) ? md5_file( $style_path ) : false;
     $style_version = $style_hash ? substr( $style_hash, 0, 12 ) : $version;
     wp_enqueue_style( 'bexstar-site', get_theme_file_uri( 'assets/css/site.css' ), array(), $style_version );
-    if ( is_page_template( 'page-china-to-uk' ) ) {
+    if ( is_page_template( 'page-china-to-uk' ) || is_page_template( 'page-china-to-usa-fba' ) ) {
         $uk_style = 'assets/css/china-to-uk.css';
         wp_enqueue_style( 'bexstar-china-to-uk', get_theme_file_uri( $uk_style ), array( 'bexstar-site' ), substr( md5_file( get_theme_file_path( $uk_style ) ), 0, 12 ) );
     }
