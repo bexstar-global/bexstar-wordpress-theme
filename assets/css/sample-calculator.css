@@ -1,0 +1,24 @@
+.bex-sample-page .bex-sample-wrap { max-width: 1040px; }
+.bex-sample-page h1 { max-width: 19ch; font-size: clamp(2.5rem,5vw,4.5rem); line-height: 1.08; letter-spacing: -.035em; margin-block: 1rem 1.75rem; }
+.bex-sample-form { margin-block: 36px; padding: clamp(20px,4vw,40px); background: #f4f6f8; }
+.bex-sample-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px 24px; margin-bottom: 28px; }
+.bex-sample-grid > div { min-width: 0; }
+.bex-sample-grid label { display: block; font-weight: 600; margin-bottom: 7px; }
+.bex-sample-grid input,.bex-sample-grid select { width: 100%; box-sizing: border-box; min-height: 48px; border: 1px solid #647587; border-radius: 0; padding: 10px 12px; color: #071e33; background: white; font: inherit; }
+.bex-sample-form :where(input,select,button):focus-visible,.bex-sample-result a:focus-visible { outline: 3px solid #1177c7; outline-offset: 3px; }
+.bex-sample-form .bex-button { min-height: 48px; border: 0; cursor: pointer; }
+.bex-sample-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.bex-sample-result { margin-block: 26px; padding: clamp(20px,3vw,32px); border: 1px solid #c8d3db; }
+.bex-sample-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-block: 22px; }
+.bex-sample-card { padding: 22px; background: #f4f6f8; }
+.bex-sample-card span,.bex-sample-card small { display: block; }
+.bex-sample-card strong { display: block; margin-block: 8px; font-size: clamp(1.8rem,3vw,2.4rem); color: #071e33; }
+.bex-sample-services { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-block: 24px; }
+.bex-sample-services > div { border-top: 3px solid #ffc400; padding-top: 12px; }
+.bex-sample-services h3 { margin-block: 0 8px; }
+.bex-sample-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.bex-sample-copy { border: 1px solid #071e33; background: white; color: #071e33; cursor: pointer; }
+.bex-sample-copy-status { min-height: 1.5em; }
+.bex-sample-error { color: #9e2424; }
+@media (max-width: 720px) { .bex-sample-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 520px) { .bex-sample-grid,.bex-sample-results,.bex-sample-services { grid-template-columns: 1fr; } .bex-sample-form .bex-button { width: 100%; } }
