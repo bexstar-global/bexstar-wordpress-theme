@@ -43,16 +43,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:group -->
 <!-- wp:group {"tagName":"div","className":"bex-destination","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-destination">
-<!-- wp:bexstar/media {"slot":"canada","decorative":false,"alt":"Container ship and cargo cranes at Vancouver port"} /-->
-<!-- wp:group {"tagName":"div","className":"bex-destination-copy","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-destination-copy">
-<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Canada</h3><!-- /wp:heading --><!-- wp:paragraph --><p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/china-to-canada', 'destinations' ) ); ?>">Explore route →</a></p><!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
-<!-- wp:group {"tagName":"div","className":"bex-destination","layout":{"type":"default"}} -->
-<div class="wp-block-group bex-destination">
 <!-- wp:bexstar/media {"slot":"australia","decorative":false,"alt":"Australian harbour with a container terminal and docked ships"} /-->
 <!-- wp:group {"tagName":"div","className":"bex-destination-copy","layout":{"type":"default"}} -->
 <div class="wp-block-group bex-destination-copy">
