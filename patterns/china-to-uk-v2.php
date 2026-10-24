@@ -65,6 +65,19 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- /wp:paragraph -->
 </section>
 <!-- /wp:group -->
+<!-- wp:group {"tagName":"section","className":"bex-section bex-uk2-time","layout":{"type":"default"}} -->
+<section class="wp-block-group bex-section bex-uk2-time">
+<!-- wp:paragraph {"className":"bex-eyebrow"} -->
+<p class="bex-eyebrow">REFERENCE PLANNING WINDOWS</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":2} -->
+<h2 class="wp-block-heading">Compare the handover, then confirm the plan.</h2>
+<!-- /wp:heading -->
+<!-- wp:table {"hasFixedLayout":false,"className":"bex-uk2-time-table"} -->
+<figure class="wp-block-table bex-uk2-time-table"><table><thead><tr><th>Route</th><th>Reference window</th><th>Measured to</th></tr></thead><tbody><tr><td>Priority air</td><td>3–5 working days</td><td>Warehouse cut-off to UK carrier handover</td></tr><tr><td>Economy air</td><td>6–9 working days</td><td>Start point confirmed in the quote</td></tr><tr><td>Sea freight</td><td>35–50 calendar days</td><td>Vessel departure to UK carrier handover</td></tr><tr><td>Rail freight</td><td>20–25 fast / 30–35 standard calendar days</td><td>Train departure to UK carrier handover</td></tr><tr><td>Road DDP</td><td>Approx. 22–26 days</td><td>Loading to clearance and carrier handover</td></tr><tr><td>Road–rail DDP</td><td>Approx. 25–28 days</td><td>Departure to carrier handover</td></tr></tbody></table><figcaption class="wp-element-caption">Planning references from the previously approved UK page, not guaranteed delivery dates. Current departure, customs and final-mile timing are confirmed in your quotation.</figcaption></figure>
+<!-- /wp:table -->
+</section>
+<!-- /wp:group -->
 <!-- wp:group {"tagName":"section","className":"bex-section bex-uk2-lane bex-uk2-lane-air","layout":{"type":"default"}} -->
 <section class="wp-block-group bex-section bex-uk2-lane bex-uk2-lane-air">
 <!-- wp:bexstar/media {"slot":"uk-air-v2","decorative":false,"alt":"Air cargo pallets being loaded at an airport"} /-->
