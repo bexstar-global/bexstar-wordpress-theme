@@ -21,6 +21,7 @@ add_action( 'after_setup_theme', function () {
     add_theme_support( 'custom-logo', array( 'height' => 48, 'width' => 200, 'flex-width' => true, 'flex-height' => true ) );
     add_editor_style( 'assets/css/site.css' );
     add_editor_style( 'assets/css/china-to-uk.css' );
+    add_editor_style( 'assets/css/china-to-uk-v2.css' );
     add_editor_style( 'assets/css/china-to-europe.css' );
     add_editor_style( 'assets/css/china-to-australia.css' );
     add_editor_style( 'assets/css/shipping-overview.css' );
@@ -38,6 +39,10 @@ add_action( 'wp_enqueue_scripts', function () {
     if ( is_page_template( 'page-china-to-uk' ) || is_page_template( 'page-china-to-usa-fba' ) ) {
         $uk_style = 'assets/css/china-to-uk.css';
         wp_enqueue_style( 'bexstar-china-to-uk', get_theme_file_uri( $uk_style ), array( 'bexstar-site' ), substr( md5_file( get_theme_file_path( $uk_style ) ), 0, 12 ) );
+    }
+    if ( is_page_template( 'page-china-to-uk' ) ) {
+        $uk_v2_style = 'assets/css/china-to-uk-v2.css';
+        wp_enqueue_style( 'bexstar-china-to-uk-v2', get_theme_file_uri( $uk_v2_style ), array( 'bexstar-china-to-uk' ), substr( md5_file( get_theme_file_path( $uk_v2_style ) ), 0, 12 ) );
     }
     if ( is_page_template( 'page-china-to-europe' ) ) {
         $europe_style = 'assets/css/china-to-europe.css';
