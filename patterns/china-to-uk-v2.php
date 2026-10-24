@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <h2 class="wp-block-heading">Compare the handover, then confirm the plan.</h2>
 <!-- /wp:heading -->
 <!-- wp:table {"hasFixedLayout":false,"className":"bex-uk2-time-table"} -->
-<figure class="wp-block-table bex-uk2-time-table"><table><thead><tr><th>Route</th><th>Reference window</th><th>Measured to</th></tr></thead><tbody><tr><td>Priority air</td><td>3–5 working days</td><td>Warehouse cut-off to UK carrier handover</td></tr><tr><td>Economy air</td><td>6–9 working days</td><td>Start point confirmed in the quote</td></tr><tr><td>Sea freight</td><td>35–50 calendar days</td><td>Vessel departure to UK carrier handover</td></tr><tr><td>Rail freight</td><td>20–25 fast / 30–35 standard calendar days</td><td>Train departure to UK carrier handover</td></tr><tr><td>Road DDP</td><td>Approx. 22–26 days</td><td>Loading to clearance and carrier handover</td></tr><tr><td>Road–rail DDP</td><td>Approx. 25–28 days</td><td>Departure to carrier handover</td></tr></tbody></table><figcaption class="wp-element-caption">Planning references from the previously approved UK page, not guaranteed delivery dates. Current departure, customs and final-mile timing are confirmed in your quotation.</figcaption></figure>
+<figure class="wp-block-table bex-uk2-time-table"><table><thead><tr><th>Route</th><th>Reference window</th><th>Measured to</th></tr></thead><tbody><tr><td>Priority air</td><td>3–5 working days</td><td>Warehouse cut-off to UK carrier handover</td></tr><tr><td>Economy air</td><td>6–9 working days</td><td>Start point confirmed in the quote</td></tr><tr><td>Sea freight</td><td>35–50 calendar days</td><td>Vessel departure to UK carrier handover</td></tr><tr><td>Rail freight</td><td>20–25 fast / 30–35 standard calendar days</td><td>Train departure to UK carrier handover</td></tr><tr><td>Road DDP</td><td>Approx. 22–26 days</td><td>Loading to clearance and carrier handover</td></tr><tr><td>Road–rail DDP</td><td>Approx. 25–28 days</td><td>Departure to carrier handover</td></tr></tbody></table><figcaption class="wp-element-caption">Indicative planning windows, not guaranteed delivery dates. Carrier handover is not final delivery; current departure, customs and final-mile timing are confirmed in your quotation.</figcaption></figure>
 <!-- /wp:table -->
 </section>
 <!-- /wp:group -->
@@ -206,7 +206,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <p class="bex-uk2-code-line">EXAMPLE UK CODES &nbsp; BHX4 &nbsp;·&nbsp; LBA2 &nbsp;·&nbsp; LPL2 &nbsp;·&nbsp; EMA3 &nbsp;·&nbsp; XUKA</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph {"className":"bex-uk2-fine"} -->
-<p class="bex-uk2-fine">Examples from available route sheets; service and Amazon receiving requirements must be confirmed for the assigned code.</p>
+<p class="bex-uk2-fine">Example destinations only. Service and Amazon receiving requirements must be confirmed for the assigned code.</p>
 <!-- /wp:paragraph -->
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
