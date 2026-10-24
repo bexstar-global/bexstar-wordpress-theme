@@ -1,4 +1,64 @@
 {
+  "uk-hero-v2": {
+    "path": "assets/images/uk/uk-hero-v2.webp",
+    "width": 1920,
+    "height": 900,
+    "section": "UK route hero",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "70% 50%",
+    "mobileRatio": "4:5",
+    "purpose": "Dedicated UK port hero visual"
+  },
+  "uk-air-v2": {
+    "path": "assets/images/uk/uk-air-v2.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "UK air DDP",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Air cargo visual"
+  },
+  "uk-sea-truck-v2": {
+    "path": "assets/images/uk/uk-sea-truck-v2.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "UK sea and truck DDP",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Private and business address delivery visual"
+  },
+  "uk-road-v2": {
+    "path": "assets/images/uk/uk-road-v2.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "UK road DDP",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Overland road freight visual"
+  },
+  "uk-rail-v2": {
+    "path": "assets/images/uk/uk-rail-v2.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "UK rail DDP",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Intermodal rail freight visual"
+  },
+  "uk-fba-v2": {
+    "path": "assets/images/uk/uk-fba-v2.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "UK FBA receiving",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Fulfillment warehouse visual"
+  },
   "hero": {
     "path": "assets/images/home/hero-poster.webp",
     "width": 2048,

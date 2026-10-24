@@ -1,0 +1,87 @@
+/* UK page v2: image-led route and receiving choices. Scoped to the UK pattern. */
+.bex-uk-v2, .bex-uk-v2 * { min-width: 0; }
+.bex-uk-v2 > .bex-section { margin-block: 0; }
+.bex-uk-v2 p { line-height: 1.55; }
+.bex-uk-v2 h1 { max-width: 14ch; margin: .65rem 0 1.25rem; font-size: clamp(3rem, 5.4vw, 5.6rem); line-height: 1.02; letter-spacing: -.05em; }
+.bex-uk-v2 h2 { font-size: clamp(2.15rem, 3.8vw, 3.75rem); line-height: 1.08; letter-spacing: -.04em; }
+.bex-uk-v2 h3 { font-size: clamp(1.5rem, 2.25vw, 2.25rem); line-height: 1.13; letter-spacing: -.025em; }
+.bex-uk-v2 .bex-uk2-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(580px, 55vw, 740px); max-width: none; overflow: hidden; background: #071e33; color: #fff; padding: clamp(48px, 7vw, 100px) max(var(--bex-gutter), calc((100vw - var(--bex-wide)) / 2 + var(--bex-gutter))); }
+.bex-uk-v2 .bex-uk2-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3,19,36,.9) 0%, rgba(3,19,36,.66) 42%, rgba(3,19,36,.1) 82%), linear-gradient(0deg, rgba(3,19,36,.38), transparent 70%); }
+.bex-uk-v2 .bex-uk2-hero > .bex-media { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; aspect-ratio: auto; }
+.bex-uk-v2 .bex-uk2-hero-copy { max-width: 790px; margin: 0; }
+.bex-uk-v2 .bex-uk2-hero .bex-eyebrow, .bex-uk-v2 .bex-uk2-fba .bex-eyebrow, .bex-uk-v2 .bex-uk2-close .bex-eyebrow { color: var(--bex-yellow); }
+.bex-uk-v2 .bex-uk2-lead { max-width: 43ch; font-size: clamp(1.15rem, 1.9vw, 1.5rem); }
+.bex-uk-v2 .bex-uk2-hero .wp-block-buttons { gap: 12px; margin-top: 2rem; }
+.bex-uk-v2 .bex-uk2-hero .is-style-outline .wp-element-button { border-color: rgba(255,255,255,.8); color: #fff; background: transparent; }
+.bex-uk-v2 .bex-uk2-hero .is-style-outline .wp-element-button:hover { background: rgba(255,255,255,.15); }
+.bex-uk-v2 .bex-uk2-mode-line { margin-top: 1.55rem; font-size: .77rem; font-weight: 700; letter-spacing: .11em; }
+.bex-uk-v2 .bex-uk2-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: clamp(24px, 3vw, 42px); border-bottom: 1px solid var(--bex-line); }
+.bex-uk-v2 .bex-uk2-proof p { margin: 0; padding: 0 clamp(18px, 2.5vw, 42px); border-right: 1px solid var(--bex-line); }
+.bex-uk-v2 .bex-uk2-proof p:first-child { padding-left: 0; }
+.bex-uk-v2 .bex-uk2-proof p:last-child { border-right: 0; }
+.bex-uk-v2 .bex-uk2-proof strong { display: block; font-size: clamp(1.18rem, 1.8vw, 1.55rem); line-height: 1.2; }
+.bex-uk-v2 .bex-uk2-proof span { display: block; margin-top: .5rem; color: var(--bex-muted, #5f6b76); font-size: .92rem; }
+.bex-uk-v2 .bex-uk2-intro { padding-block: clamp(75px, 8vw, 120px); }
+.bex-uk-v2 .bex-uk2-intro h2 { max-width: 17ch; margin: .6rem 0 1rem; }
+.bex-uk-v2 .bex-uk2-intro p:last-child { max-width: 58ch; color: var(--bex-muted, #5f6b76); }
+.bex-uk-v2 .bex-uk2-lane { display: grid; grid-template-columns: 1fr 1fr; max-width: none; min-height: 570px; padding: 0; background: #e9eef2; }
+.bex-uk-v2 .bex-uk2-lane > .bex-media { width: 100%; height: 100%; aspect-ratio: auto; }
+.bex-uk-v2 .bex-uk2-lane-copy { align-self: center; margin: 0; max-width: 750px; padding: clamp(42px, 6vw, 100px); }
+.bex-uk-v2 .bex-uk2-lane-copy h2 { max-width: 15ch; margin: .65rem 0 1.2rem; }
+.bex-uk-v2 .bex-uk2-lane-copy > p:not(.bex-eyebrow):not(.bex-uk2-tag) { max-width: 46ch; }
+.bex-uk-v2 .bex-uk2-tag { margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid #aebdc8; color: #465d6c; font-size: .72rem; font-weight: 700; letter-spacing: .08em; }
+.bex-uk-v2 .bex-uk2-lane-copy .wp-block-buttons { margin-top: 1.7rem; }
+.bex-uk-v2 .bex-uk2-lane-sea { background: #f7f8f9; }
+.bex-uk-v2 .bex-uk2-lane-sea > .bex-media { grid-column: 2; grid-row: 1; }
+.bex-uk-v2 .bex-uk2-lane-sea > .bex-uk2-lane-copy { grid-column: 1; grid-row: 1; }
+.bex-uk-v2 .bex-uk2-overland { padding-block: clamp(75px, 8vw, 120px); }
+.bex-uk-v2 .bex-uk2-overland > h2 { max-width: 18ch; margin: .6rem 0 1rem; }
+.bex-uk-v2 .bex-uk2-overland > p:not(.bex-eyebrow) { max-width: 58ch; }
+.bex-uk-v2 .bex-uk2-overland-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: clamp(36px, 4vw, 60px); }
+.bex-uk-v2 .bex-uk2-overland-card { margin: 0; background: #f0f3f5; }
+.bex-uk-v2 .bex-uk2-overland-card > .bex-media { aspect-ratio: 3 / 2; }
+.bex-uk-v2 .bex-uk2-overland-copy { padding: clamp(27px, 3vw, 45px); }
+.bex-uk-v2 .bex-uk2-overland-copy h3 { max-width: 16ch; margin: .8rem 0; }
+.bex-uk-v2 .bex-uk2-overland-copy p:last-child { max-width: 40ch; }
+.bex-uk-v2 .bex-uk2-overland > .wp-block-buttons { margin-top: 2rem; }
+.bex-uk-v2 .bex-uk2-fba { display: grid; grid-template-columns: 1.05fr .95fr; max-width: none; min-height: 580px; padding: 0; background: #09243a; color: #fff; }
+.bex-uk-v2 .bex-uk2-fba > .bex-media { width: 100%; height: 100%; aspect-ratio: auto; }
+.bex-uk-v2 .bex-uk2-fba-copy { align-self: center; margin: 0; padding: clamp(42px, 5vw, 90px); }
+.bex-uk-v2 .bex-uk2-fba-copy h2 { max-width: 16ch; margin: .65rem 0 1.2rem; color: #fff; }
+.bex-uk-v2 .bex-uk2-fba-copy > p { max-width: 46ch; }
+.bex-uk-v2 .bex-uk2-code-line { margin-top: 1.6rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.3); color: var(--bex-yellow); font-size: .85rem; font-weight: 700; letter-spacing: .04em; }
+.bex-uk-v2 .bex-uk2-fine { font-size: .86rem; line-height: 1.55; }
+.bex-uk-v2 .bex-uk2-fba .bex-uk2-fine { color: #d7e2e9; }
+.bex-uk-v2 .bex-uk2-fba .wp-block-buttons { margin-top: 1.8rem; }
+.bex-uk-v2 .bex-uk2-delivery { padding-block: clamp(75px, 8vw, 120px); }
+.bex-uk-v2 .bex-uk2-delivery > h2 { max-width: 20ch; margin: .6rem 0 1.3rem; }
+.bex-uk-v2 .bex-uk2-delivery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 2.5rem; }
+.bex-uk-v2 .bex-uk2-delivery-card { margin: 0; padding: clamp(30px, 4vw, 55px); border-top: 4px solid var(--bex-yellow); background: #f0f3f5; }
+.bex-uk-v2 .bex-uk2-delivery-card h3 { margin: 0 0 1.1rem; }
+.bex-uk-v2 .bex-uk2-delivery-card p { margin-bottom: 0; }
+.bex-uk-v2 .bex-uk2-delivery > .bex-uk2-fine { max-width: 88ch; margin-top: 2rem; color: var(--bex-muted, #5f6b76); }
+.bex-uk-v2 .bex-uk2-close { max-width: none; padding-block: clamp(75px, 9vw, 130px); background: #0c304c; color: #fff; text-align: center; }
+.bex-uk-v2 .bex-uk2-close > * { margin-inline: auto; }
+.bex-uk-v2 .bex-uk2-close h2 { max-width: 19ch; color: #fff; }
+.bex-uk-v2 .bex-uk2-close > p { max-width: 58ch; }
+.bex-uk-v2 .bex-uk2-close .wp-block-buttons { justify-content: center; margin-top: 2rem; }
+.bex-uk-v2 .bex-uk2-close a:not(.wp-element-button) { color: #fff; }
+@media (max-width: 1000px) {
+  .bex-uk-v2 .bex-uk2-proof { grid-template-columns: 1fr; }
+  .bex-uk-v2 .bex-uk2-proof p { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--bex-line); }
+  .bex-uk-v2 .bex-uk2-proof p:last-child { border-bottom: 0; }
+  .bex-uk-v2 .bex-uk2-lane, .bex-uk-v2 .bex-uk2-fba { grid-template-columns: 1fr; }
+  .bex-uk-v2 .bex-uk2-lane > .bex-media, .bex-uk-v2 .bex-uk2-lane-sea > .bex-media, .bex-uk-v2 .bex-uk2-fba > .bex-media { grid-column: 1; grid-row: 1; height: auto; aspect-ratio: 16 / 9; }
+  .bex-uk-v2 .bex-uk2-lane-copy, .bex-uk-v2 .bex-uk2-lane-sea > .bex-uk2-lane-copy, .bex-uk-v2 .bex-uk2-fba-copy { grid-column: 1; grid-row: 2; }
+}
+@media (max-width: 599px) {
+  .bex-uk-v2 .bex-uk2-hero { min-height: 660px; }
+  .bex-uk-v2 .bex-uk2-hero::before { background: linear-gradient(0deg, rgba(3,19,36,.97), rgba(3,19,36,.18) 95%); }
+  .bex-uk-v2 .bex-uk2-hero > .bex-media img { object-position: 70% 50%; }
+  .bex-uk-v2 .bex-uk2-mode-line { line-height: 1.8; }
+  .bex-uk-v2 .bex-uk2-overland-grid, .bex-uk-v2 .bex-uk2-delivery-grid { grid-template-columns: 1fr; }
+  .bex-uk-v2 .bex-uk2-lane > .bex-media, .bex-uk-v2 .bex-uk2-fba > .bex-media { aspect-ratio: 4 / 3; }
+  .bex-uk-v2 .bex-uk2-lane-copy, .bex-uk-v2 .bex-uk2-fba-copy { padding: 38px 24px 48px; }
+  .bex-uk-v2 .wp-block-button, .bex-uk-v2 .wp-element-button { width: 100%; }
+  .bex-uk-v2 .bex-uk2-close .wp-block-buttons { width: 100%; }
+}
