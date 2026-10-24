@@ -53,9 +53,6 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/china-to-uk', 'destinations' ) ); ?>">UK</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/china-to-canada', 'destinations' ) ); ?>">Canada</a></p>
-<!-- /wp:paragraph -->
-<!-- wp:paragraph -->
 <p><a href="<?php echo esc_url( bexstar_section_url( 'shipping/china-to-australia', 'destinations' ) ); ?>">Australia</a></p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
