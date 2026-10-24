@@ -60,6 +60,56 @@
     "mobileRatio": "4:3",
     "purpose": "Dedicated Australia route card visual"
   },
+  "shipping-middle-east": {
+    "path": "assets/images/shipping/shipping-middle-east-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Shipping overview Middle East card",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Middle East route card visual"
+  },
+  "middle-east-hero": {
+    "path": "assets/images/middle-east/middle-east-hero-v1.webp",
+    "width": 1920,
+    "height": 641,
+    "section": "Middle East route hero",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "65% 50%",
+    "mobileRatio": "4:5",
+    "purpose": "Dedicated Middle East route visual"
+  },
+  "middle-east-sea": {
+    "path": "assets/images/middle-east/middle-east-sea-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Middle East sea freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated sea freight editorial visual"
+  },
+  "middle-east-air": {
+    "path": "assets/images/middle-east/middle-east-air-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Middle East air freight",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated air freight editorial visual"
+  },
+  "middle-east-delivery": {
+    "path": "assets/images/middle-east/middle-east-delivery-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Middle East receiving",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated last-mile receiving editorial visual"
+  },
   "sea-freight": {
     "path": "assets/images/services/sea-freight.webp",
     "width": 1200,
