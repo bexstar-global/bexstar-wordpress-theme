@@ -3,7 +3,7 @@
 .bex-ca-page, .bex-ca-page * { min-width: 0; }
 .bex-ca-page > .bex-section { margin-block: 0; }
 .bex-ca-page p { line-height: 1.55; }
-.bex-ca-page h1 { max-width: 11ch; font-size: clamp(3rem, 5.6vw, 5.8rem); line-height: 1.02; letter-spacing: -.05em; margin: .7rem 0 1.3rem; }
+.bex-ca-page h1 { max-width: 17ch; font-size: clamp(3rem, 5.6vw, 5.8rem); line-height: 1.02; letter-spacing: -.05em; margin: .7rem 0 1.3rem; }
 .bex-ca-page h2 { font-size: clamp(2.15rem, 3.7vw, 3.6rem); line-height: 1.1; letter-spacing: -.035em; }
 .bex-ca-page .bex-ca-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(560px, 56vw, 700px); max-width: none; overflow: hidden; background: #071e33; color: #fff; padding: clamp(46px, 7vw, 100px) max(var(--bex-gutter), calc((100vw - var(--bex-wide)) / 2 + var(--bex-gutter))); }
 .bex-ca-page .bex-ca-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3,19,36,.9) 0%, rgba(3,19,36,.68) 38%, rgba(3,19,36,.1) 76%), linear-gradient(0deg, rgba(3,19,36,.45), transparent 65%); }
