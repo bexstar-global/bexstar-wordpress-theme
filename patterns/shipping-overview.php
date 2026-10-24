@@ -69,6 +69,15 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 <!-- wp:paragraph --><p><a href="/shipping/china-to-australia/">EXPLORE AUSTRALIA SHIPPING <span aria-hidden="true">↗</span></a></p><!-- /wp:paragraph -->
 </div><!-- /wp:group -->
 </article><!-- /wp:group -->
+<!-- wp:group {"tagName":"article","className":"bex-ship-route bex-ship-route-featured","layout":{"type":"default"}} --><article class="wp-block-group bex-ship-route bex-ship-route-featured">
+<!-- wp:bexstar/media {"slot":"shipping-middle-east","decorative":false,"alt":"Freight trucks carrying containers near a Gulf-region commercial port"} /-->
+<!-- wp:group {"tagName":"div","className":"bex-ship-route-copy","layout":{"type":"default"}} --><div class="wp-block-group bex-ship-route-copy">
+<!-- wp:paragraph {"className":"bex-eyebrow"} --><p class="bex-eyebrow">05 / MIDDLE EAST</p><!-- /wp:paragraph -->
+<!-- wp:heading {"level":3} --><h3 class="wp-block-heading">China to the Middle East</h3><!-- /wp:heading -->
+<!-- wp:paragraph --><p>Sea and air options across six Gulf markets, with cargo and final delivery checked for each shipment.</p><!-- /wp:paragraph -->
+<!-- wp:paragraph --><p><a href="/shipping/china-to-middle-east/">EXPLORE MIDDLE EAST SHIPPING <span aria-hidden="true">↗</span></a></p><!-- /wp:paragraph -->
+</div><!-- /wp:group -->
+</article><!-- /wp:group -->
 </div><!-- /wp:group -->
 </section><!-- /wp:group -->
 

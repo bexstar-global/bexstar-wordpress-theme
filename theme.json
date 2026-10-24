@@ -242,6 +242,11 @@
       "postTypes": ["page"]
     },
     {
+      "name": "page-china-to-middle-east",
+      "title": "BEXSTAR \u2014 China to Middle East Shipping",
+      "postTypes": ["page"]
+    },
+    {
       "name": "page-china-to-usa-fba",
       "title": "BEXSTAR \u2014 China to USA Shipping",
       "postTypes": ["page"]
