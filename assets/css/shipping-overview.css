@@ -1,0 +1,82 @@
+/* Shipping overview. The Gutenberg pattern remains editable. */
+.bex-ship-page { color: var(--bex-navy, #071e33); }
+.bex-ship-page, .bex-ship-page * { min-width: 0; }
+.bex-ship-page > .bex-section { margin-block: 0; }
+.bex-ship-page p { line-height: 1.55; }
+.bex-ship-page h1 { max-width: 11ch; font-size: clamp(3rem, 5.6vw, 5.8rem); line-height: 1.02; letter-spacing: -.048em; margin: .8rem 0 1.25rem; }
+.bex-ship-page h2 { font-size: clamp(2.1rem, 3.7vw, 3.65rem); line-height: 1.1; letter-spacing: -.038em; }
+.bex-ship-page .bex-ship-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: clamp(560px, 57vw, 720px); max-width: none; overflow: hidden; background: #071e33; color: #fff; padding: clamp(46px, 7vw, 100px) max(var(--bex-gutter), calc((100vw - var(--bex-wide)) / 2 + var(--bex-gutter))); }
+.bex-ship-page .bex-ship-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(3,19,36,.90) 0%, rgba(3,19,36,.58) 40%, rgba(3,19,36,.06) 79%), linear-gradient(0deg, rgba(3,19,36,.45), transparent 70%); }
+.bex-ship-page .bex-ship-hero > .bex-media { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; aspect-ratio: auto; }
+.bex-ship-page .bex-ship-hero-copy { max-width: 760px; margin: 0; }
+.bex-ship-page .bex-ship-hero .bex-eyebrow { color: var(--bex-yellow); }
+.bex-ship-page .bex-ship-hero .bex-lead { max-width: 39ch; font-size: clamp(1.15rem, 1.9vw, 1.48rem); }
+.bex-ship-page .bex-ship-hero .wp-block-buttons { gap: 12px; margin-top: 2rem; }
+.bex-ship-page .bex-ship-hero .wp-element-button { min-height: 54px; }
+.bex-ship-page .bex-ship-hero .is-style-outline .wp-element-button { border-color: rgba(255,255,255,.8); color: #fff; background: transparent; }
+.bex-ship-page .bex-ship-hero .is-style-outline .wp-element-button:hover { background: rgba(255,255,255,.15); }
+.bex-ship-page .bex-ship-mode-line { margin-top: 1.5rem; font-size: .78rem; letter-spacing: .12em; font-weight: 700; }
+.bex-ship-page .bex-ship-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-bottom: 1px solid var(--bex-line); padding-block: clamp(24px, 3vw, 44px); }
+.bex-ship-page .bex-ship-proof > div { padding: 0 clamp(18px, 2.5vw, 42px); border-right: 1px solid var(--bex-line); margin: 0; }
+.bex-ship-page .bex-ship-proof > div:first-child { padding-left: 0; }
+.bex-ship-page .bex-ship-proof > div:last-child { border-right: 0; }
+.bex-ship-page .bex-ship-proof p { margin: 0; }
+.bex-ship-page .bex-ship-proof strong { display: block; font-size: clamp(1.35rem, 2.3vw, 1.85rem); line-height: 1.2; }
+.bex-ship-page .bex-ship-proof span { display: block; margin-top: .48rem; color: var(--bex-muted, #5f6b76); font-size: .92rem; }
+.bex-ship-page .bex-ship-destinations { padding-block: clamp(72px, 8vw, 130px); }
+.bex-ship-page .bex-ship-destinations > .bex-eyebrow { color: #476175; }
+.bex-ship-page .bex-ship-destinations h2 { max-width: 20ch; margin-block: .7rem 1.2rem; }
+.bex-ship-page .bex-ship-intro { max-width: 59ch; color: var(--bex-muted, #5f6b76); }
+.bex-ship-page .bex-ship-route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.5vw, 32px); margin-top: clamp(32px, 4vw, 60px); }
+.bex-ship-page .bex-ship-route { margin: 0; background: #f4f7f8; overflow: hidden; }
+.bex-ship-page .bex-ship-route .bex-media { aspect-ratio: 3 / 2; }
+.bex-ship-page .bex-ship-route-copy { margin: 0; padding: clamp(25px, 3vw, 44px); }
+.bex-ship-page .bex-ship-route-copy .bex-eyebrow { color: #496174; font-size: .75rem; }
+.bex-ship-page .bex-ship-route-copy h3 { margin: .45rem 0 .7rem; font-size: clamp(1.7rem, 2.65vw, 2.55rem); line-height: 1.1; letter-spacing: -.03em; }
+.bex-ship-page .bex-ship-route-copy p { max-width: 45ch; }
+.bex-ship-page .bex-ship-route-copy p:last-child { margin: 1.7rem 0 0; }
+.bex-ship-page .bex-ship-route-copy a { color: var(--bex-navy); text-decoration: none; font-size: .79rem; font-weight: 800; letter-spacing: .05em; border-bottom: 2px solid var(--bex-yellow); padding-bottom: .35rem; }
+.bex-ship-page .bex-ship-route-copy a:hover, .bex-ship-page .bex-ship-route-copy a:focus-visible { color: #315574; }
+.bex-ship-page .bex-ship-route-copy a:focus-visible { outline: 2px solid var(--bex-yellow); outline-offset: 4px; }
+.bex-ship-page .bex-ship-modes { max-width: none; background: var(--bex-navy); color: #fff; padding: clamp(72px, 8vw, 128px) max(var(--bex-gutter), calc((100vw - var(--bex-wide)) / 2 + var(--bex-gutter))); }
+.bex-ship-page .bex-ship-modes-intro { margin: 0; max-width: 780px; }
+.bex-ship-page .bex-ship-modes .bex-eyebrow, .bex-ship-page .bex-ship-close .bex-eyebrow { color: var(--bex-yellow); }
+.bex-ship-page .bex-ship-modes h2, .bex-ship-page .bex-ship-modes h3 { color: #fff; }
+.bex-ship-page .bex-ship-modes-intro h2 { margin: .7rem 0 1.2rem; }
+.bex-ship-page .bex-ship-modes-intro p:last-child { max-width: 55ch; color: #c7d4de; }
+.bex-ship-page .bex-ship-mode-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: clamp(35px, 5vw, 74px); border-top: 1px solid rgba(255,255,255,.28); }
+.bex-ship-page .bex-ship-mode-grid > div { margin: 0; padding: 25px clamp(18px, 2vw, 35px) 20px 0; border-right: 1px solid rgba(255,255,255,.24); }
+.bex-ship-page .bex-ship-mode-grid > div:not(:first-child) { padding-left: clamp(18px, 2vw, 35px); }
+.bex-ship-page .bex-ship-mode-grid > div:last-child { border-right: 0; }
+.bex-ship-page .bex-ship-mode-grid .bex-eyebrow { font-size: .72rem; }
+.bex-ship-page .bex-ship-mode-grid h3 { font-size: clamp(1.35rem, 1.8vw, 1.9rem); line-height: 1.15; margin: 2rem 0 1rem; }
+.bex-ship-page .bex-ship-mode-grid p:last-child { color: #c7d4de; font-size: .94rem; }
+.bex-ship-page .bex-ship-availability { margin: 2.5rem 0 0; color: #adbfcc; font-size: .85rem; }
+.bex-ship-page .bex-ship-close { max-width: none; text-align: center; background: #f4f7f8; padding-block: clamp(72px, 8vw, 125px); }
+.bex-ship-page .bex-ship-close > * { margin-inline: auto; }
+.bex-ship-page .bex-ship-close .bex-eyebrow { color: #476175; }
+.bex-ship-page .bex-ship-close h2 { max-width: 20ch; }
+.bex-ship-page .bex-ship-close p:not(.bex-eyebrow) { max-width: 55ch; }
+.bex-ship-page .bex-ship-close .wp-block-buttons { justify-content: center; margin-top: 2rem; }
+.bex-ship-page .bex-ship-close a:not(.wp-element-button) { color: var(--bex-navy); }
+@media (max-width: 900px) {
+  .bex-ship-page .bex-ship-proof { grid-template-columns: 1fr; }
+  .bex-ship-page .bex-ship-proof > div { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--bex-line); }
+  .bex-ship-page .bex-ship-proof > div:last-child { border-bottom: 0; }
+  .bex-ship-page .bex-ship-mode-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bex-ship-page .bex-ship-mode-grid > div:nth-child(2) { border-right: 0; }
+  .bex-ship-page .bex-ship-mode-grid > div:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.24); }
+  .bex-ship-page .bex-ship-mode-grid > div:nth-child(3) { padding-left: 0; }
+}
+@media (max-width: 599px) {
+  .bex-ship-page .bex-ship-hero { min-height: 660px; }
+  .bex-ship-page .bex-ship-hero::before { background: linear-gradient(0deg, rgba(3,19,36,.95), rgba(3,19,36,.22) 90%); }
+  .bex-ship-page .bex-ship-hero > .bex-media img { object-position: 66% 50%; }
+  .bex-ship-page .bex-ship-hero .wp-block-buttons { width: 100%; }
+  .bex-ship-page .wp-block-button, .bex-ship-page .wp-element-button { width: 100%; }
+  .bex-ship-page .bex-ship-route-grid, .bex-ship-page .bex-ship-mode-grid { grid-template-columns: 1fr; }
+  .bex-ship-page .bex-ship-route .bex-media { aspect-ratio: 4 / 3; }
+  .bex-ship-page .bex-ship-mode-grid > div { border-right: 0; border-top: 1px solid rgba(255,255,255,.24); padding-left: 0 !important; }
+  .bex-ship-page .bex-ship-mode-grid > div:first-child { border-top: 0; }
+  .bex-ship-page .bex-ship-close .wp-block-buttons { width: 100%; }
+}
