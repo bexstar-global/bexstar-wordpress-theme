@@ -10,6 +10,56 @@
     "video": "assets/video/hero-video.mp4",
     "purpose": "Lead ocean/global-logistics visual"
   },
+  "shipping-hero": {
+    "path": "assets/images/shipping/shipping-hero-v1.webp",
+    "width": 1920,
+    "height": 1081,
+    "section": "Shipping overview hero",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "66% 50%",
+    "mobileRatio": "4:5",
+    "purpose": "Dedicated shipping overview visual"
+  },
+  "shipping-uk": {
+    "path": "assets/images/shipping/shipping-uk-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Shipping overview UK card",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated UK route card visual"
+  },
+  "shipping-usa": {
+    "path": "assets/images/shipping/shipping-usa-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Shipping overview USA card",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated USA route card visual"
+  },
+  "shipping-europe": {
+    "path": "assets/images/shipping/shipping-europe-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Shipping overview Europe card",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Europe route card visual"
+  },
+  "shipping-australia": {
+    "path": "assets/images/shipping/shipping-australia-v1.webp",
+    "width": 1200,
+    "height": 800,
+    "section": "Shipping overview Australia card",
+    "desktopCrop": "50% 50%",
+    "mobileCrop": "50% 50%",
+    "mobileRatio": "4:3",
+    "purpose": "Dedicated Australia route card visual"
+  },
   "sea-freight": {
     "path": "assets/images/services/sea-freight.webp",
     "width": 1200,
